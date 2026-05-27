@@ -1,11 +1,69 @@
 import { createFileRoute } from "@tanstack/react-router";
+
 import {
   Cpu, MessageCircle, HardDrive, MonitorCog, Wind, Wrench,
   CalendarCheck, Camera, ShieldCheck, Star, MapPin, Clock, ArrowRight,
 } from "lucide-react";
 import heroImg from "@/assets/hero-bench.jpg";
+import {
+  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger,
+} from "@/components/ui/dialog";
+
+function PrivacyPolicyDialog() {
+  return (
+    <Dialog>
+      <DialogTrigger className="hover:text-brand">Política de Privacidade</DialogTrigger>
+      <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
+        <DialogHeader>
+          <DialogTitle>Política de Privacidade</DialogTitle>
+          <DialogDescription>Última atualização: {new Date().toLocaleDateString("pt-BR")}</DialogDescription>
+        </DialogHeader>
+        <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+          <p>
+            A Mendex Tech valoriza a sua privacidade. Esta política descreve, de forma simples e transparente,
+            como tratamos as informações coletadas através do nosso site, formulários de contato e atendimento via WhatsApp.
+          </p>
+          <p>
+            <strong className="text-foreground">Dados coletados:</strong> nome, telefone, e-mail e descrição do problema do equipamento,
+            informados voluntariamente por você ao solicitar um orçamento ou agendamento.
+          </p>
+          <p>
+            <strong className="text-foreground">Finalidade:</strong> seus dados são utilizados exclusivamente para contato comercial,
+            envio de orçamento, agendamento e acompanhamento do serviço de assistência técnica solicitado.
+          </p>
+          <p>
+            <strong className="text-foreground">Confidencialidade:</strong> as informações são confidenciais e não são compartilhadas,
+            vendidas ou cedidas a terceiros sob nenhuma hipótese.
+          </p>
+          <p>
+            <strong className="text-foreground">Arquivos do equipamento:</strong> nenhum arquivo pessoal do seu equipamento é acessado,
+            copiado ou alterado sem a sua autorização prévia e expressa.
+          </p>
+          <p>
+            <strong className="text-foreground">Seus direitos:</strong> você pode, a qualquer momento, solicitar a exclusão ou atualização
+            dos seus dados entrando em contato pelo nosso WhatsApp oficial.
+          </p>
+          <p className="text-xs">
+            Ao utilizar este site e nossos canais de atendimento, você concorda com os termos desta política.
+          </p>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 
 const WHATSAPP_URL = "https://wa.me/5542999609468?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20meu%20computador%20na%20Mendex%20Tech";
+
+const faqs = [
+  { q: "Preciso agendar para levar meu equipamento?", a: "Sim. Nosso atendimento em bancada residencial é feito exclusivamente com hora marcada para garantir dedicação total ao seu caso e sua total segurança." },
+  { q: "Meus arquivos e fotos estão seguros?", a: "Absolutamente. Temos uma política rígida de privacidade e segurança de dados. Nenhum arquivo é alterado ou acessado sem a sua autorização prévia." },
+  { q: "Quanto tempo demora o diagnóstico?", a: "Na Mendex Tech, priorizamos a agilidade. A maioria dos diagnósticos e orçamentos é entregue em até 24 horas úteis." },
+  { q: "Preciso levar o carregador do notebook?", a: "Sim. Sempre pedimos para trazer o carregador original junto com o notebook para que possamos testar o circuito de carga completo." },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -117,6 +175,10 @@ function Landing() {
                 <Star className="h-4 w-4 fill-cta text-cta" />
                 <span className="ml-2">+200 clientes satisfeitos</span>
               </div>
+            </div>
+            <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-3 py-2 text-sm text-muted-foreground">
+              <ShieldCheck className="h-4 w-4 text-cta" />
+              <span>Todos os nossos serviços possuem <span className="font-semibold text-foreground">garantia por escrito de até 90 dias</span>.</span>
             </div>
           </div>
 
@@ -236,6 +298,33 @@ function Landing() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="relative py-20 sm:py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <div className="text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">FAQ</span>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Dúvidas Frequentes</h2>
+            <p className="mt-4 text-muted-foreground">Respostas rápidas para as perguntas mais comuns dos nossos clientes.</p>
+          </div>
+          <Accordion type="single" collapsible className="mt-10 space-y-3">
+            {faqs.map((f, i) => (
+              <AccordionItem
+                key={i}
+                value={`item-${i}`}
+                className="rounded-2xl border border-border bg-surface px-5 transition hover:border-brand/40"
+              >
+                <AccordionTrigger className="text-left text-base font-semibold hover:text-brand hover:no-underline">
+                  {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-border bg-surface/60">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
@@ -263,15 +352,21 @@ function Landing() {
               </div>
             </div>
           </div>
-          <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
-            <p>© {new Date().getFullYear()} Mendex Tech. Todos os direitos reservados.</p>
-            <div className="flex gap-5">
-              <a href="/privacidade" className="hover:text-brand">Política de Privacidade</a>
-              <a href="/termos" className="hover:text-brand">Termos de Uso</a>
+          <div className="mt-10 border-t border-border pt-6 text-xs text-muted-foreground">
+            <p className="text-center sm:text-left">
+              Mendex Tech © | CNPJ: 66.781.369/0001-97 | Atendimento com hora marcada em Ponta Grossa - PR
+            </p>
+            <div className="mt-4 flex flex-col items-center justify-between gap-3 sm:flex-row">
+              <p>© {new Date().getFullYear()} Mendex Tech. Todos os direitos reservados.</p>
+              <div className="flex gap-5">
+                <PrivacyPolicyDialog />
+                <a href="/termos" className="hover:text-brand">Termos de Uso</a>
+              </div>
             </div>
           </div>
         </div>
       </footer>
+
     </div>
   );
 }
