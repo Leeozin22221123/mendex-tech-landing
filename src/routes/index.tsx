@@ -132,6 +132,10 @@ function Landing() {
                 <span className="ml-2">+200 clientes satisfeitos</span>
               </div>
             </div>
+            <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-3 py-2 text-sm text-muted-foreground">
+              <ShieldCheck className="h-4 w-4 text-cta" />
+              <span>Todos os nossos serviços possuem <span className="font-semibold text-foreground">garantia por escrito de até 90 dias</span>.</span>
+            </div>
           </div>
 
           <div className="relative animate-fade-up [animation-delay:120ms]">
