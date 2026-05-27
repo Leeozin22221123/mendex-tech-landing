@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+
 import {
   Cpu, MessageCircle, HardDrive, MonitorCog, Wind, Wrench,
   CalendarCheck, Camera, ShieldCheck, Star, MapPin, Clock, ArrowRight,
