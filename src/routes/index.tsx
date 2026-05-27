@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-bench.jpg";
 
-const WHATSAPP_URL = "https://wa.me/?text=Ol%C3%A1%20Mendex%20Tech%2C%20preciso%20de%20ajuda%20com%20meu%20notebook";
+const WHATSAPP_URL = "https://wa.me/5542999609468?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20meu%20computador%20na%20Mendex%20Tech";
 
 export const Route = createFileRoute("/")({
   head: () => ({
