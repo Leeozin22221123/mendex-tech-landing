@@ -12,6 +12,50 @@ import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger,
 } from "@/components/ui/dialog";
 
+function PrivacyPolicyDialog() {
+  return (
+    <Dialog>
+      <DialogTrigger className="hover:text-brand">Política de Privacidade</DialogTrigger>
+      <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
+        <DialogHeader>
+          <DialogTitle>Política de Privacidade</DialogTitle>
+          <DialogDescription>Última atualização: {new Date().toLocaleDateString("pt-BR")}</DialogDescription>
+        </DialogHeader>
+        <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+          <p>
+            A Mendex Tech valoriza a sua privacidade. Esta política descreve, de forma simples e transparente,
+            como tratamos as informações coletadas através do nosso site, formulários de contato e atendimento via WhatsApp.
+          </p>
+          <p>
+            <strong className="text-foreground">Dados coletados:</strong> nome, telefone, e-mail e descrição do problema do equipamento,
+            informados voluntariamente por você ao solicitar um orçamento ou agendamento.
+          </p>
+          <p>
+            <strong className="text-foreground">Finalidade:</strong> seus dados são utilizados exclusivamente para contato comercial,
+            envio de orçamento, agendamento e acompanhamento do serviço de assistência técnica solicitado.
+          </p>
+          <p>
+            <strong className="text-foreground">Confidencialidade:</strong> as informações são confidenciais e não são compartilhadas,
+            vendidas ou cedidas a terceiros sob nenhuma hipótese.
+          </p>
+          <p>
+            <strong className="text-foreground">Arquivos do equipamento:</strong> nenhum arquivo pessoal do seu equipamento é acessado,
+            copiado ou alterado sem a sua autorização prévia e expressa.
+          </p>
+          <p>
+            <strong className="text-foreground">Seus direitos:</strong> você pode, a qualquer momento, solicitar a exclusão ou atualização
+            dos seus dados entrando em contato pelo nosso WhatsApp oficial.
+          </p>
+          <p className="text-xs">
+            Ao utilizar este site e nossos canais de atendimento, você concorda com os termos desta política.
+          </p>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+
 const WHATSAPP_URL = "https://wa.me/5542999609468?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20meu%20computador%20na%20Mendex%20Tech";
 
 const faqs = [
