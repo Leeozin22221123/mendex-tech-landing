@@ -1,11 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   Cpu, MessageCircle, HardDrive, MonitorCog, Wind, Wrench,
   CalendarCheck, Camera, ShieldCheck, Star, MapPin, Clock, ArrowRight,
 } from "lucide-react";
 import heroImg from "@/assets/hero-bench.jpg";
+import {
+  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger,
+} from "@/components/ui/dialog";
 
 const WHATSAPP_URL = "https://wa.me/5542999609468?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20meu%20computador%20na%20Mendex%20Tech";
+
+const faqs = [
+  { q: "Preciso agendar para levar meu equipamento?", a: "Sim. Nosso atendimento em bancada residencial é feito exclusivamente com hora marcada para garantir dedicação total ao seu caso e sua total segurança." },
+  { q: "Meus arquivos e fotos estão seguros?", a: "Absolutamente. Temos uma política rígida de privacidade e segurança de dados. Nenhum arquivo é alterado ou acessado sem a sua autorização prévia." },
+  { q: "Quanto tempo demora o diagnóstico?", a: "Na Mendex Tech, priorizamos a agilidade. A maioria dos diagnósticos e orçamentos é entregue em até 24 horas úteis." },
+  { q: "Preciso levar o carregador do notebook?", a: "Sim. Sempre pedimos para trazer o carregador original junto com o notebook para que possamos testar o circuito de carga completo." },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
