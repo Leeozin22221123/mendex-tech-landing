@@ -254,6 +254,33 @@ function Landing() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="relative py-20 sm:py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <div className="text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">FAQ</span>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Dúvidas Frequentes</h2>
+            <p className="mt-4 text-muted-foreground">Respostas rápidas para as perguntas mais comuns dos nossos clientes.</p>
+          </div>
+          <Accordion type="single" collapsible className="mt-10 space-y-3">
+            {faqs.map((f, i) => (
+              <AccordionItem
+                key={i}
+                value={`item-${i}`}
+                className="rounded-2xl border border-border bg-surface px-5 transition hover:border-brand/40"
+              >
+                <AccordionTrigger className="text-left text-base font-semibold hover:text-brand hover:no-underline">
+                  {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-border bg-surface/60">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
@@ -281,15 +308,21 @@ function Landing() {
               </div>
             </div>
           </div>
-          <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
-            <p>© {new Date().getFullYear()} Mendex Tech. Todos os direitos reservados.</p>
-            <div className="flex gap-5">
-              <a href="/privacidade" className="hover:text-brand">Política de Privacidade</a>
-              <a href="/termos" className="hover:text-brand">Termos de Uso</a>
+          <div className="mt-10 border-t border-border pt-6 text-xs text-muted-foreground">
+            <p className="text-center sm:text-left">
+              Mendex Tech © | CNPJ: 66.781.369/0001-97 | Atendimento com hora marcada em Ponta Grossa - PR
+            </p>
+            <div className="mt-4 flex flex-col items-center justify-between gap-3 sm:flex-row">
+              <p>© {new Date().getFullYear()} Mendex Tech. Todos os direitos reservados.</p>
+              <div className="flex gap-5">
+                <PrivacyPolicyDialog />
+                <a href="/termos" className="hover:text-brand">Termos de Uso</a>
+              </div>
             </div>
           </div>
         </div>
       </footer>
+
     </div>
   );
 }
