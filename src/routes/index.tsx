@@ -135,20 +135,27 @@ function Landing() {
     <div id="top" className="min-h-screen text-foreground">
       {/* Header */}
       <header className="sticky top-0 z-50 glass">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
           <MendexLogo />
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-9 items-center gap-2 rounded-full border border-border bg-surface-elevated/60 px-4 text-sm font-medium text-foreground transition hover:border-brand hover:text-brand"
-          >
-            <MessageCircle className="h-4 w-4" />
-            <span className="hidden sm:inline">Contato rápido</span>
-            <span className="sm:hidden">Contato</span>
-          </a>
+          <div className="flex items-center gap-3">
+            <div className="hidden items-center gap-2 rounded-full border border-border bg-surface-elevated/60 px-3 py-1.5 text-xs text-muted-foreground md:inline-flex">
+              <Clock className="h-3.5 w-3.5 text-brand" />
+              <span><span className="font-semibold text-foreground">Suporte Corujão</span> · Seg–Sex 09h–23h</span>
+            </div>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-9 items-center gap-2 rounded-full border border-border bg-surface-elevated/60 px-4 text-sm font-medium text-foreground transition hover:border-brand hover:text-brand"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span className="hidden sm:inline">Contato rápido</span>
+              <span className="sm:hidden">Contato</span>
+            </a>
+          </div>
         </div>
       </header>
+
 
       {/* Hero */}
       <section className="relative overflow-hidden">
