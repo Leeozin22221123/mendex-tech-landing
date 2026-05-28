@@ -110,11 +110,13 @@ function CtaWhatsapp({ size = "default", className = "" }: { size?: "default" | 
 }
 
 const services = [
-  { icon: HardDrive, title: "Upgrade de SSD e Memória RAM", desc: "Deixe seu notebook até 10x mais rápido que um modelo novo." },
-  { icon: MonitorCog, title: "Formatação e Sistema Operacional", desc: "Instalação limpa, backup seguro dos seus dados e otimização completa." },
-  { icon: Wind, title: "Limpeza Preventiva Avançada", desc: "Desmontagem completa, eliminação de poeira e troca de pasta térmica de alta performance." },
-  { icon: Wrench, title: "Reparos em Placa-Mãe e Hardware", desc: "Diagnóstico avançado para equipamentos que não ligam ou apresentam falhas intermitentes." },
+  { icon: HardDrive, title: "Upgrade de Velocidade", desc: "Instalação de SSD e expansão de Memória RAM para reviver PCs e Notebooks antigos." },
+  { icon: Wind, title: "Manutenção Preventiva Avançada", desc: "Limpeza física profunda interna e troca de pasta térmica profissional." },
+  { icon: MonitorCog, title: "Formatação Premium", desc: "Reinstalação completa do sistema operacional com garantia de backup 100% seguro dos arquivos." },
+  { icon: Cpu, title: "Montagem Profissional de PC Gamer", desc: "Organização de cabos (cable management) de elite e otimização de fluxo de ar." },
+  { icon: Wrench, title: "Reparos Gerais de Notebooks", desc: "Substituição de telas trincadas, teclados falhando, troca de baterias viciadas e diagnóstico avançado em placas-mãe. Resolvemos qualquer defeito, do hardware ao software." },
 ];
+
 
 const steps = [
   { icon: CalendarCheck, title: "Agendamento Prévio", desc: "Atendemos exclusivamente com hora marcada em nossa bancada residencial, garantindo total privacidade, foco e segurança para o seu equipamento." },
