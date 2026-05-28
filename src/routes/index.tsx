@@ -346,9 +346,12 @@ function Landing() {
               </p>
             </div>
             <div className="space-y-3 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-brand" />
-                Atendimento com hora marcada
+              <div className="flex items-start gap-2">
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                <div>
+                  <div><span className="font-semibold text-foreground">Suporte Corujão</span> · Seg a Sex: 09h às 23h</div>
+                  <div><span className="font-semibold text-foreground">Plantão de Fim de Semana</span> · Sáb e Dom: 10h às 18h</div>
+                </div>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-brand" />
@@ -361,6 +364,7 @@ function Landing() {
                 </a>
               </div>
             </div>
+
           </div>
           <div className="mt-10 border-t border-border pt-6 text-xs text-muted-foreground">
             <p className="text-center sm:text-left">
