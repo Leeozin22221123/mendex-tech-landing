@@ -81,16 +81,17 @@ export const Route = createFileRoute("/")({
 function MendexLogo() {
   return (
     <a href="#top" className="group flex items-center gap-2.5">
-      <span className="relative grid h-9 w-9 place-items-center rounded-lg bg-brand/15 ring-1 ring-brand/40 transition group-hover:ring-brand">
-        <Cpu className="h-5 w-5 text-brand" />
-        <span className="absolute inset-0 rounded-lg bg-brand/0 blur-md transition group-hover:bg-brand/30" />
+      <span className="relative grid h-10 w-10 place-items-center rounded-lg bg-gradient-to-br from-brand to-brand/60 ring-1 ring-brand/60 transition group-hover:ring-brand">
+        <span className="font-display text-sm font-extrabold tracking-tight text-brand-foreground">MX</span>
+        <span className="absolute inset-0 rounded-lg bg-brand/0 blur-md transition group-hover:bg-brand/40" />
       </span>
-      <span className="font-display text-lg font-semibold tracking-tight">
-        Mendex<span className="text-brand"> Tech</span>
+      <span className="font-display text-lg font-bold uppercase tracking-[0.14em]">
+        MX <span className="text-brand">Mendex Tech</span>
       </span>
     </a>
   );
 }
+
 
 function CtaWhatsapp({ size = "default", className = "" }: { size?: "default" | "lg"; className?: string }) {
   const sz = size === "lg" ? "h-14 px-7 text-base" : "h-11 px-5 text-sm";
