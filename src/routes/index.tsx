@@ -55,8 +55,7 @@ function PrivacyPolicyDialog() {
   );
 }
 
-
-const WHATSAPP_URL = "https://wa.me/5542999609468?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20meu%20computador%20na%20Mendex%20Tech";
+const WHATSAPP_URL = "https://wa.me/5542999609468?text=" + encodeURIComponent("Olá! Vi o site da Mendex Tech e gostaria de um orçamento para o meu equipamento.");
 
 const faqs = [
   { q: "Preciso agendar para levar meu equipamento?", a: "Sim. Nosso atendimento em bancada residencial é feito exclusivamente com hora marcada para garantir dedicação total ao seu caso e sua total segurança." },
@@ -68,15 +67,16 @@ const faqs = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mendex Tech — Assistência Técnica Especializada em Notebooks e PCs" },
-      { name: "description", content: "Conserto, upgrade e manutenção de notebooks e computadores com transparência, agilidade e garantia. Atendimento com hora marcada." },
-      { property: "og:title", content: "Mendex Tech — Assistência Técnica em Notebooks" },
-      { property: "og:description", content: "Atendimento ágil, honesto e com garantia. Upgrade de SSD/RAM, formatação, limpeza e reparos." },
+      { title: "MX Mendex Tech | Assistência Técnica Especializada em Ponta Grossa" },
+      { name: "description", content: "Assistência técnica especializada em notebooks, computadores e PC Gamer em Ponta Grossa. Upgrades, formatação e reparos em geral com atendimento até as 23h." },
+      { property: "og:title", content: "MX Mendex Tech | Assistência Técnica Especializada em Ponta Grossa" },
+      { property: "og:description", content: "Assistência técnica especializada em notebooks, computadores e PC Gamer em Ponta Grossa. Upgrades, formatação e reparos em geral com atendimento até as 23h." },
       { property: "og:type", content: "website" },
     ],
   }),
   component: Landing,
 });
+
 
 function MendexLogo() {
   return (
