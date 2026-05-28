@@ -190,6 +190,17 @@ function Landing() {
               <ShieldCheck className="h-4 w-4 text-cta" />
               <span>Todos os nossos serviços possuem <span className="font-semibold text-foreground">garantia por escrito de até 90 dias</span>.</span>
             </div>
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              <div className="inline-flex items-center gap-2 rounded-lg border border-brand/30 bg-brand/10 px-3 py-2 text-sm">
+                <Clock className="h-4 w-4 text-brand" />
+                <span><span className="font-semibold text-foreground">Suporte Corujão</span> · Seg–Sex 09h–23h</span>
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-3 py-2 text-sm text-muted-foreground">
+                <Clock className="h-4 w-4 text-brand" />
+                <span><span className="font-semibold text-foreground">Plantão Fim de Semana</span> · Sáb–Dom 10h–18h</span>
+              </div>
+            </div>
+
           </div>
 
           <div className="relative animate-fade-up [animation-delay:120ms]">
