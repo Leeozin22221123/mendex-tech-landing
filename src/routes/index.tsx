@@ -55,8 +55,7 @@ function PrivacyPolicyDialog() {
   );
 }
 
-
-const WHATSAPP_URL = "https://wa.me/5542999609468?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20meu%20computador%20na%20Mendex%20Tech";
+const WHATSAPP_URL = "https://wa.me/5542999609468?text=" + encodeURIComponent("Olá! Vi o site da Mendex Tech e gostaria de um orçamento para o meu equipamento.");
 
 const faqs = [
   { q: "Preciso agendar para levar meu equipamento?", a: "Sim. Nosso atendimento em bancada residencial é feito exclusivamente com hora marcada para garantir dedicação total ao seu caso e sua total segurança." },
@@ -68,29 +67,31 @@ const faqs = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mendex Tech — Assistência Técnica Especializada em Notebooks e PCs" },
-      { name: "description", content: "Conserto, upgrade e manutenção de notebooks e computadores com transparência, agilidade e garantia. Atendimento com hora marcada." },
-      { property: "og:title", content: "Mendex Tech — Assistência Técnica em Notebooks" },
-      { property: "og:description", content: "Atendimento ágil, honesto e com garantia. Upgrade de SSD/RAM, formatação, limpeza e reparos." },
+      { title: "MX Mendex Tech | Assistência Técnica Especializada em Ponta Grossa" },
+      { name: "description", content: "Assistência técnica especializada em notebooks, computadores e PC Gamer em Ponta Grossa. Upgrades, formatação e reparos em geral com atendimento até as 23h." },
+      { property: "og:title", content: "MX Mendex Tech | Assistência Técnica Especializada em Ponta Grossa" },
+      { property: "og:description", content: "Assistência técnica especializada em notebooks, computadores e PC Gamer em Ponta Grossa. Upgrades, formatação e reparos em geral com atendimento até as 23h." },
       { property: "og:type", content: "website" },
     ],
   }),
   component: Landing,
 });
 
+
 function MendexLogo() {
   return (
     <a href="#top" className="group flex items-center gap-2.5">
-      <span className="relative grid h-9 w-9 place-items-center rounded-lg bg-brand/15 ring-1 ring-brand/40 transition group-hover:ring-brand">
-        <Cpu className="h-5 w-5 text-brand" />
-        <span className="absolute inset-0 rounded-lg bg-brand/0 blur-md transition group-hover:bg-brand/30" />
+      <span className="relative grid h-10 w-10 place-items-center rounded-lg bg-gradient-to-br from-brand to-brand/60 ring-1 ring-brand/60 transition group-hover:ring-brand">
+        <span className="font-display text-sm font-extrabold tracking-tight text-brand-foreground">MX</span>
+        <span className="absolute inset-0 rounded-lg bg-brand/0 blur-md transition group-hover:bg-brand/40" />
       </span>
-      <span className="font-display text-lg font-semibold tracking-tight">
-        Mendex<span className="text-brand"> Tech</span>
+      <span className="font-display text-lg font-bold uppercase tracking-[0.14em]">
+        MX <span className="text-brand">Mendex Tech</span>
       </span>
     </a>
   );
 }
+
 
 function CtaWhatsapp({ size = "default", className = "" }: { size?: "default" | "lg"; className?: string }) {
   const sz = size === "lg" ? "h-14 px-7 text-base" : "h-11 px-5 text-sm";
@@ -109,11 +110,13 @@ function CtaWhatsapp({ size = "default", className = "" }: { size?: "default" | 
 }
 
 const services = [
-  { icon: HardDrive, title: "Upgrade de SSD e Memória RAM", desc: "Deixe seu notebook até 10x mais rápido que um modelo novo." },
-  { icon: MonitorCog, title: "Formatação e Sistema Operacional", desc: "Instalação limpa, backup seguro dos seus dados e otimização completa." },
-  { icon: Wind, title: "Limpeza Preventiva Avançada", desc: "Desmontagem completa, eliminação de poeira e troca de pasta térmica de alta performance." },
-  { icon: Wrench, title: "Reparos em Placa-Mãe e Hardware", desc: "Diagnóstico avançado para equipamentos que não ligam ou apresentam falhas intermitentes." },
+  { icon: HardDrive, title: "Upgrade de Velocidade", desc: "Instalação de SSD e expansão de Memória RAM para reviver PCs e Notebooks antigos." },
+  { icon: Wind, title: "Manutenção Preventiva Avançada", desc: "Limpeza física profunda interna e troca de pasta térmica profissional." },
+  { icon: MonitorCog, title: "Formatação Premium", desc: "Reinstalação completa do sistema operacional com garantia de backup 100% seguro dos arquivos." },
+  { icon: Cpu, title: "Montagem Profissional de PC Gamer", desc: "Organização de cabos (cable management) de elite e otimização de fluxo de ar." },
+  { icon: Wrench, title: "Reparos Gerais de Notebooks", desc: "Substituição de telas trincadas, teclados falhando, troca de baterias viciadas e diagnóstico avançado em placas-mãe. Resolvemos qualquer defeito, do hardware ao software." },
 ];
+
 
 const steps = [
   { icon: CalendarCheck, title: "Agendamento Prévio", desc: "Atendemos exclusivamente com hora marcada em nossa bancada residencial, garantindo total privacidade, foco e segurança para o seu equipamento." },
@@ -132,20 +135,27 @@ function Landing() {
     <div id="top" className="min-h-screen text-foreground">
       {/* Header */}
       <header className="sticky top-0 z-50 glass">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
           <MendexLogo />
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-9 items-center gap-2 rounded-full border border-border bg-surface-elevated/60 px-4 text-sm font-medium text-foreground transition hover:border-brand hover:text-brand"
-          >
-            <MessageCircle className="h-4 w-4" />
-            <span className="hidden sm:inline">Contato rápido</span>
-            <span className="sm:hidden">Contato</span>
-          </a>
+          <div className="flex items-center gap-3">
+            <div className="hidden items-center gap-2 rounded-full border border-border bg-surface-elevated/60 px-3 py-1.5 text-xs text-muted-foreground md:inline-flex">
+              <Clock className="h-3.5 w-3.5 text-brand" />
+              <span><span className="font-semibold text-foreground">Suporte Corujão</span> · Seg–Sex 09h–23h</span>
+            </div>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-9 items-center gap-2 rounded-full border border-border bg-surface-elevated/60 px-4 text-sm font-medium text-foreground transition hover:border-brand hover:text-brand"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span className="hidden sm:inline">Contato rápido</span>
+              <span className="sm:hidden">Contato</span>
+            </a>
+          </div>
         </div>
       </header>
+
 
       {/* Hero */}
       <section className="relative overflow-hidden">
@@ -180,6 +190,17 @@ function Landing() {
               <ShieldCheck className="h-4 w-4 text-cta" />
               <span>Todos os nossos serviços possuem <span className="font-semibold text-foreground">garantia por escrito de até 90 dias</span>.</span>
             </div>
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              <div className="inline-flex items-center gap-2 rounded-lg border border-brand/30 bg-brand/10 px-3 py-2 text-sm">
+                <Clock className="h-4 w-4 text-brand" />
+                <span><span className="font-semibold text-foreground">Suporte Corujão</span> · Seg–Sex 09h–23h</span>
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface/60 px-3 py-2 text-sm text-muted-foreground">
+                <Clock className="h-4 w-4 text-brand" />
+                <span><span className="font-semibold text-foreground">Plantão Fim de Semana</span> · Sáb–Dom 10h–18h</span>
+              </div>
+            </div>
+
           </div>
 
           <div className="relative animate-fade-up [animation-delay:120ms]">
@@ -336,9 +357,12 @@ function Landing() {
               </p>
             </div>
             <div className="space-y-3 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-brand" />
-                Atendimento com hora marcada
+              <div className="flex items-start gap-2">
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                <div>
+                  <div><span className="font-semibold text-foreground">Suporte Corujão</span> · Seg a Sex: 09h às 23h</div>
+                  <div><span className="font-semibold text-foreground">Plantão de Fim de Semana</span> · Sáb e Dom: 10h às 18h</div>
+                </div>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-brand" />
@@ -351,6 +375,7 @@ function Landing() {
                 </a>
               </div>
             </div>
+
           </div>
           <div className="mt-10 border-t border-border pt-6 text-xs text-muted-foreground">
             <p className="text-center sm:text-left">
