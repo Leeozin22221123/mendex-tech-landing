@@ -157,11 +157,11 @@ function Landing() {
               Ponta Grossa · Atendimento até as 23h
             </div>
             <h1 className="font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
-              Seu PC ou Notebook estragou?{" "}
-              <span className="text-gradient-brand">Resolvemos o seu problema hoje mesmo.</span>
+              Seu PC ou Notebook está lento?{" "}
+              <span className="text-gradient-brand">Turbine o desempenho hoje mesmo.</span>
             </h1>
             <p className="mt-6 text-base text-muted-foreground sm:text-lg">
-              Assistência Técnica Especializada em Ponta Grossa com suporte estendido até as <span className="font-semibold text-foreground">23:00</span> e <span className="font-semibold text-foreground">plantão aos finais de semana</span>.
+              Especialistas em <span className="font-semibold text-foreground">upgrade de computadores</span> e <span className="font-semibold text-foreground">montagem de PC Gamer</span> em Ponta Grossa. Atendimento até as <span className="font-semibold text-foreground">23:00</span> e plantão aos finais de semana.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 lg:items-start">
               <CtaWhatsapp size="xl" className="animate-pulse-cta w-full sm:w-auto" />
