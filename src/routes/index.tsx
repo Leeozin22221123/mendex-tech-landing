@@ -37,10 +37,10 @@ function PrivacyPolicyDialog() {
 }
 
 const faqs = [
-  { q: "Vocês atendem em que horário?", a: "Atendemos de segunda a sexta das 09h às 23h (Suporte Corujão) e sábados e domingos das 10h às 18h (Plantão de Fim de Semana)." },
-  { q: "Quanto tempo demora o orçamento?", a: "O orçamento é rápido e sem compromisso. A maioria é enviada em até algumas horas após avaliarmos o equipamento." },
-  { q: "Meus arquivos e fotos estão seguros?", a: "Sim. Fazemos backup 100% seguro e nenhum arquivo é acessado ou alterado sem a sua autorização prévia." },
-  { q: "Os serviços têm garantia?", a: "Sim. Todos os reparos saem com garantia por escrito, para sua total tranquilidade." },
+  { q: "Vocês atendem em que horário?", a: "Atendemos de segunda a sexta das 09h às 23h (Plantão Estendido) e sábados e domingos das 10h às 18h (Plantão de Fim de Semana)." },
+  { q: "Quanto tempo demora o orçamento?", a: "O orçamento é rápido e sem compromisso. A maioria é enviada em até algumas horas após avaliarmos seu projeto de upgrade." },
+  { q: "Meus arquivos e fotos estão seguros?", a: "Sim. Fazemos backup 100% seguro dos seus dados antes de qualquer upgrade e nenhum arquivo é acessado ou alterado sem a sua autorização prévia." },
+  { q: "Os upgrades têm garantia?", a: "Sim. Todos os upgrades e instalações de componentes saem com garantia por escrito, para sua total tranquilidade." },
 ];
 
 export const Route = createFileRoute("/")({
