@@ -46,10 +46,10 @@ const faqs = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mendex Tech — Reparo de Notebooks e Computadores" },
-      { name: "description", content: "Mendex Tech: reparo, upgrade e manutenção de notebooks, PCs e PC Gamer em Ponta Grossa. Atendimento até as 23h, com garantia por escrito." },
-      { property: "og:title", content: "Mendex Tech — Reparo de Notebooks e Computadores" },
-      { property: "og:description", content: "Reparo especializado em notebooks, PCs e PC Gamer. Upgrades, formatação e manutenção com atendimento até as 23h em Ponta Grossa." },
+      { title: "Mendex Tech — Upgrade e Montagem de PCs de Alta Performance" },
+      { name: "description", content: "Mendex Tech: upgrade de computadores, otimização de desempenho, montagem de PC Gamer e instalação de SSD e Memória RAM em Ponta Grossa. Atendimento até as 23h." },
+      { property: "og:title", content: "Mendex Tech — Upgrade e Montagem de PCs de Alta Performance" },
+      { property: "og:description", content: "Upgrade de computadores, otimização de desempenho e montagem de PC Gamer em Ponta Grossa. Atendimento até as 23h com garantia por escrito." },
       { property: "og:type", content: "website" },
     ],
   }),
