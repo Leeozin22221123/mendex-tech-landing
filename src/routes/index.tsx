@@ -13,7 +13,7 @@ import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger,
 } from "@/components/ui/dialog";
 
-const WHATSAPP_URL = "https://wa.me/5542999609468?text=" + encodeURIComponent("Olá! Vi o site da Mendex Tech e gostaria de um orçamento para o meu equipamento.");
+const WHATSAPP_URL = "https://wa.me/5542999609468?text=" + encodeURIComponent("Olá! Vi o site da Mendex Tech e gostaria de um orçamento de upgrade para o meu computador.");
 
 function PrivacyPolicyDialog() {
   return (
@@ -26,8 +26,8 @@ function PrivacyPolicyDialog() {
         </DialogHeader>
         <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
           <p>A Mendex Tech valoriza a sua privacidade. Esta política descreve como tratamos as informações coletadas pelo site e atendimento via WhatsApp.</p>
-          <p><strong className="text-foreground">Dados coletados:</strong> nome, telefone e descrição do problema, informados por você ao solicitar orçamento.</p>
-          <p><strong className="text-foreground">Finalidade:</strong> uso exclusivo para contato comercial, orçamento e acompanhamento do serviço.</p>
+          <p><strong className="text-foreground">Dados coletados:</strong> nome, telefone e descrição do projeto, informados por você ao solicitar orçamento.</p>
+          <p><strong className="text-foreground">Finalidade:</strong> uso exclusivo para contato comercial, orçamento e acompanhamento do upgrade.</p>
           <p><strong className="text-foreground">Confidencialidade:</strong> nenhum dado é compartilhado, vendido ou cedido a terceiros.</p>
           <p><strong className="text-foreground">Arquivos do equipamento:</strong> nenhum arquivo é acessado, copiado ou alterado sem autorização prévia.</p>
         </div>
@@ -37,19 +37,19 @@ function PrivacyPolicyDialog() {
 }
 
 const faqs = [
-  { q: "Vocês atendem em que horário?", a: "Atendemos de segunda a sexta das 09h às 23h (Suporte Corujão) e sábados e domingos das 10h às 18h (Plantão de Fim de Semana)." },
-  { q: "Quanto tempo demora o orçamento?", a: "O orçamento é rápido e sem compromisso. A maioria é enviada em até algumas horas após avaliarmos o equipamento." },
-  { q: "Meus arquivos e fotos estão seguros?", a: "Sim. Fazemos backup 100% seguro e nenhum arquivo é acessado ou alterado sem a sua autorização prévia." },
-  { q: "Os serviços têm garantia?", a: "Sim. Todos os reparos saem com garantia por escrito, para sua total tranquilidade." },
+  { q: "Vocês atendem em que horário?", a: "Atendemos de segunda a sexta das 09h às 23h (Plantão Estendido) e sábados e domingos das 10h às 18h (Plantão de Fim de Semana)." },
+  { q: "Quanto tempo demora o orçamento?", a: "O orçamento é rápido e sem compromisso. A maioria é enviada em até algumas horas após avaliarmos seu projeto de upgrade." },
+  { q: "Meus arquivos e fotos estão seguros?", a: "Sim. Fazemos backup 100% seguro dos seus dados antes de qualquer upgrade e nenhum arquivo é acessado ou alterado sem a sua autorização prévia." },
+  { q: "Os upgrades têm garantia?", a: "Sim. Todos os upgrades e instalações de componentes saem com garantia por escrito, para sua total tranquilidade." },
 ];
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mendex Tech — Reparo de Notebooks e Computadores" },
-      { name: "description", content: "Mendex Tech: reparo, upgrade e manutenção de notebooks, PCs e PC Gamer em Ponta Grossa. Atendimento até as 23h, com garantia por escrito." },
-      { property: "og:title", content: "Mendex Tech — Reparo de Notebooks e Computadores" },
-      { property: "og:description", content: "Reparo especializado em notebooks, PCs e PC Gamer. Upgrades, formatação e manutenção com atendimento até as 23h em Ponta Grossa." },
+      { title: "Mendex Tech — Upgrade e Montagem de PCs de Alta Performance" },
+      { name: "description", content: "Mendex Tech: upgrade de computadores, otimização de desempenho, montagem de PC Gamer e instalação de SSD e Memória RAM em Ponta Grossa. Atendimento até as 23h." },
+      { property: "og:title", content: "Mendex Tech — Upgrade e Montagem de PCs de Alta Performance" },
+      { property: "og:description", content: "Upgrade de computadores, otimização de desempenho e montagem de PC Gamer em Ponta Grossa. Atendimento até as 23h com garantia por escrito." },
       { property: "og:type", content: "website" },
     ],
   }),
@@ -70,7 +70,7 @@ function MendexLogo() {
   );
 }
 
-function CtaWhatsapp({ size = "default", className = "", label = "Falar com Técnico no WhatsApp" }: { size?: "default" | "lg" | "xl"; className?: string; label?: string }) {
+function CtaWhatsapp({ size = "default", className = "", label = "Falar com Especialista no WhatsApp" }: { size?: "default" | "lg" | "xl"; className?: string; label?: string }) {
   const sz =
     size === "xl" ? "h-16 px-9 text-base sm:text-lg" :
     size === "lg" ? "h-14 px-7 text-base" :
@@ -106,23 +106,23 @@ function FloatingWhatsapp() {
 }
 
 const benefits = [
-  { icon: ShieldCheck, title: "Garantia em todos os reparos" },
+  { icon: ShieldCheck, title: "Garantia em todos os upgrades" },
   { icon: Lock, title: "Backup 100% seguro dos seus arquivos" },
   { icon: FileCheck2, title: "Orçamento rápido sem compromisso" },
   { icon: Moon, title: "Atendimento diferenciado: 09h às 23h" },
 ];
 
 const services = [
-  { icon: Laptop, title: "Conserto de Notebooks", desc: "Tela trincada, teclado falhando, bateria viciada e mais." },
-  { icon: Zap, title: "Upgrade de Velocidade", desc: "Instalação de SSD e expansão de Memória RAM." },
-  { icon: MonitorCog, title: "Formatação Premium com Backup", desc: "Sistema reinstalado e seus arquivos preservados." },
-  { icon: Gamepad2, title: "Montagem e Manutenção de PC Gamer", desc: "Cable management profissional e otimização térmica." },
-  { icon: CircuitBoard, title: "Diagnóstico de Placa-Mãe e Eletrônica", desc: "Análise avançada para equipamentos que não ligam." },
+  { icon: Laptop, title: "Upgrade de Notebooks", desc: "Troca de tela, teclado, bateria e instalação de componentes de alta performance." },
+  { icon: Zap, title: "Upgrade de Velocidade", desc: "Instalação de SSD e expansão de Memória RAM para máxima performance." },
+  { icon: MonitorCog, title: "Otimização de Sistema com Backup", desc: "Sistema otimizado e seus arquivos preservados com segurança." },
+  { icon: Gamepad2, title: "Montagem de PC Gamer", desc: "Build personalizada, cable management profissional e otimização térmica." },
+  { icon: CircuitBoard, title: "Instalação de Componentes e Hardware", desc: "Instalação profissional de placas, coolers e melhoria de hardware." },
 ];
 
 const testimonials = [
-  { name: "Ricardo Almeida", role: "Designer Freelancer", text: "Meu notebook engasgava em tudo. Trocaram por SSD, fizeram limpeza e ficou mais rápido que quando comprei." },
-  { name: "Juliana Martins", role: "Estudante de Medicina", text: "Receberam meu PC com a tela quebrada e em 2 dias estava pronto, com garantia por escrito. Recomendo demais!" },
+  { name: "Ricardo Almeida", role: "Designer Freelancer", text: "Meu notebook engasgava em tudo. Fizeram upgrade para SSD e otimização e ficou mais rápido que quando comprei." },
+  { name: "Juliana Martins", role: "Estudante de Medicina", text: "Fiz upgrade de memória RAM e SSD com eles em 2 dias, com garantia por escrito. Recomendo demais!" },
   { name: "Carlos Eduardo", role: "Analista de TI", text: "Diagnóstico preciso, preço justo e atendimento profissional do início ao fim. Total confiança na Mendex." },
 ];
 
@@ -157,11 +157,11 @@ function Landing() {
               Ponta Grossa · Atendimento até as 23h
             </div>
             <h1 className="font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
-              Seu PC ou Notebook estragou?{" "}
-              <span className="text-gradient-brand">Resolvemos o seu problema hoje mesmo.</span>
+              Seu PC ou Notebook está lento?{" "}
+              <span className="text-gradient-brand">Turbine o desempenho hoje mesmo.</span>
             </h1>
             <p className="mt-6 text-base text-muted-foreground sm:text-lg">
-              Assistência Técnica Especializada em Ponta Grossa com suporte estendido até as <span className="font-semibold text-foreground">23:00</span> e <span className="font-semibold text-foreground">plantão aos finais de semana</span>.
+              Especialistas em <span className="font-semibold text-foreground">upgrade de computadores</span> e <span className="font-semibold text-foreground">montagem de PC Gamer</span> em Ponta Grossa. Atendimento até as <span className="font-semibold text-foreground">23:00</span> e plantão aos finais de semana.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 lg:items-start">
               <CtaWhatsapp size="xl" className="animate-pulse-cta w-full sm:w-auto" />
@@ -179,7 +179,7 @@ function Landing() {
             <div className="relative overflow-hidden rounded-2xl border border-border shadow-glow">
               <img
                 src={heroImg}
-                alt="Bancada técnica com notebook aberto para reparo"
+                alt="Bancada profissional com notebook aberto para upgrade de hardware"
                 width={1536}
                 height={1152}
                 className="h-full w-full object-cover"
@@ -209,8 +209,8 @@ function Landing() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Nossos serviços</span>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">O que resolvemos para você</h2>
-            <p className="mt-4 text-muted-foreground">Diagnóstico preciso, peças de qualidade e garantia por escrito.</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Upgrade e performance para o seu PC</h2>
+            <p className="mt-4 text-muted-foreground">Componentes de qualidade, instalação profissional e garantia por escrito.</p>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -300,10 +300,10 @@ function Landing() {
         <div className="absolute inset-0 bg-gradient-to-br from-brand/20 via-transparent to-cta/10" />
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
           <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-            Pronto para resolver agora?
+            Pronto para turbinar seu PC?
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Fale direto com o técnico no WhatsApp e receba seu orçamento sem compromisso.
+            Fale direto com o especialista no WhatsApp e receba seu orçamento de upgrade sem compromisso.
           </p>
           <div className="mt-8 flex justify-center">
             <CtaWhatsapp size="xl" className="animate-pulse-cta w-full sm:w-auto" />
