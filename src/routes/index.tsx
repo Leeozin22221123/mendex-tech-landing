@@ -106,18 +106,18 @@ function FloatingWhatsapp() {
 }
 
 const benefits = [
-  { icon: ShieldCheck, title: "Garantia em todos os reparos" },
+  { icon: ShieldCheck, title: "Garantia em todos os upgrades" },
   { icon: Lock, title: "Backup 100% seguro dos seus arquivos" },
   { icon: FileCheck2, title: "Orçamento rápido sem compromisso" },
   { icon: Moon, title: "Atendimento diferenciado: 09h às 23h" },
 ];
 
 const services = [
-  { icon: Laptop, title: "Conserto de Notebooks", desc: "Tela trincada, teclado falhando, bateria viciada e mais." },
-  { icon: Zap, title: "Upgrade de Velocidade", desc: "Instalação de SSD e expansão de Memória RAM." },
-  { icon: MonitorCog, title: "Formatação Premium com Backup", desc: "Sistema reinstalado e seus arquivos preservados." },
-  { icon: Gamepad2, title: "Montagem e Manutenção de PC Gamer", desc: "Cable management profissional e otimização térmica." },
-  { icon: CircuitBoard, title: "Diagnóstico de Placa-Mãe e Eletrônica", desc: "Análise avançada para equipamentos que não ligam." },
+  { icon: Laptop, title: "Upgrade de Notebooks", desc: "Troca de tela, teclado, bateria e instalação de componentes de alta performance." },
+  { icon: Zap, title: "Upgrade de Velocidade", desc: "Instalação de SSD e expansão de Memória RAM para máxima performance." },
+  { icon: MonitorCog, title: "Otimização de Sistema com Backup", desc: "Sistema otimizado e seus arquivos preservados com segurança." },
+  { icon: Gamepad2, title: "Montagem de PC Gamer", desc: "Build personalizada, cable management profissional e otimização térmica." },
+  { icon: CircuitBoard, title: "Instalação de Componentes e Hardware", desc: "Instalação profissional de placas, coolers e melhoria de hardware." },
 ];
 
 const testimonials = [
