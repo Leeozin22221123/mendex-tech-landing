@@ -26,8 +26,8 @@ function PrivacyPolicyDialog() {
         </DialogHeader>
         <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
           <p>A Mendex Tech valoriza a sua privacidade. Esta política descreve como tratamos as informações coletadas pelo site e atendimento via WhatsApp.</p>
-          <p><strong className="text-foreground">Dados coletados:</strong> nome, telefone e descrição do problema, informados por você ao solicitar orçamento.</p>
-          <p><strong className="text-foreground">Finalidade:</strong> uso exclusivo para contato comercial, orçamento e acompanhamento do serviço.</p>
+          <p><strong className="text-foreground">Dados coletados:</strong> nome, telefone e descrição do projeto, informados por você ao solicitar orçamento.</p>
+          <p><strong className="text-foreground">Finalidade:</strong> uso exclusivo para contato comercial, orçamento e acompanhamento do upgrade.</p>
           <p><strong className="text-foreground">Confidencialidade:</strong> nenhum dado é compartilhado, vendido ou cedido a terceiros.</p>
           <p><strong className="text-foreground">Arquivos do equipamento:</strong> nenhum arquivo é acessado, copiado ou alterado sem autorização prévia.</p>
         </div>
