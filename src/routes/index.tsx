@@ -121,8 +121,8 @@ const services = [
 ];
 
 const testimonials = [
-  { name: "Ricardo Almeida", role: "Designer Freelancer", text: "Meu notebook engasgava em tudo. Trocaram por SSD, fizeram limpeza e ficou mais rápido que quando comprei." },
-  { name: "Juliana Martins", role: "Estudante de Medicina", text: "Receberam meu PC com a tela quebrada e em 2 dias estava pronto, com garantia por escrito. Recomendo demais!" },
+  { name: "Ricardo Almeida", role: "Designer Freelancer", text: "Meu notebook engasgava em tudo. Fizeram upgrade para SSD e otimização e ficou mais rápido que quando comprei." },
+  { name: "Juliana Martins", role: "Estudante de Medicina", text: "Fiz upgrade de memória RAM e SSD com eles em 2 dias, com garantia por escrito. Recomendo demais!" },
   { name: "Carlos Eduardo", role: "Analista de TI", text: "Diagnóstico preciso, preço justo e atendimento profissional do início ao fim. Total confiança na Mendex." },
 ];
 
