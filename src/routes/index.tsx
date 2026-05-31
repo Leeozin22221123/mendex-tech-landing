@@ -300,10 +300,10 @@ function Landing() {
         <div className="absolute inset-0 bg-gradient-to-br from-brand/20 via-transparent to-cta/10" />
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
           <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
-            Pronto para resolver agora?
+            Pronto para turbinar seu PC?
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Fale direto com o técnico no WhatsApp e receba seu orçamento sem compromisso.
+            Fale direto com o especialista no WhatsApp e receba seu orçamento de upgrade sem compromisso.
           </p>
           <div className="mt-8 flex justify-center">
             <CtaWhatsapp size="xl" className="animate-pulse-cta w-full sm:w-auto" />
