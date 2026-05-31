@@ -70,7 +70,7 @@ function MendexLogo() {
   );
 }
 
-function CtaWhatsapp({ size = "default", className = "", label = "Falar com Técnico no WhatsApp" }: { size?: "default" | "lg" | "xl"; className?: string; label?: string }) {
+function CtaWhatsapp({ size = "default", className = "", label = "Falar com Especialista no WhatsApp" }: { size?: "default" | "lg" | "xl"; className?: string; label?: string }) {
   const sz =
     size === "xl" ? "h-16 px-9 text-base sm:text-lg" :
     size === "lg" ? "h-14 px-7 text-base" :
