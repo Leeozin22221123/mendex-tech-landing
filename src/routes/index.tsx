@@ -209,8 +209,8 @@ function Landing() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Nossos serviços</span>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">O que resolvemos para você</h2>
-            <p className="mt-4 text-muted-foreground">Diagnóstico preciso, peças de qualidade e garantia por escrito.</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Upgrade e performance para o seu PC</h2>
+            <p className="mt-4 text-muted-foreground">Componentes de qualidade, instalação profissional e garantia por escrito.</p>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
