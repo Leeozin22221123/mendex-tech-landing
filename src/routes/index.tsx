@@ -179,7 +179,7 @@ function Landing() {
             <div className="relative overflow-hidden rounded-2xl border border-border shadow-glow">
               <img
                 src={heroImg}
-                alt="Bancada técnica com notebook aberto para reparo"
+                alt="Bancada profissional com notebook aberto para upgrade de hardware"
                 width={1536}
                 height={1152}
                 className="h-full w-full object-cover"
