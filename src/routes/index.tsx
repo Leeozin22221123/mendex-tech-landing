@@ -292,18 +292,28 @@ function Landing() {
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ icon: Icon, title, desc }) => (
+            {services.map(({ icon: Icon, title, desc, msg }) => (
               <article
                 key={title}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-6 transition hover:-translate-y-1 hover:border-brand/50 hover:shadow-glow sm:p-7"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface p-6 transition hover:-translate-y-1 hover:border-brand/50 hover:shadow-glow sm:p-7"
               >
                 <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand/10 blur-2xl transition group-hover:bg-brand/25" />
-                <div className="relative">
+                <div className="relative flex flex-1 flex-col">
                   <div className="mb-5 inline-grid h-12 w-12 place-items-center rounded-xl bg-brand/15 ring-1 ring-brand/30 transition group-hover:bg-brand/25">
                     <Icon className="h-6 w-6 text-brand" />
                   </div>
                   <h3 className="text-lg font-semibold sm:text-xl">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+                  <a
+                    href={buildWhatsAppUrl(msg)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp-service"
+                    className="mt-5 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-cta/15 px-4 text-sm font-bold text-cta ring-1 ring-cta/30 transition hover:bg-cta hover:text-cta-foreground"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    Pedir Orçamento deste Serviço
+                  </a>
                 </div>
               </article>
             ))}
