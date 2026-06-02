@@ -100,16 +100,17 @@ function MendexLogo() {
   );
 }
 
-function CtaWhatsapp({ size = "default", className = "", label = "Falar no WhatsApp — Orçamento Grátis" }: { size?: "default" | "lg" | "xl"; className?: string; label?: string }) {
+function CtaWhatsapp({ size = "default", className = "", label = "Falar no WhatsApp — Orçamento Grátis", href = WHATSAPP_URL }: { size?: "default" | "lg" | "xl"; className?: string; label?: string; href?: string }) {
   const sz =
     size === "xl" ? "h-16 px-9 text-base sm:text-lg" :
     size === "lg" ? "h-14 px-7 text-base" :
     "h-11 px-5 text-sm";
   return (
     <a
-      href={WHATSAPP_URL}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
+      data-cta="whatsapp"
       className={`group inline-flex items-center justify-center gap-2.5 rounded-full bg-cta font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-100 ${sz} ${className}`}
     >
       <MessageCircle className="h-5 w-5" />
@@ -125,12 +126,13 @@ function FloatingWhatsapp() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Falar no WhatsApp"
-      className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-cta px-4 py-3 font-semibold text-cta-foreground shadow-cta ring-4 ring-cta/20 transition hover:scale-105 sm:bottom-6 sm:right-6"
+      aria-label="Falar no WhatsApp — Orçamento Grátis"
+      data-cta="whatsapp-float"
+      className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-cta px-4 py-3 font-bold text-cta-foreground shadow-cta ring-4 ring-cta/20 transition hover:scale-105 sm:bottom-6 sm:right-6"
     >
       <span className="absolute inset-0 -z-10 rounded-full bg-cta/40 blur-xl animate-pulse" />
       <MessageCircle className="h-6 w-6" />
-      <span className="hidden text-sm sm:inline">Falar Agora no WhatsApp</span>
+      <span className="text-sm font-bold">Orçamento Grátis</span>
     </a>
   );
 }
