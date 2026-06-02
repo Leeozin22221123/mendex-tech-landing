@@ -13,7 +13,9 @@ import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger,
 } from "@/components/ui/dialog";
 
-const WHATSAPP_URL = "https://wa.me/5542999609468?text=" + encodeURIComponent("Olá! Vi o site da Mendex Tech e gostaria de um orçamento.");
+const WHATSAPP_PHONE = "5542999609468";
+const buildWhatsAppUrl = (msg: string) => `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
+const WHATSAPP_URL = buildWhatsAppUrl("Olá Mendex Tech! Vim pelo site e quero um orçamento grátis. Pode me ajudar?");
 
 function PrivacyPolicyDialog() {
   return (
@@ -98,16 +100,17 @@ function MendexLogo() {
   );
 }
 
-function CtaWhatsapp({ size = "default", className = "", label = "Falar no WhatsApp — Orçamento Grátis" }: { size?: "default" | "lg" | "xl"; className?: string; label?: string }) {
+function CtaWhatsapp({ size = "default", className = "", label = "Falar no WhatsApp — Orçamento Grátis", href = WHATSAPP_URL }: { size?: "default" | "lg" | "xl"; className?: string; label?: string; href?: string }) {
   const sz =
     size === "xl" ? "h-16 px-9 text-base sm:text-lg" :
     size === "lg" ? "h-14 px-7 text-base" :
     "h-11 px-5 text-sm";
   return (
     <a
-      href={WHATSAPP_URL}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
+      data-cta="whatsapp"
       className={`group inline-flex items-center justify-center gap-2.5 rounded-full bg-cta font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-100 ${sz} ${className}`}
     >
       <MessageCircle className="h-5 w-5" />
@@ -123,12 +126,13 @@ function FloatingWhatsapp() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Falar no WhatsApp"
-      className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-cta px-4 py-3 font-semibold text-cta-foreground shadow-cta ring-4 ring-cta/20 transition hover:scale-105 sm:bottom-6 sm:right-6"
+      aria-label="Falar no WhatsApp — Orçamento Grátis"
+      data-cta="whatsapp-float"
+      className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-cta px-4 py-3 font-bold text-cta-foreground shadow-cta ring-4 ring-cta/20 transition hover:scale-105 sm:bottom-6 sm:right-6"
     >
       <span className="absolute inset-0 -z-10 rounded-full bg-cta/40 blur-xl animate-pulse" />
       <MessageCircle className="h-6 w-6" />
-      <span className="hidden text-sm sm:inline">Falar Agora no WhatsApp</span>
+      <span className="text-sm font-bold">Orçamento Grátis</span>
     </a>
   );
 }
@@ -141,11 +145,18 @@ const benefits = [
 ];
 
 const services = [
-  { icon: Gamepad2, title: "Montagem de PC Gamer", desc: "Montamos seu PC do zero com as peças que você escolher. Hardware selecionado, cabeamento organizado e tudo testado antes de sair do nosso laboratório." },
-  { icon: Zap, title: "Upgrade de SSD e RAM", desc: "Notebook ou PC lento? Instalamos SSD de alta velocidade e ampliamos sua memória RAM. A diferença você sente na hora que liga pela primeira vez." },
-  { icon: Laptop, title: "Substituição de Peças", desc: "Troca de tela, bateria, teclado, dobradiça e carcaça. Trabalhamos com peças de procedência e entregamos com garantia no serviço." },
-  { icon: MonitorCog, title: "Recuperação de Performance", desc: "Computador travando, superaquecendo ou demorando para iniciar? Identificamos o componente com problema e devolvemos a performance original do seu equipamento." },
-  { icon: CircuitBoard, title: "Laboratório de Hardware", desc: "Diagnóstico completo de notebooks e desktops. Analisamos cada componente e apresentamos o orçamento antes de qualquer intervenção. Sem surpresas." },
+  { icon: Gamepad2, title: "Montagem de PC Gamer", desc: "Montamos seu PC do zero com as peças que você escolher. Hardware selecionado, cabeamento organizado e tudo testado antes de sair do nosso laboratório.", msg: "Olá Mendex Tech! Quero um orçamento para montagem de PC Gamer." },
+  { icon: Zap, title: "Upgrade de SSD e RAM", desc: "Notebook ou PC lento? Instalamos SSD de alta velocidade e ampliamos sua memória RAM. A diferença você sente na hora que liga pela primeira vez.", msg: "Olá Mendex Tech! Quero um orçamento de upgrade de SSD e/ou memória RAM." },
+  { icon: Laptop, title: "Substituição de Peças", desc: "Troca de tela, bateria, teclado, dobradiça e carcaça. Trabalhamos com peças de procedência e entregamos com garantia no serviço.", msg: "Olá Mendex Tech! Preciso de orçamento para substituição de peça (tela / bateria / teclado)." },
+  { icon: MonitorCog, title: "Recuperação de Performance", desc: "Computador travando, superaquecendo ou demorando para iniciar? Identificamos o componente com problema e devolvemos a performance original do seu equipamento.", msg: "Olá Mendex Tech! Meu computador está lento/esquentando. Quero um diagnóstico grátis." },
+  { icon: CircuitBoard, title: "Laboratório de Hardware", desc: "Diagnóstico completo de notebooks e desktops. Analisamos cada componente e apresentamos o orçamento antes de qualquer intervenção. Sem surpresas.", msg: "Olá Mendex Tech! Quero levar meu equipamento para diagnóstico completo." },
+];
+
+const quickReplies = [
+  { label: "Upgrade SSD/RAM", msg: "Olá Mendex Tech! Quero um orçamento de upgrade de SSD e/ou memória RAM." },
+  { label: "Montar PC Gamer", msg: "Olá Mendex Tech! Quero um orçamento para montagem de PC Gamer." },
+  { label: "Trocar tela/bateria", msg: "Olá Mendex Tech! Preciso trocar tela ou bateria do meu notebook." },
+  { label: "Meu PC está lento", msg: "Olá Mendex Tech! Meu PC está lento. Quero diagnóstico grátis." },
 ];
 
 const testimonials = [
@@ -201,11 +212,35 @@ function Landing() {
                   Ver Nossos Serviços
                 </a>
               </div>
-              <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-cta text-cta" />
+
+              <div className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+                <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Resposta rápida:</span>
+                {quickReplies.map((q) => (
+                  <a
+                    key={q.label}
+                    href={buildWhatsAppUrl(q.msg)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp-chip"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-cta/40 bg-cta/10 px-3 py-1.5 text-xs font-semibold text-cta transition hover:bg-cta/20"
+                  >
+                    <MessageCircle className="h-3.5 w-3.5" />
+                    {q.label}
+                  </a>
                 ))}
-                <span className="ml-2">+200 clientes satisfeitos</span>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted-foreground lg:justify-start">
+                <span className="inline-flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-cta text-cta" />
+                  ))}
+                  <span className="ml-1">+200 clientes satisfeitos</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+                  Respondemos no WhatsApp em minutos
+                </span>
               </div>
             </div>
           </div>
@@ -257,18 +292,28 @@ function Landing() {
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ icon: Icon, title, desc }) => (
+            {services.map(({ icon: Icon, title, desc, msg }) => (
               <article
                 key={title}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-6 transition hover:-translate-y-1 hover:border-brand/50 hover:shadow-glow sm:p-7"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface p-6 transition hover:-translate-y-1 hover:border-brand/50 hover:shadow-glow sm:p-7"
               >
                 <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand/10 blur-2xl transition group-hover:bg-brand/25" />
-                <div className="relative">
+                <div className="relative flex flex-1 flex-col">
                   <div className="mb-5 inline-grid h-12 w-12 place-items-center rounded-xl bg-brand/15 ring-1 ring-brand/30 transition group-hover:bg-brand/25">
                     <Icon className="h-6 w-6 text-brand" />
                   </div>
                   <h3 className="text-lg font-semibold sm:text-xl">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+                  <a
+                    href={buildWhatsAppUrl(msg)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp-service"
+                    className="mt-5 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-cta/15 px-4 text-sm font-bold text-cta ring-1 ring-cta/30 transition hover:bg-cta hover:text-cta-foreground"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    Pedir Orçamento deste Serviço
+                  </a>
                 </div>
               </article>
             ))}
