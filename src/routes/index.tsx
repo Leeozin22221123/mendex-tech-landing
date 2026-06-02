@@ -13,7 +13,9 @@ import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger,
 } from "@/components/ui/dialog";
 
-const WHATSAPP_URL = "https://wa.me/5542999609468?text=" + encodeURIComponent("Olá! Vi o site da Mendex Tech e gostaria de um orçamento.");
+const WHATSAPP_PHONE = "5542999609468";
+const buildWhatsAppUrl = (msg: string) => `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
+const WHATSAPP_URL = buildWhatsAppUrl("Olá Mendex Tech! Vim pelo site e quero um orçamento grátis. Pode me ajudar?");
 
 function PrivacyPolicyDialog() {
   return (
