@@ -370,6 +370,39 @@ function Landing() {
         </div>
       </section>
 
+      {/* Contato / Identificação da empresa */}
+      <section id="contato" className="relative border-t border-border bg-surface/40 py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Contato</span>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Fale com a Mendex Tech</h2>
+            <p className="mt-3 text-sm text-muted-foreground">Informações de contato e identificação da empresa, em conformidade com a legislação de transparência ao consumidor.</p>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border border-border bg-surface p-5">
+              <p className="text-xs font-semibold uppercase tracking-wide text-brand">Empresa</p>
+              <p className="mt-2 text-sm font-semibold">Mendex Tech</p>
+              <p className="mt-1 text-xs text-muted-foreground">CNPJ 66.781.369/0001-97</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-surface p-5">
+              <p className="text-xs font-semibold uppercase tracking-wide text-brand">Endereço</p>
+              <p className="mt-2 text-sm">Ponta Grossa - PR</p>
+              <p className="mt-1 text-xs text-muted-foreground">Atendimento com agendamento prévio</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-surface p-5">
+              <p className="text-xs font-semibold uppercase tracking-wide text-brand">WhatsApp / Telefone</p>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-2 block text-sm font-semibold hover:text-brand">+55 42 99960-9468</a>
+              <p className="mt-1 text-xs text-muted-foreground">Seg–Sex 09h–23h · Sáb–Dom 10h–18h</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-surface p-5">
+              <p className="text-xs font-semibold uppercase tracking-wide text-brand">E-mail</p>
+              <a href="mailto:contato@mendextech.com.br" className="mt-2 block text-sm font-semibold break-all hover:text-brand">contato@mendextech.com.br</a>
+              <p className="mt-1 text-xs text-muted-foreground">Resposta em até 24h úteis</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer compacto */}
       <footer className="border-t border-border bg-surface/60">
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
@@ -383,12 +416,17 @@ function Landing() {
               <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-brand" /> Seg–Sex 09h–23h · Sáb–Dom 10h–18h</span>
             </div>
           </div>
-          <div className="mt-6 flex flex-col items-center justify-between gap-2 border-t border-border pt-4 text-xs text-muted-foreground sm:flex-row">
+          <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-border pt-4 text-xs text-muted-foreground sm:flex-row">
             <p>© {new Date().getFullYear()} Mendex Tech · CNPJ 66.781.369/0001-97</p>
-            <PrivacyPolicyDialog />
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+              <a href="#contato" className="hover:text-brand">Contato</a>
+              <TermsDialog />
+              <PrivacyPolicyDialog />
+            </div>
           </div>
         </div>
       </footer>
+
 
       <FloatingWhatsapp />
     </div>
