@@ -212,11 +212,35 @@ function Landing() {
                   Ver Nossos Serviços
                 </a>
               </div>
-              <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-cta text-cta" />
+
+              <div className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+                <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Resposta rápida:</span>
+                {quickReplies.map((q) => (
+                  <a
+                    key={q.label}
+                    href={buildWhatsAppUrl(q.msg)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp-chip"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-cta/40 bg-cta/10 px-3 py-1.5 text-xs font-semibold text-cta transition hover:bg-cta/20"
+                  >
+                    <MessageCircle className="h-3.5 w-3.5" />
+                    {q.label}
+                  </a>
                 ))}
-                <span className="ml-2">+200 clientes satisfeitos</span>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted-foreground lg:justify-start">
+                <span className="inline-flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-cta text-cta" />
+                  ))}
+                  <span className="ml-1">+200 clientes satisfeitos</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+                  Respondemos no WhatsApp em minutos
+                </span>
               </div>
             </div>
           </div>
