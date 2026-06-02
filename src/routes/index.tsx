@@ -25,11 +25,37 @@ function PrivacyPolicyDialog() {
           <DialogDescription>Última atualização: {new Date().toLocaleDateString("pt-BR")}</DialogDescription>
         </DialogHeader>
         <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
-          <p>A Mendex Tech valoriza a sua privacidade. Esta política descreve como tratamos as informações coletadas pelo site e atendimento via WhatsApp.</p>
-          <p><strong className="text-foreground">Dados coletados:</strong> nome, telefone e descrição do projeto, informados por você ao solicitar orçamento.</p>
-          <p><strong className="text-foreground">Finalidade:</strong> uso exclusivo para contato comercial, orçamento e acompanhamento do serviço.</p>
-          <p><strong className="text-foreground">Confidencialidade:</strong> nenhum dado é compartilhado, vendido ou cedido a terceiros.</p>
-          <p><strong className="text-foreground">Arquivos do equipamento:</strong> nenhum arquivo é acessado, copiado ou alterado sem autorização prévia.</p>
+          <p>A Mendex Tech (CNPJ 66.781.369/0001-97), com sede em Ponta Grossa - PR, Brasil, é a controladora dos dados pessoais tratados neste site, em conformidade com a LGPD (Lei nº 13.709/2018) e com os princípios do GDPR (Regulamento UE 2016/679) quando aplicável.</p>
+          <p><strong className="text-foreground">Dados coletados:</strong> nome, telefone, e-mail e descrição do projeto, informados voluntariamente por você ao solicitar orçamento via WhatsApp ou e-mail.</p>
+          <p><strong className="text-foreground">Base legal:</strong> execução de contrato pré-contratual (orçamento) e legítimo interesse de comunicação comercial relacionada ao serviço solicitado.</p>
+          <p><strong className="text-foreground">Finalidade:</strong> uso exclusivo para contato comercial, elaboração de orçamento e acompanhamento do serviço.</p>
+          <p><strong className="text-foreground">Compartilhamento:</strong> nenhum dado é vendido ou cedido a terceiros. Utilizamos o Google Ads/Google Analytics apenas para mensuração agregada de campanhas (cookies podem ser desativados nas configurações do seu navegador).</p>
+          <p><strong className="text-foreground">Retenção:</strong> os dados são mantidos pelo tempo necessário ao atendimento e por até 12 meses para fins fiscais e de garantia.</p>
+          <p><strong className="text-foreground">Seus direitos:</strong> você pode solicitar acesso, correção, exclusão ou portabilidade dos seus dados a qualquer momento pelo e-mail <a href="mailto:contato@mendextech.com.br" className="text-brand underline">contato@mendextech.com.br</a>.</p>
+          <p><strong className="text-foreground">Arquivos do equipamento:</strong> nenhum arquivo do seu equipamento é acessado, copiado ou alterado sem autorização prévia e por escrito.</p>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function TermsDialog() {
+  return (
+    <Dialog>
+      <DialogTrigger className="hover:text-brand">Termos de Serviço</DialogTrigger>
+      <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
+        <DialogHeader>
+          <DialogTitle>Termos de Serviço</DialogTitle>
+          <DialogDescription>Última atualização: {new Date().toLocaleDateString("pt-BR")}</DialogDescription>
+        </DialogHeader>
+        <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+          <p><strong className="text-foreground">Identificação:</strong> Mendex Tech, CNPJ 66.781.369/0001-97, sediada em Ponta Grossa - PR, Brasil. Contato: <a href="mailto:contato@mendextech.com.br" className="text-brand underline">contato@mendextech.com.br</a> · WhatsApp +55 42 99960-9468.</p>
+          <p><strong className="text-foreground">Serviços:</strong> montagem de PC, upgrade de hardware (SSD, RAM), substituição de componentes (telas, baterias, teclados) e otimização de performance em desktops e notebooks.</p>
+          <p><strong className="text-foreground">Orçamento:</strong> a avaliação é gratuita e sem compromisso. Nenhum serviço é executado sem aprovação prévia do orçamento por parte do cliente.</p>
+          <p><strong className="text-foreground">Preços e pagamento:</strong> todos os valores são informados em Reais (BRL) antes da execução. Pagamento via Pix, cartão ou dinheiro, conforme combinado no atendimento.</p>
+          <p><strong className="text-foreground">Garantia:</strong> peças e serviços possuem garantia mínima de 90 dias, conforme o Código de Defesa do Consumidor (Lei nº 8.078/1990).</p>
+          <p><strong className="text-foreground">Direito de arrependimento:</strong> em contratações realizadas fora do estabelecimento, o cliente pode desistir em até 7 dias, nos termos do art. 49 do CDC, desde que o serviço ainda não tenha sido executado.</p>
+          <p><strong className="text-foreground">Foro:</strong> aplicam-se as leis brasileiras. Fica eleito o foro da comarca de Ponta Grossa - PR para dirimir eventuais controvérsias.</p>
         </div>
       </DialogContent>
     </Dialog>
