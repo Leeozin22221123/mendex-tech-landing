@@ -145,11 +145,18 @@ const benefits = [
 ];
 
 const services = [
-  { icon: Gamepad2, title: "Montagem de PC Gamer", desc: "Montamos seu PC do zero com as peças que você escolher. Hardware selecionado, cabeamento organizado e tudo testado antes de sair do nosso laboratório." },
-  { icon: Zap, title: "Upgrade de SSD e RAM", desc: "Notebook ou PC lento? Instalamos SSD de alta velocidade e ampliamos sua memória RAM. A diferença você sente na hora que liga pela primeira vez." },
-  { icon: Laptop, title: "Substituição de Peças", desc: "Troca de tela, bateria, teclado, dobradiça e carcaça. Trabalhamos com peças de procedência e entregamos com garantia no serviço." },
-  { icon: MonitorCog, title: "Recuperação de Performance", desc: "Computador travando, superaquecendo ou demorando para iniciar? Identificamos o componente com problema e devolvemos a performance original do seu equipamento." },
-  { icon: CircuitBoard, title: "Laboratório de Hardware", desc: "Diagnóstico completo de notebooks e desktops. Analisamos cada componente e apresentamos o orçamento antes de qualquer intervenção. Sem surpresas." },
+  { icon: Gamepad2, title: "Montagem de PC Gamer", desc: "Montamos seu PC do zero com as peças que você escolher. Hardware selecionado, cabeamento organizado e tudo testado antes de sair do nosso laboratório.", msg: "Olá Mendex Tech! Quero um orçamento para montagem de PC Gamer." },
+  { icon: Zap, title: "Upgrade de SSD e RAM", desc: "Notebook ou PC lento? Instalamos SSD de alta velocidade e ampliamos sua memória RAM. A diferença você sente na hora que liga pela primeira vez.", msg: "Olá Mendex Tech! Quero um orçamento de upgrade de SSD e/ou memória RAM." },
+  { icon: Laptop, title: "Substituição de Peças", desc: "Troca de tela, bateria, teclado, dobradiça e carcaça. Trabalhamos com peças de procedência e entregamos com garantia no serviço.", msg: "Olá Mendex Tech! Preciso de orçamento para substituição de peça (tela / bateria / teclado)." },
+  { icon: MonitorCog, title: "Recuperação de Performance", desc: "Computador travando, superaquecendo ou demorando para iniciar? Identificamos o componente com problema e devolvemos a performance original do seu equipamento.", msg: "Olá Mendex Tech! Meu computador está lento/esquentando. Quero um diagnóstico grátis." },
+  { icon: CircuitBoard, title: "Laboratório de Hardware", desc: "Diagnóstico completo de notebooks e desktops. Analisamos cada componente e apresentamos o orçamento antes de qualquer intervenção. Sem surpresas.", msg: "Olá Mendex Tech! Quero levar meu equipamento para diagnóstico completo." },
+];
+
+const quickReplies = [
+  { label: "Upgrade SSD/RAM", msg: "Olá Mendex Tech! Quero um orçamento de upgrade de SSD e/ou memória RAM." },
+  { label: "Montar PC Gamer", msg: "Olá Mendex Tech! Quero um orçamento para montagem de PC Gamer." },
+  { label: "Trocar tela/bateria", msg: "Olá Mendex Tech! Preciso trocar tela ou bateria do meu notebook." },
+  { label: "Meu PC está lento", msg: "Olá Mendex Tech! Meu PC está lento. Quero diagnóstico grátis." },
 ];
 
 const testimonials = [
