@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import {
@@ -292,26 +293,23 @@ function Landing() {
             <p className="mt-4 text-muted-foreground">Antes e depois reais. Equipamentos transformados pela Mendex.</p>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <a
-                key={i}
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Ver perfil @mendex.tech no Instagram"
-                className="group relative aspect-square overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface to-surface-elevated transition hover:border-brand/50"
-              >
-                <div className="absolute inset-0 grid place-items-center">
-                  <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                    <Camera className="h-8 w-8 transition group-hover:scale-110 group-hover:text-brand" />
-                    <span className="text-xs font-semibold">@mendex.tech</span>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#833AB4]/0 via-[#FD1D1D]/0 to-[#F77737]/0 opacity-0 transition group-hover:opacity-30" />
-              </a>
-            ))}
-          </div>
+          <div
+            className="mt-12"
+            ref={(node) => {
+              if (!node || node.querySelector('.elfsight-app-e785303c-5294-4767-8c3d-93c98e3df707')) return;
+              node.innerHTML = `<!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-e785303c-5294-4767-8c3d-93c98e3df707" data-elfsight-app-lazy></div>`;
+              const oldScript = node.querySelector('script');
+              if (oldScript) {
+                const newScript = document.createElement('script');
+                const src = oldScript.getAttribute('src');
+                if (src) newScript.src = src;
+                newScript.async = true;
+                oldScript.parentNode?.replaceChild(newScript, oldScript);
+              }
+            }}
+          />
 
           <div className="mt-10 flex justify-center">
             <a
