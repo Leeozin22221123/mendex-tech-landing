@@ -283,9 +283,6 @@ function Landing() {
           </div>
         </div>
       </section>
-          </div>
-        </div>
-      </section>
 
       {/* Selos de Confiança */}
       <section className="relative border-y border-border bg-surface/60 py-10">
