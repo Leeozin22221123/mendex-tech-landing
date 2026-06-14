@@ -435,7 +435,7 @@ function Landing() {
             <CtaWhatsapp
               size="xl"
               className="animate-pulse-cta w-[90%] sm:w-auto"
-              label="💬 Chamar no WhatsApp Agora"
+              label="Chamar no WhatsApp Agora"
               dataCta="whatsapp-final"
             />
             <p className="text-sm text-muted-foreground">
