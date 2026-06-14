@@ -3,7 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import {
   Cpu, MessageCircle,
-  ShieldCheck, MapPin, Clock, ArrowRight, CircuitBoard, Zap, Instagram, Camera,
+  ShieldCheck, MapPin, Clock, ArrowRight, CircuitBoard, Zap, Instagram,
+  CheckCircle2, Wrench, Sparkles,
 } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
