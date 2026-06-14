@@ -339,7 +339,7 @@ function Landing() {
             <CtaWhatsapp
               size="lg"
               className="animate-pulse-cta w-[90%] sm:w-auto"
-              label="💬 Meu caso é esse — Quero um Orçamento Grátis"
+              label="Meu caso é esse — Quero Orçamento Grátis"
               dataCta="whatsapp-pain-cta"
             />
           </div>
