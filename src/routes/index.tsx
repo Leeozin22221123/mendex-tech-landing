@@ -196,7 +196,7 @@ const painSolutions = [
 
 function Landing() {
   return (
-    <div id="top" className="min-h-screen text-foreground">
+    <div id="top" className="min-h-screen pb-20 text-foreground sm:pb-0">
       {/* Header */}
       <header className="sticky top-0 z-40 glass">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
