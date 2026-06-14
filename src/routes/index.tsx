@@ -88,6 +88,137 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
+const testimonials = [
+  { name: "Lucas M.", city: "Ponta Grossa", rating: 5, text: "Meu notebook estava travando demais. Fiz upgrade de SSD e RAM e ficou outro equipamento. Atendimento rápido pelo WhatsApp." },
+  { name: "Mariana S.", city: "Uvaranas", rating: 5, text: "Troquei a tela do notebook em 24h. Preço justo e garantia de 90 dias. Super recomendo!" },
+  { name: "Rafael T.", city: "Ponta Grossa", rating: 5, text: "Montaram meu PC gamer do zero com as peças que escolhi. Tudo funcionando perfeitamente." },
+  { name: "Fernanda L.", city: "Ponta Grossa", rating: 5, text: "Bateria nova no meu Dell e limpeza interna. Muito caprichoso. Atende pelo WhatsApp super rápido." },
+  { name: "Gabriel H.", city: "Oficinas", rating: 5, text: "Orçamento grátis e sem compromisso. Resolvi tudo pelo WhatsApp. Serviço de qualidade." },
+  { name: "Camila R.", city: "Jardim Carvalho", rating: 5, text: "O computador da minha loja parou no meio do dia. Recuperaram tudo e ainda otimizaram. Excelente!" },
+];
+
+const socialProofActivity = [
+  { name: "João P.", city: "Ponta Grossa", action: "solicitou orçamento", time: "agora" },
+  { name: "Ana L.", city: "Uvaranas", action: "enviou foto do equipamento", time: "1 min atrás" },
+  { name: "Carlos M.", city: "Oficinas", action: "fez upgrade de SSD", time: "3 min atrás" },
+  { name: "Mariana S.", city: "Nova Rússia", action: "agendou atendimento", time: "5 min atrás" },
+  { name: "Pedro R.", city: "Ponta Grossa", action: "pediu orçamento de bateria", time: "7 min atrás" },
+  { name: "Juliana T.", city: "Jardim Carvalho", action: "enviou mensagem no WhatsApp", time: "10 min atrás" },
+];
+
+function SocialProofToast() {
+  const [mounted, setMounted] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const show = () => {
+      setVisible(true);
+      setTimeout(() => setVisible(false), 4000);
+    };
+    show();
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % socialProofActivity.length);
+      show();
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
+  if (!mounted) return null;
+  const item = socialProofActivity[current];
+  return (
+    <div
+      className={`fixed bottom-28 left-4 z-[100] max-w-[260px] rounded-xl border border-border bg-surface/95 p-3 shadow-lg backdrop-blur-xl transition-all duration-500 sm:bottom-8 sm:left-6 ${
+        visible ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0 pointer-events-none"
+      }`}
+    >
+      <div className="flex items-start gap-3">
+        <div className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-cta text-cta-foreground">
+          <MessageCircle className="h-4 w-4" />
+        </div>
+        <div className="min-w-0">
+          <p className="text-xs font-semibold text-foreground">{item.name} de {item.city}</p>
+          <p className="text-xs text-muted-foreground">{item.action} {item.time}</p>
+          <p className="mt-1 text-[10px] font-semibold text-cta">via WhatsApp</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SocialCounter() {
+  const [count, setCount] = useState(0);
+  const target = 137;
+  useEffect(() => {
+    let start = 0;
+    const duration = 2000;
+    const step = 16;
+    const increment = target / (duration / step);
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, step);
+    return () => clearInterval(timer);
+  }, []);
+  return (
+    <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-foreground sm:gap-6">
+      <div className="flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-2 shadow-sm">
+        <Users className="h-4 w-4 text-cta" />
+        <span><span className="text-cta">{count}</span> pessoas entraram em contato este mês</span>
+      </div>
+      <div className="flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-2 shadow-sm">
+        <UserCheck className="h-4 w-4 text-brand" />
+        <span>+900 equipamentos renovados em PG</span>
+      </div>
+    </div>
+  );
+}
+
+function TestimonialsSection() {
+  return (
+    <section id="avaliacoes" className="relative border-y border-border bg-surface/30 py-16 sm:py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Avaliações</span>
+          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">O que dizem quem já foi atendido</h2>
+          <p className="mt-4 text-muted-foreground">Clientes reais de Ponta Grossa e região. Todos os depoimentos são de atendimentos via WhatsApp.</p>
+        </div>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <div key={i} className="rounded-2xl border border-border bg-surface p-5 transition hover:border-brand/40">
+              <div className="flex items-center gap-0.5">
+                {Array.from({ length: 5 }).map((_, j) => (
+                  <Star key={j} className={`h-4 w-4 ${j < t.rating ? "fill-cta text-cta" : "text-muted-foreground"}`} />
+                ))}
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">"{t.text}"</p>
+              <div className="mt-4 border-t border-border pt-3">
+                <p className="text-sm font-semibold">{t.name}</p>
+                <p className="text-xs text-muted-foreground">{t.city}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 flex flex-col items-center gap-3">
+          <CtaWhatsapp
+            size="lg"
+            className="w-[92%] sm:w-auto"
+            label="Quer ser o próximo a avaliar? Chame no WhatsApp"
+            dataCta="whatsapp-testimonials"
+          />
+          <p className="text-xs text-muted-foreground">Média de 5 estrelas em todos os atendimentos</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function MendexLogo() {
   return (
     <a href="#top" className="group flex items-center gap-2.5">
