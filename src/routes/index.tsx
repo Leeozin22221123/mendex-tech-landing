@@ -1,10 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import {
   Cpu, MessageCircle,
   ShieldCheck, MapPin, Clock, ArrowRight, CircuitBoard, Zap, Instagram,
   CheckCircle2, Wrench, Sparkles,
+  Star, Users, UserCheck,
 } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
