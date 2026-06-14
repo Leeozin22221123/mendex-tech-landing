@@ -503,6 +503,7 @@ function Landing() {
       </footer>
 
       <FloatingWhatsapp />
+      <StickyMobileBar />
     </div>
   );
 }
