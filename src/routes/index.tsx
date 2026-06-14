@@ -639,6 +639,7 @@ function Landing() {
 
       <FloatingWhatsapp />
       <StickyMobileBar />
+      <SocialProofToast />
     </div>
   );
 }
