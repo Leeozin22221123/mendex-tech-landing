@@ -101,15 +101,23 @@ function MendexLogo() {
   );
 }
 
+function WhatsappGlyph({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.04 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  );
+}
+
 function CtaWhatsapp({
   size = "default",
   className = "",
-  label = "💬 Fazer Orçamento Grátis via WhatsApp",
+  label = "Fazer Orçamento Grátis no WhatsApp",
   href = WHATSAPP_URL,
   dataCta = "whatsapp",
 }: { size?: "default" | "lg" | "xl"; className?: string; label?: string; href?: string; dataCta?: string }) {
   const sz =
-    size === "xl" ? "h-16 px-9 text-base sm:text-lg" :
+    size === "xl" ? "h-16 px-8 text-base sm:text-lg" :
     size === "lg" ? "h-14 px-7 text-base" :
     "h-11 px-5 text-sm";
   return (
@@ -118,8 +126,9 @@ function CtaWhatsapp({
       target="_blank"
       rel="noopener noreferrer"
       data-cta={dataCta}
-      className={`group inline-flex items-center justify-center gap-2.5 rounded-full bg-cta font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-100 ${sz} ${className}`}
+      className={`group inline-flex items-center justify-center gap-3 rounded-full bg-cta font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-100 ${sz} ${className}`}
     >
+      <WhatsappGlyph className={size === "xl" ? "h-6 w-6" : "h-5 w-5"} />
       <span>{label}</span>
       <ArrowRight className="h-4 w-4 -translate-x-1 opacity-70 transition group-hover:translate-x-0 group-hover:opacity-100" />
     </a>
@@ -135,18 +144,39 @@ function FloatingWhatsapp() {
       aria-label="Falar no WhatsApp agora"
       data-cta="whatsapp-float"
       title="Falar no WhatsApp agora →"
-      className="group fixed bottom-6 right-6 z-[100] grid h-[52px] w-[52px] place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.55)] ring-4 ring-[#25D366]/25 transition hover:scale-110 sm:h-[58px] sm:w-[58px]"
+      className="group fixed bottom-24 right-5 z-[100] hidden h-[58px] w-[58px] place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.55)] ring-4 ring-[#25D366]/25 transition hover:scale-110 sm:grid"
     >
       <span className="absolute inset-0 -z-10 rounded-full bg-[#25D366]/60 animate-ping opacity-60" style={{ animationDuration: "4s" }} />
-      <svg viewBox="0 0 24 24" className="h-7 w-7 fill-white sm:h-8 sm:w-8" aria-hidden="true">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.04 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
+      <WhatsappGlyph className="h-7 w-7" />
       <span className="pointer-events-none absolute right-full top-1/2 mr-3 -translate-y-1/2 whitespace-nowrap rounded-lg bg-foreground px-3 py-1.5 text-xs font-semibold text-background opacity-0 shadow-lg transition group-hover:opacity-100">
         Falar no WhatsApp agora →
       </span>
     </a>
   );
 }
+
+function StickyMobileBar() {
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-[100] border-t border-border bg-background/95 px-3 py-2.5 backdrop-blur-xl sm:hidden">
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-cta="whatsapp-sticky-mobile"
+        className="flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-cta font-bold uppercase tracking-wide text-cta-foreground shadow-cta animate-pulse-cta"
+      >
+        <WhatsappGlyph className="h-5 w-5" />
+        <span className="text-sm">Orçamento grátis no WhatsApp</span>
+      </a>
+    </div>
+  );
+}
+
+const howItWorks = [
+  { icon: MessageCircle, title: "1. Chame no WhatsApp", desc: "Conte rapidamente o que está acontecendo com seu equipamento." },
+  { icon: Sparkles, title: "2. Receba o orçamento", desc: "Em minutos, enviamos o valor e o prazo — sem compromisso." },
+  { icon: Wrench, title: "3. Equipamento renovado", desc: "Aprovou? A gente executa com garantia de 90 dias." },
+];
 
 const trustBadges = [
   { icon: ShieldCheck, title: "Garantia de 90 Dias", desc: "Em todos os serviços realizados" },
