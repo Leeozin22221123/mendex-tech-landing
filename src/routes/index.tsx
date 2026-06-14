@@ -3,7 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import {
   Cpu, MessageCircle,
-  ShieldCheck, MapPin, Clock, ArrowRight, CircuitBoard, Zap, Instagram, Camera,
+  ShieldCheck, MapPin, Clock, ArrowRight, CircuitBoard, Zap, Instagram,
+  CheckCircle2, Wrench, Sparkles,
 } from "lucide-react";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
@@ -100,15 +101,23 @@ function MendexLogo() {
   );
 }
 
+function WhatsappGlyph({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.04 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  );
+}
+
 function CtaWhatsapp({
   size = "default",
   className = "",
-  label = "💬 Fazer Orçamento Grátis via WhatsApp",
+  label = "Fazer Orçamento Grátis no WhatsApp",
   href = WHATSAPP_URL,
   dataCta = "whatsapp",
 }: { size?: "default" | "lg" | "xl"; className?: string; label?: string; href?: string; dataCta?: string }) {
   const sz =
-    size === "xl" ? "h-16 px-9 text-base sm:text-lg" :
+    size === "xl" ? "h-16 px-8 text-base sm:text-lg" :
     size === "lg" ? "h-14 px-7 text-base" :
     "h-11 px-5 text-sm";
   return (
@@ -117,8 +126,9 @@ function CtaWhatsapp({
       target="_blank"
       rel="noopener noreferrer"
       data-cta={dataCta}
-      className={`group inline-flex items-center justify-center gap-2.5 rounded-full bg-cta font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-100 ${sz} ${className}`}
+      className={`group inline-flex items-center justify-center gap-3 rounded-full bg-cta font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-100 ${sz} ${className}`}
     >
+      <WhatsappGlyph className={size === "xl" ? "h-6 w-6" : "h-5 w-5"} />
       <span>{label}</span>
       <ArrowRight className="h-4 w-4 -translate-x-1 opacity-70 transition group-hover:translate-x-0 group-hover:opacity-100" />
     </a>
@@ -134,18 +144,39 @@ function FloatingWhatsapp() {
       aria-label="Falar no WhatsApp agora"
       data-cta="whatsapp-float"
       title="Falar no WhatsApp agora →"
-      className="group fixed bottom-6 right-6 z-[100] grid h-[52px] w-[52px] place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.55)] ring-4 ring-[#25D366]/25 transition hover:scale-110 sm:h-[58px] sm:w-[58px]"
+      className="group fixed bottom-24 right-5 z-[100] hidden h-[58px] w-[58px] place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.55)] ring-4 ring-[#25D366]/25 transition hover:scale-110 sm:grid"
     >
       <span className="absolute inset-0 -z-10 rounded-full bg-[#25D366]/60 animate-ping opacity-60" style={{ animationDuration: "4s" }} />
-      <svg viewBox="0 0 24 24" className="h-7 w-7 fill-white sm:h-8 sm:w-8" aria-hidden="true">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.04 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
+      <WhatsappGlyph className="h-7 w-7" />
       <span className="pointer-events-none absolute right-full top-1/2 mr-3 -translate-y-1/2 whitespace-nowrap rounded-lg bg-foreground px-3 py-1.5 text-xs font-semibold text-background opacity-0 shadow-lg transition group-hover:opacity-100">
         Falar no WhatsApp agora →
       </span>
     </a>
   );
 }
+
+function StickyMobileBar() {
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-[100] border-t border-border bg-background/95 px-3 py-2.5 backdrop-blur-xl sm:hidden">
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-cta="whatsapp-sticky-mobile"
+        className="flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-cta font-bold uppercase tracking-wide text-cta-foreground shadow-cta animate-pulse-cta"
+      >
+        <WhatsappGlyph className="h-5 w-5" />
+        <span className="text-sm">Orçamento grátis no WhatsApp</span>
+      </a>
+    </div>
+  );
+}
+
+const howItWorks = [
+  { icon: MessageCircle, title: "1. Chame no WhatsApp", desc: "Conte rapidamente o que está acontecendo com seu equipamento." },
+  { icon: Sparkles, title: "2. Receba o orçamento", desc: "Em minutos, enviamos o valor e o prazo — sem compromisso." },
+  { icon: Wrench, title: "3. Equipamento renovado", desc: "Aprovou? A gente executa com garantia de 90 dias." },
+];
 
 const trustBadges = [
   { icon: ShieldCheck, title: "Garantia de 90 Dias", desc: "Em todos os serviços realizados" },
@@ -165,7 +196,7 @@ const painSolutions = [
 
 function Landing() {
   return (
-    <div id="top" className="min-h-screen text-foreground">
+    <div id="top" className="min-h-screen pb-20 text-foreground sm:pb-0">
       {/* Header */}
       <header className="sticky top-0 z-40 glass">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
@@ -207,17 +238,48 @@ function Landing() {
               Upgrade de hardware, substituição de peças e montagem de PC Gamer em Ponta Grossa. Orçamento 100% grátis e sem compromisso direto no WhatsApp.
             </p>
 
-            <div className="mt-9 flex flex-col items-center gap-3">
+            <div className="mt-9 flex flex-col items-center gap-4">
               <CtaWhatsapp
                 size="xl"
-                className="animate-pulse-cta w-[90%] sm:w-auto"
-                label="💬 Fazer Orçamento Grátis via WhatsApp"
+                className="animate-pulse-cta w-[92%] sm:w-auto"
+                label="Fazer Orçamento Grátis"
                 dataCta="whatsapp-hero"
               />
-              <p className="text-xs font-medium text-muted-foreground">
-                Respondemos em menos de 5 minutos ⚡
-              </p>
+              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
+                <span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cta" /> Online agora · resposta em &lt; 5 min</span>
+                <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cta" /> Sem compromisso</span>
+                <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cta" /> Garantia 90 dias</span>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Como funciona — reduz atrito antes do CTA */}
+      <section className="relative border-t border-border bg-surface/30 py-14 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Simples assim</span>
+            <h2 className="mt-3 text-2xl font-bold sm:text-3xl">Em 3 passos você sai do problema</h2>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            {howItWorks.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="relative rounded-2xl border border-border bg-surface p-6 text-center transition hover:border-brand/50">
+                <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl bg-brand/15 ring-1 ring-brand/30">
+                  <Icon className="h-6 w-6 text-brand" />
+                </div>
+                <p className="mt-4 text-base font-bold">{title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 flex justify-center">
+            <CtaWhatsapp
+              size="lg"
+              className="w-[92%] sm:w-auto"
+              label="Começar Agora no WhatsApp"
+              dataCta="whatsapp-how"
+            />
           </div>
         </div>
       </section>
@@ -277,7 +339,7 @@ function Landing() {
             <CtaWhatsapp
               size="lg"
               className="animate-pulse-cta w-[90%] sm:w-auto"
-              label="💬 Meu caso é esse — Quero um Orçamento Grátis"
+              label="Meu caso é esse — Quero Orçamento Grátis"
               dataCta="whatsapp-pain-cta"
             />
           </div>
@@ -373,7 +435,7 @@ function Landing() {
             <CtaWhatsapp
               size="xl"
               className="animate-pulse-cta w-[90%] sm:w-auto"
-              label="💬 Chamar no WhatsApp Agora"
+              label="Chamar no WhatsApp Agora"
               dataCta="whatsapp-final"
             />
             <p className="text-sm text-muted-foreground">
@@ -441,6 +503,7 @@ function Landing() {
       </footer>
 
       <FloatingWhatsapp />
+      <StickyMobileBar />
     </div>
   );
 }
