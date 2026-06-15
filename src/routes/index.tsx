@@ -74,6 +74,17 @@ const faqs = [
   { q: "Vocês dão garantia no serviço?", a: "Sim. Todo serviço realizado pela Mendex Tech sai com garantia de 90 dias. Peças instaladas e serviços executados são cobertos." },
 ];
 
+const SITE_URL = "https://mendex-tech-landing.lovable.app";
+
+const sitelinks = [
+  { name: "Orçamento Grátis no WhatsApp", url: "https://wa.me/5542999609468?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20gr%C3%A1tis%20da%20Mendex%20Tech" },
+  { name: "Nossos Serviços", url: `${SITE_URL}/#solucoes` },
+  { name: "Avaliações de Clientes", url: `${SITE_URL}/#avaliacoes` },
+  { name: "Perguntas Frequentes", url: `${SITE_URL}/#faq` },
+  { name: "Entre em Contato", url: `${SITE_URL}/#contato` },
+  { name: "Instagram", url: `${SITE_URL}/#instagram` },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -83,6 +94,35 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Mendex Tech — Upgrade e Montagem de PC em Ponta Grossa" },
       { property: "og:description", content: "Seu notebook lento ou travando? A gente deixa ele ultra veloz. Orçamento grátis no WhatsApp." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Mendex Tech",
+          url: SITE_URL,
+          potentialAction: {
+            "@type": "SearchAction",
+            target: `${SITE_URL}/?q={search_term_string}`,
+            "query-input": "required name=search_term_string",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          sitelinks.map((link) => ({
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            name: link.name,
+            url: link.url,
+          })),
+        ),
+      },
     ],
   }),
   component: Landing,
