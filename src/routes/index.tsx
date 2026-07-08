@@ -114,6 +114,32 @@ export const Route = createFileRoute("/")({
       },
       {
         type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "@id": `${SITE_URL}/#localbusiness`,
+          name: "Mendex Tech",
+          image: SITE_URL + "/og.jpg",
+          url: SITE_URL,
+          telephone: "+554299960-9468",
+          priceRange: "R$",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Ponta Grossa",
+            addressRegion: "PR",
+            addressCountry: "BR",
+          },
+          areaServed: [{ "@type": "City", name: "Ponta Grossa" }],
+          openingHoursSpecification: [
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "09:00", closes: "23:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday","Sunday"], opens: "10:00", closes: "18:00" },
+          ],
+          aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "137" },
+          sameAs: [INSTAGRAM_URL],
+        }),
+      },
+      {
+        type: "application/ld+json",
         children: JSON.stringify(
           sitelinks.map((link) => ({
             "@context": "https://schema.org",
@@ -330,16 +356,28 @@ function FloatingWhatsapp() {
 function StickyMobileBar() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-[100] border-t border-border bg-background/95 px-3 py-2.5 backdrop-blur-xl sm:hidden">
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-cta="whatsapp-sticky-mobile"
-        className="flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-cta font-bold uppercase tracking-wide text-cta-foreground shadow-cta animate-pulse-cta"
-      >
-        <WhatsappGlyph className="h-5 w-5" />
-        <span className="text-sm">Orçamento grátis no WhatsApp</span>
-      </a>
+      <div className="flex items-center gap-2">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cta="whatsapp-sticky-mobile"
+          className="flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-cta text-sm font-bold uppercase tracking-wide text-cta-foreground shadow-cta animate-pulse-cta"
+        >
+          <WhatsappGlyph className="h-5 w-5" />
+          <span>WhatsApp Grátis</span>
+        </a>
+        <a
+          href="tel:+554299960-9468"
+          data-cta="call-sticky-mobile"
+          aria-label="Ligar para a Mendex Tech agora"
+          className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-full border border-brand/40 bg-brand/15 text-brand"
+        >
+          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   );
 }
@@ -366,7 +404,45 @@ const painSolutions = [
   { pain: "⚡ PC ou notebook que desliga ou não inicializa", solution: "Diagnóstico Completo e Recuperação de Performance", msg: "Olá Mendex Tech! Meu computador não está inicializando direito. Quero um diagnóstico." },
 ];
 
+function useAdsKeyword() {
+  const [kw, setKw] = useState<string | null>(null);
+  useEffect(() => {
+    try {
+      const p = new URLSearchParams(window.location.search);
+      const raw = (p.get("kw") || p.get("utm_term") || "").trim();
+      if (!raw) return;
+      const clean = raw.replace(/[+_]/g, " ").replace(/[^\p{L}\p{N}\s\-áéíóúâêôãõçÁÉÍÓÚÂÊÔÃÕÇ]/gu, "").slice(0, 60);
+      if (clean.length >= 3) setKw(clean.replace(/\b\w/g, (c) => c.toUpperCase()));
+    } catch {}
+  }, []);
+  return kw;
+}
+
+function useConversionTracking() {
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const el = (e.target as HTMLElement | null)?.closest?.("[data-cta]") as HTMLElement | null;
+      if (!el) return;
+      const id = el.getAttribute("data-cta") || "cta";
+      const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+      if (typeof w.gtag === "function") {
+        // Conversion (Google Ads) — usa a tag padrão da conta. Substitua por 'AW-XXX/LABEL' quando criar a conversão específica.
+        w.gtag("event", "conversion", { send_to: "AW-18156656745" });
+        // Evento granular para segmentação/relatórios
+        w.gtag("event", id.startsWith("call") ? "phone_call_click" : "whatsapp_click", {
+          event_category: "cta",
+          event_label: id,
+        });
+      }
+    };
+    document.addEventListener("click", handler, { capture: true });
+    return () => document.removeEventListener("click", handler, { capture: true } as AddEventListenerOptions);
+  }, []);
+}
+
 function Landing() {
+  const kw = useAdsKeyword();
+  useConversionTracking();
   return (
     <div id="top" className="min-h-screen pb-20 text-foreground sm:pb-0">
       {/* Header */}
@@ -397,8 +473,9 @@ function Landing() {
           <div className="animate-fade-up">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cta" />
-              Ponta Grossa · Laboratório de Hardware
+              {kw ? <>Você buscou: <span className="text-foreground">{kw}</span> — atendemos hoje</> : <>Ponta Grossa · Laboratório de Hardware</>}
             </div>
+
 
             <h1 className="font-display text-[2rem] font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
               Seu Notebook Está Lento ou Travando?
