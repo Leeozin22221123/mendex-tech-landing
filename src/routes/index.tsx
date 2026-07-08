@@ -114,6 +114,32 @@ export const Route = createFileRoute("/")({
       },
       {
         type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "@id": `${SITE_URL}/#localbusiness`,
+          name: "Mendex Tech",
+          image: SITE_URL + "/og.jpg",
+          url: SITE_URL,
+          telephone: "+554299960-9468",
+          priceRange: "R$",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Ponta Grossa",
+            addressRegion: "PR",
+            addressCountry: "BR",
+          },
+          areaServed: [{ "@type": "City", name: "Ponta Grossa" }],
+          openingHoursSpecification: [
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "09:00", closes: "23:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday","Sunday"], opens: "10:00", closes: "18:00" },
+          ],
+          aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "137" },
+          sameAs: [INSTAGRAM_URL],
+        }),
+      },
+      {
+        type: "application/ld+json",
         children: JSON.stringify(
           sitelinks.map((link) => ({
             "@context": "https://schema.org",
