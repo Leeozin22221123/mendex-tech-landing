@@ -462,8 +462,9 @@ function Landing() {
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              Upgrade de hardware, substituição de peças, montagem de PC Gamer e conserto de desktops e notebooks em Ponta Grossa. Orçamento 100% grátis e sem compromisso direto no WhatsApp.
+              <span className="font-semibold text-foreground">Diagnóstico de hardware e orçamento 100% grátis</span> — sem compromisso, direto no WhatsApp. Upgrade, substituição de peças, montagem de PC Gamer e conserto de desktops e notebooks em Ponta Grossa.
             </p>
+
 
 
             <div className="mt-9 flex flex-col items-center gap-4">
@@ -658,21 +659,33 @@ function Landing() {
             <span className="text-gradient-brand">É Só Chamar.</span>
           </h2>
           <p className="mt-6 text-base text-muted-foreground sm:text-lg">
-            Atendemos segunda a sábado, das 08h às 20h.
+            <span className="font-semibold text-foreground">Diagnóstico de hardware grátis</span> e <span className="font-semibold text-foreground">orçamento grátis</span> — sem compromisso.
             <br />
-            Diagnóstico e orçamento sempre gratuitos.
+            Atendemos segunda a sábado, das 08h às 20h.
           </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-cta/40 bg-cta/10 px-3 py-1 text-cta">
+              <CheckCircle2 className="h-3.5 w-3.5" /> Diagnóstico grátis
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-cta/40 bg-cta/10 px-3 py-1 text-cta">
+              <CheckCircle2 className="h-3.5 w-3.5" /> Orçamento grátis
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/40 bg-brand/10 px-3 py-1 text-brand">
+              <CheckCircle2 className="h-3.5 w-3.5" /> Sem compromisso
+            </span>
+          </div>
           <div className="mt-10 flex flex-col items-center gap-3">
             <CtaWhatsapp
               size="xl"
               className="animate-pulse-cta w-[90%] sm:w-auto"
-              label="Chamar no WhatsApp Agora"
+              label="Pedir Diagnóstico e Orçamento Grátis"
               dataCta="whatsapp-final"
             />
             <p className="text-sm text-muted-foreground">
               📍 Ponta Grossa - PR · Respondemos rapidinho ⚡
             </p>
           </div>
+
         </div>
       </section>
 
