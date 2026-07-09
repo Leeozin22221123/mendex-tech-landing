@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as OrcamentoRouteImport } from './routes/orcamento'
+import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as AvaliacoesRouteImport } from './routes/avaliacoes'
@@ -30,6 +31,11 @@ const ServicosRoute = ServicosRouteImport.update({
 const OrcamentoRoute = OrcamentoRouteImport.update({
   id: '/orcamento',
   path: '/orcamento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObrigadoRoute = ObrigadoRouteImport.update({
+  id: '/obrigado',
+  path: '/obrigado',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/avaliacoes': typeof AvaliacoesRoute
   '/contato': typeof ContatoRoute
   '/faq': typeof FaqRoute
+  '/obrigado': typeof ObrigadoRoute
   '/orcamento': typeof OrcamentoRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/avaliacoes': typeof AvaliacoesRoute
   '/contato': typeof ContatoRoute
   '/faq': typeof FaqRoute
+  '/obrigado': typeof ObrigadoRoute
   '/orcamento': typeof OrcamentoRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/avaliacoes': typeof AvaliacoesRoute
   '/contato': typeof ContatoRoute
   '/faq': typeof FaqRoute
+  '/obrigado': typeof ObrigadoRoute
   '/orcamento': typeof OrcamentoRoute
   '/servicos': typeof ServicosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/avaliacoes'
     | '/contato'
     | '/faq'
+    | '/obrigado'
     | '/orcamento'
     | '/servicos'
     | '/sitemap.xml'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/avaliacoes'
     | '/contato'
     | '/faq'
+    | '/obrigado'
     | '/orcamento'
     | '/servicos'
     | '/sitemap.xml'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/avaliacoes'
     | '/contato'
     | '/faq'
+    | '/obrigado'
     | '/orcamento'
     | '/servicos'
     | '/sitemap.xml'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   AvaliacoesRoute: typeof AvaliacoesRoute
   ContatoRoute: typeof ContatoRoute
   FaqRoute: typeof FaqRoute
+  ObrigadoRoute: typeof ObrigadoRoute
   OrcamentoRoute: typeof OrcamentoRoute
   ServicosRoute: typeof ServicosRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/orcamento'
       fullPath: '/orcamento'
       preLoaderRoute: typeof OrcamentoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/obrigado': {
+      id: '/obrigado'
+      path: '/obrigado'
+      fullPath: '/obrigado'
+      preLoaderRoute: typeof ObrigadoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   AvaliacoesRoute: AvaliacoesRoute,
   ContatoRoute: ContatoRoute,
   FaqRoute: FaqRoute,
+  ObrigadoRoute: ObrigadoRoute,
   OrcamentoRoute: OrcamentoRoute,
   ServicosRoute: ServicosRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
