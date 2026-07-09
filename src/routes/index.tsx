@@ -456,14 +456,15 @@ function Landing() {
 
 
             <h1 className="font-display text-[2rem] font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
-              Seu Notebook Está Lento ou Travando?
+              Seu Computador ou Notebook Está Lento ou Quebrou?
               <br />
-              <span className="text-gradient-brand">A Gente Deixa ele Ultra Veloz — Hoje Mesmo.</span>
+              <span className="text-gradient-brand">A Gente Arruma no Mesmo Dia.</span>
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              Upgrade de hardware, substituição de peças e montagem de PC Gamer em Ponta Grossa. Orçamento 100% grátis e sem compromisso direto no WhatsApp.
+              Upgrade de hardware, substituição de peças, montagem de PC Gamer e conserto de desktops e notebooks em Ponta Grossa. Orçamento 100% grátis e sem compromisso direto no WhatsApp.
             </p>
+
 
             <div className="mt-9 flex flex-col items-center gap-4">
               <CtaWhatsapp
