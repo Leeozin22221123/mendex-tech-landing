@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2, Clock, MessageCircle, Sparkles, Wrench } from "lucide-react";
 import { CtaWhatsapp, PageShell, SITE_URL, WHATSAPP_URL, buildWhatsAppUrl } from "@/components/page-shell";
+import { DiagnosticForm } from "@/components/diagnostic-form";
+
 
 export const Route = createFileRoute("/orcamento")({
   head: () => ({
@@ -41,19 +43,22 @@ function OrcamentoPage() {
     >
       <section className="relative py-14 sm:py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <div className="flex justify-center">
-            <CtaWhatsapp
-              size="xl"
-              className="animate-pulse-cta w-[92%] sm:w-auto"
-              label="Pedir Orçamento Agora"
-              dataCta="whatsapp-orcamento-top"
-            />
-          </div>
+          <DiagnosticForm dataCta="whatsapp-orcamento-form" />
+
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
             <span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cta" /> Online agora · resposta em &lt; 5 min</span>
             <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cta" /> Sem compromisso</span>
             <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cta" /> Garantia 90 dias</span>
           </div>
+
+          <div className="mt-8 flex justify-center">
+            <CtaWhatsapp
+              size="lg"
+              label="Prefiro só chamar no WhatsApp"
+              dataCta="whatsapp-orcamento-top"
+            />
+          </div>
+
 
           <div className="mt-14 grid gap-5 sm:grid-cols-3">
             {steps.map(({ icon: Icon, title, desc }) => (

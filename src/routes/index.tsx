@@ -13,6 +13,8 @@ import {
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger,
 } from "@/components/ui/dialog";
+import { DiagnosticForm } from "@/components/diagnostic-form";
+
 
 const WHATSAPP_PHONE = "5542999609468";
 const buildWhatsAppUrl = (msg: string) => `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
@@ -649,8 +651,25 @@ function Landing() {
         </div>
       </section>
 
+      {/* Diagnóstico grátis — formulário com mensagem pronta */}
+      <section id="diagnostico" className="relative border-t border-border bg-surface/30 py-16 sm:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Diagnóstico grátis</span>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Peça seu diagnóstico em 30 segundos</h2>
+            <p className="mt-4 text-sm text-muted-foreground sm:text-base">
+              Informe o modelo e o defeito — abrimos o WhatsApp com a mensagem pronta e nosso time já responde com o orçamento.
+            </p>
+          </div>
+          <div className="mt-10">
+            <DiagnosticForm dataCta="whatsapp-home-diagnostic" />
+          </div>
+        </div>
+      </section>
+
       {/* CTA Final */}
       <section className="relative overflow-hidden py-20 sm:py-24">
+
         <div className="absolute inset-0 bg-gradient-to-br from-brand/25 via-background to-cta/15" />
         <div className="absolute inset-0 bg-grid opacity-30" />
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
