@@ -418,31 +418,9 @@ function useAdsKeyword() {
   return kw;
 }
 
-function useConversionTracking() {
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      const el = (e.target as HTMLElement | null)?.closest?.("[data-cta]") as HTMLElement | null;
-      if (!el) return;
-      const id = el.getAttribute("data-cta") || "cta";
-      const w = window as unknown as { gtag?: (...args: unknown[]) => void };
-      if (typeof w.gtag === "function") {
-        // Conversion (Google Ads) — usa a tag padrão da conta. Substitua por 'AW-XXX/LABEL' quando criar a conversão específica.
-        w.gtag("event", "conversion", { send_to: "AW-18156656745" });
-        // Evento granular para segmentação/relatórios
-        w.gtag("event", id.startsWith("call") ? "phone_call_click" : "whatsapp_click", {
-          event_category: "cta",
-          event_label: id,
-        });
-      }
-    };
-    document.addEventListener("click", handler, { capture: true });
-    return () => document.removeEventListener("click", handler, { capture: true } as AddEventListenerOptions);
-  }, []);
-}
-
 function Landing() {
   const kw = useAdsKeyword();
-  useConversionTracking();
+
   return (
     <div id="top" className="min-h-screen pb-20 text-foreground sm:pb-0">
       {/* Header */}

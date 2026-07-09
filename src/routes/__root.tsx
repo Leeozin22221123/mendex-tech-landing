@@ -133,6 +133,8 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useConversionTracking();
+
 
   return (
     <QueryClientProvider client={queryClient}>
