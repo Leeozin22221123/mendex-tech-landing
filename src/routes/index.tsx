@@ -13,6 +13,8 @@ import {
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger,
 } from "@/components/ui/dialog";
+import { DiagnosticForm } from "@/components/diagnostic-form";
+
 
 const WHATSAPP_PHONE = "5542999609468";
 const buildWhatsAppUrl = (msg: string) => `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
