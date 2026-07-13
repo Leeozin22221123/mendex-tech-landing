@@ -235,9 +235,9 @@ function StickyMobileBar() {
 }
 
 const howItWorks = [
-  { n: "1", title: "Chame no WhatsApp", desc: "Conte o que está acontecendo com seu equipamento." },
-  { n: "2", title: "Receba o Orçamento", desc: "Em minutos enviamos o valor e o prazo, sem compromisso." },
-  { n: "3", title: "Equipamento Resolvido", desc: "Aprovado? A gente executa com garantia de 90 dias." },
+  { n: "1", title: "Descreva o Problema", desc: "Informe via WhatsApp o que está ocorrendo com seu equipamento." },
+  { n: "2", title: "Receba o Diagnóstico", desc: "Nosso técnico analisa e envia orçamento detalhado sem compromisso." },
+  { n: "3", title: "Equipamento Revisado", desc: "Aprovado? Executamos com garantia técnica de 90 dias." },
 ];
 
 function useAdsKeyword() {
@@ -291,23 +291,22 @@ function Landing() {
             </div>
 
             <h1 className="font-display text-[2rem] font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
-              Seu Notebook ou Computador com Problema?
+              Assistência Técnica Especializada em Notebooks e Computadores em Ponta Grossa
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              <span className="font-semibold text-foreground">A Gente Resolve Hoje em Ponta Grossa.</span>{" "}
-              Diagnóstico 100% Grátis e Orçamento em Minutos.
+              Laboratório técnico com diagnóstico completo de hardware. Orçamento sem compromisso direto no WhatsApp.
             </p>
 
             <div className="mt-9 flex flex-col items-center gap-4">
               <CtaWhatsapp
                 size="xl"
                 className="animate-pulse-cta w-[92%] sm:w-auto"
-                label="Fazer Orçamento Grátis →"
+                label="FAZER ORÇAMENTO GRÁTIS →"
                 dataCta="whatsapp-hero"
               />
               <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
-                <span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cta" /> Online agora · resposta em &lt; 5 min</span>
+                <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-cta" /> Laboratório técnico local · Ponta Grossa - PR</span>
                 <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cta" /> Sem compromisso</span>
                 <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cta" /> Garantia 90 dias</span>
               </div>
@@ -321,7 +320,7 @@ function Landing() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Simples assim</span>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Em 3 Passos Você Sai do Problema</h2>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Como Funciona Nossa Assistência Técnica</h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
             {howItWorks.map(({ n, title, desc }) => (
@@ -351,7 +350,7 @@ function Landing() {
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Avaliações</span>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">O Que Dizem Nossos Clientes</h2>
-            <p className="mt-4 text-muted-foreground">Clientes reais de Ponta Grossa e região.</p>
+            <p className="mt-4 text-muted-foreground">Clientes atendidos em nosso laboratório em Ponta Grossa e região.</p>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
             {testimonials.map((t, i) => (
@@ -412,23 +411,20 @@ function Landing() {
         <div className="absolute inset-0 bg-grid opacity-30" />
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
           <h2 className="font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl">
-            Pronto para Resolver?{" "}
-            <span className="text-gradient-brand">É Só Chamar.</span>
+            Precisa de Assistência Técnica Especializada?
           </h2>
           <p className="mt-6 text-base text-muted-foreground sm:text-lg">
-            Atendemos segunda a sábado, das 08h às 20h.
-            <br />
-            Diagnóstico e orçamento sempre gratuitos.
+            Laboratório técnico em Ponta Grossa. Segunda a sábado das 08h às 20h.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3">
             <CtaWhatsapp
               size="xl"
               className="animate-pulse-cta w-[90%] sm:w-auto"
-              label="Chamar no WhatsApp Agora →"
+              label="FALAR COM NOSSO TÉCNICO →"
               dataCta="whatsapp-final"
             />
             <p className="text-sm text-muted-foreground">
-              📍 Ponta Grossa - PR · Respondemos rapidinho ⚡
+              📍 Ponta Grossa - PR · Laboratório local
             </p>
           </div>
         </div>
