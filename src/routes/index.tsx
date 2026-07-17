@@ -315,6 +315,25 @@ function Landing() {
         </div>
       </section>
 
+      {/* Marcas que Atendemos */}
+      <section className="relative border-y border-border bg-surface/20 py-8 sm:py-10">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            Marcas que Atendemos
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm font-bold tracking-wide text-muted-foreground/70">
+            <span>Dell</span>
+            <span>Lenovo</span>
+            <span>HP</span>
+            <span>Asus</span>
+            <span>Samsung</span>
+            <span>Acer</span>
+            <span>Apple</span>
+            <span>LG</span>
+          </div>
+        </div>
+      </section>
+
       {/* 2. COMO FUNCIONA */}
       <section id="como-funciona" className="relative border-t border-border bg-surface/30 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -437,6 +456,25 @@ function Landing() {
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Contato</span>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Fale com a Mendex Tech</h2>
           </div>
+
+          {/* Onde Estamos */}
+          <div className="mt-10">
+            <h3 className="mb-4 text-center text-lg font-semibold">Onde Estamos</h3>
+            <div className="overflow-hidden rounded-xl border border-border">
+              <iframe
+                title="Localização Mendex Tech - Ponta Grossa PR"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115293.68890973643!2d-50.23000645!3d-25.41166345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e7c5e7e6d6d6d7%3A0x123456789abcdef!2sPonta%20Grossa%2C%20PR!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block bg-surface"
+              />
+            </div>
+          </div>
+
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-2xl border border-border bg-surface p-5">
               <p className="text-xs font-semibold uppercase tracking-wide text-brand">Empresa</p>
