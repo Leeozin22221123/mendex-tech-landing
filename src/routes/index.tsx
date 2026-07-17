@@ -460,10 +460,10 @@ function Landing() {
           {/* Onde Estamos */}
           <div className="mt-10">
             <h3 className="mb-4 text-center text-lg font-semibold">Onde Estamos</h3>
-            <div className="overflow-hidden rounded-xl border border-border">
+            <div className="relative overflow-hidden rounded-xl border border-border">
               <iframe
                 title="Localização Mendex Tech - Ponta Grossa PR"
-                src="https://maps.google.com/maps?q=Ponta+Grossa,+PR&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115293.68890973643!2d-50.23000645!3d-25.41166345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e7c3f0e0e0e0e0%3A0x0!2zUG9udGEgR3Jvc3NhLCBQUg!5e0!3m2!1spt-BR!2sbr!4v1234567890"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
@@ -472,6 +472,14 @@ function Landing() {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="block bg-surface"
               />
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Ponta+Grossa,+PR"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-3 right-3 rounded-lg bg-surface px-3 py-1.5 text-xs font-semibold text-foreground shadow-card hover:bg-surface-elevated"
+              >
+                Ver no Google Maps
+              </a>
             </div>
           </div>
 
