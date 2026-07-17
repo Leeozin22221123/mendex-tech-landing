@@ -127,6 +127,7 @@ export const Route = createFileRoute("/")({
           priceRange: "R$",
           address: {
             "@type": "PostalAddress",
+            streetAddress: "Rua Olavo Bilac, 481",
             addressLocality: "Ponta Grossa",
             addressRegion: "PR",
             addressCountry: "BR",
