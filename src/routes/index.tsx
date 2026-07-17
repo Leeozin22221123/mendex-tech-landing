@@ -443,7 +443,7 @@ function Landing() {
               dataCta="whatsapp-final"
             />
             <p className="text-sm text-muted-foreground">
-              📍 Ponta Grossa - PR · Laboratório local
+              📍 Rua Olavo Bilac, 481 · Ponta Grossa - PR · Laboratório local
             </p>
           </div>
         </div>
@@ -462,8 +462,8 @@ function Landing() {
             <h3 className="mb-4 text-center text-lg font-semibold">Onde Estamos</h3>
             <div className="relative overflow-hidden rounded-xl border border-border">
               <iframe
-                title="Localização Mendex Tech - Ponta Grossa PR"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115293.68890973643!2d-50.23000645!3d-25.41166345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e7c3f0e0e0e0e0%3A0x0!2zUG9udGEgR3Jvc3NhLCBQUg!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                title="Localização Mendex Tech - Rua Olavo Bilac 481, Ponta Grossa PR"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100000!2d-50.1!3d-25.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zUnVhIE9sYXZvIEJpbGFjLCA0ODEsIFBvbnRhIEdyb3NzYSAtIFBS!5e0!3m2!1spt-BR!2sbr!4v1234567890"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
@@ -473,7 +473,7 @@ function Landing() {
                 className="block bg-surface"
               />
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Ponta+Grossa,+PR"
+                href="https://www.google.com/maps/search/?api=1&query=Rua+Olavo+Bilac,+481,+Ponta+Grossa,+PR"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-3 right-3 rounded-lg bg-surface px-3 py-1.5 text-xs font-semibold text-foreground shadow-card hover:bg-surface-elevated"
@@ -491,8 +491,8 @@ function Landing() {
             </div>
             <div className="rounded-2xl border border-border bg-surface p-5">
               <p className="text-xs font-semibold uppercase tracking-wide text-brand">Endereço</p>
-              <p className="mt-2 text-sm">Ponta Grossa - PR</p>
-              <p className="mt-1 text-xs text-muted-foreground">Atendimento com agendamento prévio</p>
+              <p className="mt-2 text-sm">Rua Olavo Bilac, 481</p>
+              <p className="mt-1 text-xs text-muted-foreground">Ponta Grossa - PR · Atendimento com agendamento prévio</p>
             </div>
             <div className="rounded-2xl border border-border bg-surface p-5">
               <p className="text-xs font-semibold uppercase tracking-wide text-brand">WhatsApp / Telefone</p>
@@ -514,10 +514,10 @@ function Landing() {
           <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
             <div className="flex flex-col items-center gap-2 sm:items-start">
               <MendexLogo />
-              <p className="text-xs text-muted-foreground">Especialistas em hardware. Ponta Grossa - PR.</p>
+              <p className="text-xs text-muted-foreground">Especialistas em hardware. Rua Olavo Bilac, 481 · Ponta Grossa - PR.</p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-brand" /> Ponta Grossa - PR</span>
+              <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-brand" /> Rua Olavo Bilac, 481 · Ponta Grossa - PR</span>
               <span className="inline-flex items-center gap-1.5"><Clock className="h-3.5 w-3.5 text-brand" /> Seg–Sáb 08h–20h</span>
             </div>
           </div>
