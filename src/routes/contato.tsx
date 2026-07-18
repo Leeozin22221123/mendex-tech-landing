@@ -25,7 +25,6 @@ export const Route = createFileRoute("/contato")({
           email: "contato@mendextech.com.br",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Rua Olavo Bilac, 481",
             addressLocality: "Ponta Grossa",
             addressRegion: "PR",
             addressCountry: "BR",
@@ -96,8 +95,7 @@ function ContatoPage() {
                 <MapPin className="h-6 w-6 text-brand" />
               </div>
               <h2 className="mt-4 text-lg font-bold">Endereço</h2>
-              <p className="mt-1 text-sm font-semibold">Rua Olavo Bilac, 481</p>
-              <p className="text-xs text-muted-foreground">Ponta Grossa - PR</p>
+              <p className="mt-1 text-sm font-semibold">Ponta Grossa - PR</p>
               <p className="mt-2 text-xs text-muted-foreground">Atendimento com agendamento prévio via WhatsApp.</p>
             </div>
 
@@ -116,7 +114,7 @@ function ContatoPage() {
               </div>
               <h2 className="mt-4 text-lg font-bold">Identificação da Empresa</h2>
               <p className="mt-1 text-sm font-semibold">Mendex Tech</p>
-              <p className="text-xs text-muted-foreground">CNPJ 66.781.369/0001-97 · Rua Olavo Bilac, 481 · Ponta Grossa - PR, Brasil</p>
+              <p className="text-xs text-muted-foreground">CNPJ 66.781.369/0001-97 · Ponta Grossa - PR, Brasil</p>
             </div>
           </div>
         </div>
