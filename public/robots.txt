@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://mendex-tech-landing.lovable.app/sitemap.xml

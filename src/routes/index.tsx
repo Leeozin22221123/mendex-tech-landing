@@ -1,25 +1,21 @@
-import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import {
-  Cpu, MessageCircle,
-  ShieldCheck, MapPin, Clock, ArrowRight, CircuitBoard, Zap, Instagram,
-  CheckCircle2, Wrench, Sparkles,
-  Star, Users, UserCheck,
+  Cpu, MessageCircle, MonitorCog,
+  ShieldCheck, Star, MapPin, Clock, ArrowRight, Laptop, Gamepad2,
+  CircuitBoard, FileCheck2, Lock, Zap,
 } from "lucide-react";
+import heroImg from "@/assets/hero-bench.jpg";
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger,
 } from "@/components/ui/dialog";
-import { DiagnosticForm } from "@/components/diagnostic-form";
-
 
 const WHATSAPP_PHONE = "5542999609468";
 const buildWhatsAppUrl = (msg: string) => `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
 const WHATSAPP_URL = buildWhatsAppUrl("Olá Mendex Tech! Vim pelo site e quero um orçamento grátis. Pode me ajudar?");
-const INSTAGRAM_URL = "https://instagram.com/mendex.tech";
 
 function PrivacyPolicyDialog() {
   return (
@@ -70,222 +66,25 @@ function TermsDialog() {
 
 const faqs = [
   { q: "Vocês fazem diagnóstico pago?", a: "Não. O diagnóstico e o orçamento são sempre gratuitos e sem compromisso. Você só paga se decidir prosseguir com o serviço." },
-  { q: "Quanto tempo leva um upgrade ou troca de peça?", a: "Depende da disponibilidade da peça, mas a maioria fica pronta em 24h a 48h. Informamos o prazo no momento do orçamento." },
+  { q: "Quanto tempo leva uma troca de peça ou upgrade?", a: "Depende da disponibilidade da peça, mas a maioria dos serviços fica pronta em 24h a 48h. Informamos o prazo no momento do orçamento." },
   { q: "Vocês trabalham com quais marcas de notebook?", a: "Trabalhamos com todas as marcas: Dell, HP, Lenovo, Samsung, Asus, Acer, Positivo e demais. Se tem hardware, a gente entende." },
   { q: "Como faço para levar meu equipamento até vocês?", a: "É só chamar no WhatsApp. Combinamos o horário de entrega e já saímos com o orçamento para você aprovar." },
-  { q: "Vocês dão garantia no serviço?", a: "Sim. Todo serviço realizado pela Mendex Tech sai com garantia de 90 dias. Peças instaladas e serviços executados são cobertos." },
-];
-
-const SITE_URL = "https://mendex-tech-landing.lovable.app";
-
-const sitelinks = [
-  { name: "Orçamento Grátis no WhatsApp", url: "https://wa.me/5542999609468?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20gr%C3%A1tis%20da%20Mendex%20Tech" },
-  { name: "Nossos Serviços", url: `${SITE_URL}/#solucoes` },
-  { name: "Avaliações de Clientes", url: `${SITE_URL}/#avaliacoes` },
-  { name: "Perguntas Frequentes", url: `${SITE_URL}/#faq` },
-  { name: "Entre em Contato", url: `${SITE_URL}/#contato` },
-  { name: "Instagram", url: `${SITE_URL}/#instagram` },
+  { q: "Vocês dão garantia no serviço?", a: "Sim. Todo serviço realizado pela Mendex Tech sai com garantia. Peças instaladas e serviços executados são cobertos. Pergunte sobre o prazo no momento do atendimento." },
 ];
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Mendex Tech — Upgrade e Montagem de PC em Ponta Grossa" },
-      { name: "description", content: "Seu notebook lento? A gente deixa ele ultra veloz hoje mesmo. Upgrade de hardware, substituição de peças e montagem de PC Gamer em Ponta Grossa. Orçamento grátis no WhatsApp." },
+      { name: "description", content: "Montagem de PC Gamer, upgrade de SSD e RAM, troca de tela e bateria em Ponta Grossa. Orçamento grátis. Fale no WhatsApp." },
       { name: "keywords", content: "upgrade de notebook ponta grossa, montagem pc gamer ponta grossa, troca de tela notebook, instalação ssd notebook, upgrade ram, laboratório de hardware ponta grossa, mendex tech" },
       { property: "og:title", content: "Mendex Tech — Upgrade e Montagem de PC em Ponta Grossa" },
-      { property: "og:description", content: "Seu notebook lento ou travando? A gente deixa ele ultra veloz. Orçamento grátis no WhatsApp." },
+      { property: "og:description", content: "Montagem de PC Gamer, upgrade de SSD e RAM, troca de tela e bateria em Ponta Grossa. Orçamento grátis. Fale no WhatsApp." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: SITE_URL },
-    ],
-    links: [{ rel: "canonical", href: SITE_URL }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "Mendex Tech",
-          url: SITE_URL,
-          potentialAction: {
-            "@type": "SearchAction",
-            target: `${SITE_URL}/?q={search_term_string}`,
-            "query-input": "required name=search_term_string",
-          },
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "@id": `${SITE_URL}/#localbusiness`,
-          name: "Mendex Tech",
-          image: SITE_URL + "/og.jpg",
-          url: SITE_URL,
-          telephone: "+554299960-9468",
-          priceRange: "R$",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Ponta Grossa",
-            addressRegion: "PR",
-            addressCountry: "BR",
-          },
-          areaServed: [{ "@type": "City", name: "Ponta Grossa" }],
-          openingHoursSpecification: [
-            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "09:00", closes: "23:00" },
-            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday","Sunday"], opens: "10:00", closes: "18:00" },
-          ],
-          aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "137" },
-          sameAs: [INSTAGRAM_URL],
-        }),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(
-          sitelinks.map((link) => ({
-            "@context": "https://schema.org",
-            "@type": "SiteNavigationElement",
-            name: link.name,
-            url: link.url,
-          })),
-        ),
-      },
     ],
   }),
   component: Landing,
 });
-
-const testimonials = [
-  { name: "Lucas M.", city: "Ponta Grossa", rating: 5, text: "Meu notebook estava travando demais. Fiz upgrade de SSD e RAM e ficou outro equipamento. Atendimento rápido pelo WhatsApp." },
-  { name: "Mariana S.", city: "Uvaranas", rating: 5, text: "Troquei a tela do notebook em 24h. Preço justo e garantia de 90 dias. Super recomendo!" },
-  { name: "Rafael T.", city: "Ponta Grossa", rating: 5, text: "Montaram meu PC gamer do zero com as peças que escolhi. Tudo funcionando perfeitamente." },
-  { name: "Fernanda L.", city: "Ponta Grossa", rating: 5, text: "Bateria nova no meu Dell e limpeza interna. Muito caprichoso. Atende pelo WhatsApp super rápido." },
-  { name: "Gabriel H.", city: "Oficinas", rating: 5, text: "Orçamento grátis e sem compromisso. Resolvi tudo pelo WhatsApp. Serviço de qualidade." },
-  { name: "Camila R.", city: "Jardim Carvalho", rating: 5, text: "O computador da minha loja parou no meio do dia. Recuperaram tudo e ainda otimizaram. Excelente!" },
-];
-
-const socialProofActivity = [
-  { name: "João P.", city: "Ponta Grossa", action: "solicitou orçamento", time: "agora" },
-  { name: "Ana L.", city: "Uvaranas", action: "enviou foto do equipamento", time: "1 min atrás" },
-  { name: "Carlos M.", city: "Oficinas", action: "fez upgrade de SSD", time: "3 min atrás" },
-  { name: "Mariana S.", city: "Nova Rússia", action: "agendou atendimento", time: "5 min atrás" },
-  { name: "Pedro R.", city: "Ponta Grossa", action: "pediu orçamento de bateria", time: "7 min atrás" },
-  { name: "Juliana T.", city: "Jardim Carvalho", action: "enviou mensagem no WhatsApp", time: "10 min atrás" },
-];
-
-function SocialProofToast() {
-  const [mounted, setMounted] = useState(false);
-  const [current, setCurrent] = useState(0);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const show = () => {
-      setVisible(true);
-      setTimeout(() => setVisible(false), 4000);
-    };
-    show();
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % socialProofActivity.length);
-      show();
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
-
-  if (!mounted) return null;
-  const item = socialProofActivity[current];
-  return (
-    <div
-      className={`fixed bottom-28 left-4 z-[100] max-w-[260px] rounded-xl border border-border bg-surface/95 p-3 shadow-lg backdrop-blur-xl transition-all duration-500 sm:bottom-8 sm:left-6 ${
-        visible ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0 pointer-events-none"
-      }`}
-    >
-      <div className="flex items-start gap-3">
-        <div className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-cta text-cta-foreground">
-          <MessageCircle className="h-4 w-4" />
-        </div>
-        <div className="min-w-0">
-          <p className="text-xs font-semibold text-foreground">{item.name} de {item.city}</p>
-          <p className="text-xs text-muted-foreground">{item.action} {item.time}</p>
-          <p className="mt-1 text-[10px] font-semibold text-cta">via WhatsApp</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SocialCounter() {
-  const [count, setCount] = useState(0);
-  const target = 137;
-  useEffect(() => {
-    let start = 0;
-    const duration = 2000;
-    const step = 16;
-    const increment = target / (duration / step);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, step);
-    return () => clearInterval(timer);
-  }, []);
-  return (
-    <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-foreground sm:gap-6">
-      <div className="flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-2 shadow-sm">
-        <Users className="h-4 w-4 text-cta" />
-        <span><span className="text-cta">{count}</span> pessoas entraram em contato este mês</span>
-      </div>
-      <div className="flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-2 shadow-sm">
-        <UserCheck className="h-4 w-4 text-brand" />
-        <span>+900 equipamentos renovados em PG</span>
-      </div>
-    </div>
-  );
-}
-
-function TestimonialsSection() {
-  return (
-    <section id="avaliacoes" className="relative border-y border-border bg-surface/30 py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Avaliações</span>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">O que dizem quem já foi atendido</h2>
-          <p className="mt-4 text-muted-foreground">Clientes reais de Ponta Grossa e região. Todos os depoimentos são de atendimentos via WhatsApp.</p>
-        </div>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <div key={i} className="rounded-2xl border border-border bg-surface p-5 transition hover:border-brand/40">
-              <div className="flex items-center gap-0.5">
-                {Array.from({ length: 5 }).map((_, j) => (
-                  <Star key={j} className={`h-4 w-4 ${j < t.rating ? "fill-cta text-cta" : "text-muted-foreground"}`} />
-                ))}
-              </div>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">"{t.text}"</p>
-              <div className="mt-4 border-t border-border pt-3">
-                <p className="text-sm font-semibold">{t.name}</p>
-                <p className="text-xs text-muted-foreground">{t.city}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-10 flex flex-col items-center gap-3">
-          <CtaWhatsapp
-            size="lg"
-            className="w-[92%] sm:w-auto"
-            label="Quer ser o próximo a avaliar? Chame no WhatsApp"
-            dataCta="whatsapp-testimonials"
-          />
-          <p className="text-xs text-muted-foreground">Média de 5 estrelas em todos os atendimentos</p>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function MendexLogo() {
   return (
@@ -301,23 +100,9 @@ function MendexLogo() {
   );
 }
 
-function WhatsappGlyph({ className = "h-5 w-5" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
-      <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.04 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  );
-}
-
-function CtaWhatsapp({
-  size = "default",
-  className = "",
-  label = "Fazer Orçamento Grátis no WhatsApp",
-  href = WHATSAPP_URL,
-  dataCta = "whatsapp",
-}: { size?: "default" | "lg" | "xl"; className?: string; label?: string; href?: string; dataCta?: string }) {
+function CtaWhatsapp({ size = "default", className = "", label = "Falar no WhatsApp — Orçamento Grátis", href = WHATSAPP_URL }: { size?: "default" | "lg" | "xl"; className?: string; label?: string; href?: string }) {
   const sz =
-    size === "xl" ? "h-16 px-8 text-base sm:text-lg" :
+    size === "xl" ? "h-16 px-9 text-base sm:text-lg" :
     size === "lg" ? "h-14 px-7 text-base" :
     "h-11 px-5 text-sm";
   return (
@@ -325,10 +110,10 @@ function CtaWhatsapp({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      data-cta={dataCta}
-      className={`group inline-flex items-center justify-center gap-3 rounded-full bg-cta font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-100 ${sz} ${className}`}
+      data-cta="whatsapp"
+      className={`group inline-flex items-center justify-center gap-2.5 rounded-full bg-cta font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-100 ${sz} ${className}`}
     >
-      <WhatsappGlyph className={size === "xl" ? "h-6 w-6" : "h-5 w-5"} />
+      <MessageCircle className="h-5 w-5" />
       <span>{label}</span>
       <ArrowRight className="h-4 w-4 -translate-x-1 opacity-70 transition group-hover:translate-x-0 group-hover:opacity-100" />
     </a>
@@ -341,90 +126,48 @@ function FloatingWhatsapp() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Falar no WhatsApp agora"
+      aria-label="Falar no WhatsApp — Orçamento Grátis"
       data-cta="whatsapp-float"
-      title="Falar no WhatsApp agora →"
-      className="group fixed bottom-24 right-5 z-[100] hidden h-[58px] w-[58px] place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.55)] ring-4 ring-[#25D366]/25 transition hover:scale-110 sm:grid"
+      className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-cta px-4 py-3 font-bold text-cta-foreground shadow-cta ring-4 ring-cta/20 transition hover:scale-105 sm:bottom-6 sm:right-6"
     >
-      <span className="absolute inset-0 -z-10 rounded-full bg-[#25D366]/60 animate-ping opacity-60" style={{ animationDuration: "4s" }} />
-      <WhatsappGlyph className="h-7 w-7" />
-      <span className="pointer-events-none absolute right-full top-1/2 mr-3 -translate-y-1/2 whitespace-nowrap rounded-lg bg-foreground px-3 py-1.5 text-xs font-semibold text-background opacity-0 shadow-lg transition group-hover:opacity-100">
-        Falar no WhatsApp agora →
-      </span>
+      <span className="absolute inset-0 -z-10 rounded-full bg-cta/40 blur-xl animate-pulse" />
+      <MessageCircle className="h-6 w-6" />
+      <span className="text-sm font-bold">Orçamento Grátis</span>
     </a>
   );
 }
 
-function StickyMobileBar() {
-  return (
-    <div className="fixed inset-x-0 bottom-0 z-[100] border-t border-border bg-background/95 px-3 py-2.5 backdrop-blur-xl sm:hidden">
-      <div className="flex items-center gap-2">
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-cta="whatsapp-sticky-mobile"
-          className="flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-cta text-sm font-bold uppercase tracking-wide text-cta-foreground shadow-cta animate-pulse-cta"
-        >
-          <WhatsappGlyph className="h-5 w-5" />
-          <span>WhatsApp Grátis</span>
-        </a>
-        <a
-          href="tel:+554299960-9468"
-          data-cta="call-sticky-mobile"
-          aria-label="Ligar para a Mendex Tech agora"
-          className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-full border border-brand/40 bg-brand/15 text-brand"
-        >
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  );
-}
-
-const howItWorks = [
-  { icon: MessageCircle, title: "1. Chame no WhatsApp", desc: "Conte rapidamente o que está acontecendo com seu equipamento." },
-  { icon: Sparkles, title: "2. Receba o orçamento", desc: "Em minutos, enviamos o valor e o prazo — sem compromisso." },
-  { icon: Wrench, title: "3. Equipamento renovado", desc: "Aprovou? A gente executa com garantia de 90 dias." },
+const benefits = [
+  { icon: FileCheck2, title: "Orçamento Sempre Grátis", desc: "Avaliamos seu equipamento e apresentamos o orçamento sem nenhum custo. Você decide se quer prosseguir." },
+  { icon: ShieldCheck, title: "Peças com Procedência", desc: "Usamos apenas componentes de fornecedores confiáveis. SSD, RAM, telas e baterias com nota fiscal e rastreabilidade." },
+  { icon: Lock, title: "Garantia no Serviço", desc: "Todo upgrade e toda substituição de peça saem com garantia. Você tem segurança do início ao fim do processo." },
+  { icon: MessageCircle, title: "Atendimento Direto no WhatsApp", desc: "Sem fila de espera e sem formulário. Fale diretamente com quem vai cuidar do seu equipamento. Resposta rápida, solução real." },
 ];
 
-const trustBadges = [
-  { icon: ShieldCheck, title: "Garantia de 90 Dias", desc: "Em todos os serviços realizados" },
-  { icon: MapPin, title: "Atendimento Local em PG", desc: "Estamos em Ponta Grossa - PR" },
-  { icon: CircuitBoard, title: "Peças de Alta Qualidade", desc: "Componentes com procedência e nota fiscal" },
-  { icon: Zap, title: "Orçamento em Minutos", desc: "Grátis, rápido e sem compromisso" },
+const services = [
+  { icon: Gamepad2, title: "Montagem de PC Gamer", desc: "Montamos seu PC do zero com as peças que você escolher. Hardware selecionado, cabeamento organizado e tudo testado antes de sair do nosso laboratório.", msg: "Olá Mendex Tech! Quero um orçamento para montagem de PC Gamer." },
+  { icon: Zap, title: "Upgrade de SSD e RAM", desc: "Notebook ou PC lento? Instalamos SSD de alta velocidade e ampliamos sua memória RAM. A diferença você sente na hora que liga pela primeira vez.", msg: "Olá Mendex Tech! Quero um orçamento de upgrade de SSD e/ou memória RAM." },
+  { icon: Laptop, title: "Substituição de Peças", desc: "Troca de tela, bateria, teclado, dobradiça e carcaça. Trabalhamos com peças de procedência e entregamos com garantia no serviço.", msg: "Olá Mendex Tech! Preciso de orçamento para substituição de peça (tela / bateria / teclado)." },
+  { icon: MonitorCog, title: "Recuperação de Performance", desc: "Computador travando, superaquecendo ou demorando para iniciar? Identificamos o componente com problema e devolvemos a performance original do seu equipamento.", msg: "Olá Mendex Tech! Meu computador está lento/esquentando. Quero um diagnóstico grátis." },
+  { icon: CircuitBoard, title: "Laboratório de Hardware", desc: "Diagnóstico completo de notebooks e desktops. Analisamos cada componente e apresentamos o orçamento antes de qualquer intervenção. Sem surpresas.", msg: "Olá Mendex Tech! Quero levar meu equipamento para diagnóstico completo." },
 ];
 
-const painSolutions = [
-  { pain: "💤 Notebook extremamente lento no dia a dia", solution: "Otimização e Upgrade de SSD de Alta Velocidade", msg: "Olá Mendex Tech! Meu notebook está extremamente lento. Quero um orçamento de upgrade de SSD." },
-  { pain: "🔥 Superaquecimento e travamentos constantes", solution: "Diagnóstico de Hardware e Substituição de Peças", msg: "Olá Mendex Tech! Meu equipamento está superaquecendo e travando. Quero um diagnóstico grátis." },
-  { pain: "🔋 Bateria que não dura nem 30 minutos", solution: "Substituição de Bateria com Peça de Qualidade", msg: "Olá Mendex Tech! Quero um orçamento para substituição da bateria do meu notebook." },
-  { pain: "💀 Computador com componentes ultrapassados", solution: "Upgrade Completo de RAM, SSD e Processador", msg: "Olá Mendex Tech! Quero um orçamento de upgrade completo (RAM, SSD e processador)." },
-  { pain: "🖥️ Quer montar um PC Gamer do zero", solution: "Montagem Personalizada com as Peças que Você Escolher", msg: "Olá Mendex Tech! Quero montar um PC Gamer do zero. Pode me passar um orçamento?" },
-  { pain: "⚡ PC ou notebook que desliga ou não inicializa", solution: "Diagnóstico Completo e Recuperação de Performance", msg: "Olá Mendex Tech! Meu computador não está inicializando direito. Quero um diagnóstico." },
+const quickReplies = [
+  { label: "Upgrade SSD/RAM", msg: "Olá Mendex Tech! Quero um orçamento de upgrade de SSD e/ou memória RAM." },
+  { label: "Montar PC Gamer", msg: "Olá Mendex Tech! Quero um orçamento para montagem de PC Gamer." },
+  { label: "Trocar tela/bateria", msg: "Olá Mendex Tech! Preciso trocar tela ou bateria do meu notebook." },
+  { label: "Meu PC está lento", msg: "Olá Mendex Tech! Meu PC está lento. Quero diagnóstico grátis." },
 ];
 
-function useAdsKeyword() {
-  const [kw, setKw] = useState<string | null>(null);
-  useEffect(() => {
-    try {
-      const p = new URLSearchParams(window.location.search);
-      const raw = (p.get("kw") || p.get("utm_term") || "").trim();
-      if (!raw) return;
-      const clean = raw.replace(/[+_]/g, " ").replace(/[^\p{L}\p{N}\s\-áéíóúâêôãõçÁÉÍÓÚÂÊÔÃÕÇ]/gu, "").slice(0, 60);
-      if (clean.length >= 3) setKw(clean.replace(/\b\w/g, (c) => c.toUpperCase()));
-    } catch {}
-  }, []);
-  return kw;
-}
+const testimonials = [
+  { name: "Ricardo Almeida", role: "Designer Freelancer", text: "Meu notebook engasgava em tudo. Fizeram upgrade para SSD e ficou mais rápido que quando comprei." },
+  { name: "Juliana Martins", role: "Estudante de Medicina", text: "Fiz upgrade de memória RAM e SSD com eles em 2 dias, com garantia por escrito. Recomendo demais!" },
+  { name: "Carlos Eduardo", role: "Analista de TI", text: "Diagnóstico preciso, preço justo e atendimento profissional do início ao fim. Total confiança na Mendex." },
+];
 
 function Landing() {
-  const kw = useAdsKeyword();
-
   return (
-    <div id="top" className="min-h-screen pb-20 text-foreground sm:pb-0">
+    <div id="top" className="min-h-screen text-foreground">
       {/* Header */}
       <header className="sticky top-0 z-40 glass">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
@@ -433,7 +176,6 @@ function Landing() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            data-cta="whatsapp-header"
             className="inline-flex h-10 items-center gap-2 rounded-full bg-cta px-4 text-sm font-bold text-cta-foreground shadow-cta transition hover:scale-[1.03]"
           >
             <MessageCircle className="h-4 w-4" />
@@ -443,184 +185,206 @@ function Landing() {
         </div>
       </header>
 
-      {/* Hero — primeira dobra */}
+      {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-40" />
         <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-brand/25 blur-3xl" />
-        <div className="absolute right-0 top-1/3 h-[360px] w-[360px] rounded-full bg-cta/20 blur-3xl" />
-
-        <div className="relative mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-20 md:py-28">
-          <div className="animate-fade-up">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-14 sm:px-6 md:py-20 lg:grid-cols-2 lg:py-24">
+          <div className="animate-fade-up text-center lg:text-left">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cta" />
-              {kw ? <>Você buscou: <span className="text-foreground">{kw}</span> — atendemos hoje</> : <>Ponta Grossa · Laboratório de Hardware</>}
+              Ponta Grossa · Laboratório de Hardware
             </div>
-
-
-            <h1 className="font-display text-[2rem] font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
-              Seu Computador ou Notebook Está Lento ou Quebrou?
-              <br />
-              <span className="text-gradient-brand">A Gente Arruma no Mesmo Dia.</span>
+            <h1 className="font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
+              Seu PC ou Notebook{" "}
+              <span className="text-gradient-brand">no Nível que Sempre Mereceu</span>
             </h1>
-
-            <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              <span className="font-semibold text-foreground">Diagnóstico de hardware e orçamento 100% grátis</span> — sem compromisso, direto no WhatsApp. Upgrade, substituição de peças, montagem de PC Gamer e conserto de desktops e notebooks em Ponta Grossa.
+            <p className="mt-6 text-base text-muted-foreground sm:text-lg">
+              Montagem de PC Gamer, upgrade de hardware e substituição de peças em Ponta Grossa. Mais performance. Sem complicação.
             </p>
-
-
-
-            <div className="mt-9 flex flex-col items-center gap-4">
-              <CtaWhatsapp
-                size="xl"
-                className="animate-pulse-cta w-[92%] sm:w-auto"
-                label="Fazer Orçamento Grátis"
-                dataCta="whatsapp-hero"
-              />
-              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
-                <span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cta" /> Online agora · resposta em &lt; 5 min</span>
-                <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cta" /> Sem compromisso</span>
-                <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-cta" /> Garantia 90 dias</span>
+            <div className="mt-8 flex flex-col items-center gap-4 lg:items-start">
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <CtaWhatsapp size="xl" className="animate-pulse-cta w-full sm:w-auto" />
+                <a
+                  href="#servicos"
+                  className="inline-flex h-16 items-center justify-center rounded-full border border-brand/40 bg-brand/5 px-8 text-base font-bold uppercase tracking-wide text-foreground transition hover:bg-brand/10"
+                >
+                  Ver Nossos Serviços
+                </a>
               </div>
-              <SocialCounter />
+
+              <div className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+                <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Resposta rápida:</span>
+                {quickReplies.map((q) => (
+                  <a
+                    key={q.label}
+                    href={buildWhatsAppUrl(q.msg)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp-chip"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-cta/40 bg-cta/10 px-3 py-1.5 text-xs font-semibold text-cta transition hover:bg-cta/20"
+                  >
+                    <MessageCircle className="h-3.5 w-3.5" />
+                    {q.label}
+                  </a>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm text-muted-foreground lg:justify-start">
+                <span className="inline-flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-cta text-cta" />
+                  ))}
+                  <span className="ml-1">+200 clientes satisfeitos</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+                  Respondemos no WhatsApp em minutos
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative animate-fade-up [animation-delay:120ms]">
+            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-brand/30 to-transparent blur-2xl" />
+            <div className="relative overflow-hidden rounded-2xl border border-border shadow-glow">
+              <img
+                src={heroImg}
+                alt="Bancada profissional com notebook aberto para upgrade de hardware"
+                width={1536}
+                height={1152}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Como funciona — reduz atrito antes do CTA */}
-      <section className="relative border-t border-border bg-surface/30 py-14 sm:py-16">
+      {/* Benefits / Diferenciais */}
+      <section className="relative border-y border-border bg-surface/50 py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Simples assim</span>
-            <h2 className="mt-3 text-2xl font-bold sm:text-3xl">Em 3 passos você sai do problema</h2>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Por que nos escolher</span>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Diferenciais Mendex Tech</h2>
           </div>
-          <div className="mt-10 grid gap-5 sm:grid-cols-3">
-            {howItWorks.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="relative rounded-2xl border border-border bg-surface p-6 text-center transition hover:border-brand/50">
-                <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl bg-brand/15 ring-1 ring-brand/30">
-                  <Icon className="h-6 w-6 text-brand" />
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {benefits.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="rounded-2xl border border-border bg-surface p-5">
+                <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand/15 ring-1 ring-brand/30">
+                  <Icon className="h-5 w-5 text-brand" />
                 </div>
-                <p className="mt-4 text-base font-bold">{title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 flex justify-center">
-            <CtaWhatsapp
-              size="lg"
-              className="w-[92%] sm:w-auto"
-              label="Começar Agora no WhatsApp"
-              dataCta="whatsapp-how"
-            />
-          </div>
-        </div>
-      </section>
-
-      <TestimonialsSection />
-
-      {/* Selos de Confiança */}
-      <section className="relative border-y border-border bg-surface/60 py-10">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
-            {trustBadges.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="flex items-start gap-3 rounded-2xl border border-border bg-surface p-4 sm:p-5">
-                <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl bg-cta/15 ring-1 ring-cta/30">
-                  <Icon className="h-5 w-5 text-cta" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold leading-snug">{title}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{desc}</p>
-                </div>
+                <p className="text-sm font-semibold leading-snug">{title}</p>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Mapeamento de Dores e Soluções */}
-      <section id="solucoes" className="relative py-20 sm:py-24">
+      {/* Services */}
+      <section id="servicos" className="relative py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Dor → Solução</span>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Como Podemos Valorizar Seu Equipamento Hoje?</h2>
-            <p className="mt-4 text-muted-foreground">
-              Identifique abaixo o que está acontecendo com o seu PC ou notebook e veja o que fazemos para resolver.
-            </p>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Nossos serviços</span>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Hardware, performance e procedência</h2>
+            <p className="mt-4 text-muted-foreground">Peças de qualidade, instalação profissional e garantia em tudo que fazemos.</p>
           </div>
 
-          <div className="mt-12 grid gap-5 lg:grid-cols-2">
-            {painSolutions.map(({ pain, solution, msg }) => (
-              <a
-                key={pain}
-                href={buildWhatsAppUrl(msg)}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cta="whatsapp-pain"
-                className="group flex flex-col gap-4 rounded-2xl border border-cta/30 bg-surface p-5 transition hover:-translate-y-1 hover:border-cta/70 hover:shadow-glow sm:flex-row sm:items-center sm:p-6"
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map(({ icon: Icon, title, desc, msg }) => (
+              <article
+                key={title}
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface p-6 transition hover:-translate-y-1 hover:border-brand/50 hover:shadow-glow sm:p-7"
               >
-                <div className="flex-1">
-                  <p className="text-sm font-semibold text-orange-300/90 sm:text-base">{pain}</p>
+                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand/10 blur-2xl transition group-hover:bg-brand/25" />
+                <div className="relative flex flex-1 flex-col">
+                  <div className="mb-5 inline-grid h-12 w-12 place-items-center rounded-xl bg-brand/15 ring-1 ring-brand/30 transition group-hover:bg-brand/25">
+                    <Icon className="h-6 w-6 text-brand" />
+                  </div>
+                  <h3 className="text-lg font-semibold sm:text-xl">{title}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+                  <a
+                    href={buildWhatsAppUrl(msg)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp-service"
+                    className="mt-5 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-cta/15 px-4 text-sm font-bold text-cta ring-1 ring-cta/30 transition hover:bg-cta hover:text-cta-foreground"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    Pedir Orçamento deste Serviço
+                  </a>
                 </div>
-                <ArrowRight className="hidden h-5 w-5 flex-shrink-0 text-cta transition group-hover:translate-x-1 sm:block" />
-                <div className="flex-1 border-t border-border pt-4 sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0">
-                  <p className="text-sm font-bold text-cta sm:text-base">→ {solution}</p>
-                </div>
-              </a>
+              </article>
             ))}
           </div>
 
           <div className="mt-12 flex justify-center">
-            <CtaWhatsapp
-              size="lg"
-              className="animate-pulse-cta w-[90%] sm:w-auto"
-              label="Meu caso é esse — Quero Orçamento Grátis"
-              dataCta="whatsapp-pain-cta"
-            />
+            <CtaWhatsapp size="lg" className="animate-pulse-cta" label="Solicitar Orçamento no WhatsApp" />
           </div>
         </div>
       </section>
 
-      {/* Instagram Feed */}
-      <section id="instagram" className="relative border-y border-border bg-surface/40 py-20 sm:py-24">
+      {/* Sobre */}
+      <section className="relative bg-surface/40 py-20 sm:py-24">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Sobre a Mendex Tech</span>
+          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Laboratório de hardware em Ponta Grossa</h2>
+          <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
+            <p>
+              A Mendex Tech é um laboratório especializado em hardware localizado em Ponta Grossa - PR. Trabalhamos com montagem de PC Gamer sob encomenda, upgrades de performance e substituição de componentes de notebooks e desktops.
+            </p>
+            <p>
+              Nosso foco é simples: devolver ou ampliar a performance do seu equipamento com transparência, peças de qualidade e garantia em tudo que fazemos. Sem enrolação, sem surpresa no bolso.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="relative py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Prova social</span>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Veja Nosso Trabalho no Instagram</h2>
-            <p className="mt-4 text-muted-foreground">Antes e depois reais. Equipamentos transformados pela Mendex.</p>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Depoimentos</span>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Quem confia, recomenda</h2>
           </div>
 
-          <div
-            className="mt-12"
-            ref={(node) => {
-              if (!node || node.querySelector('.elfsight-app-e785303c-5294-4767-8c3d-93c98e3df707')) return;
-              node.innerHTML = `<!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-e785303c-5294-4767-8c3d-93c98e3df707" data-elfsight-app-lazy></div>`;
-              const oldScript = node.querySelector('script');
-              if (oldScript) {
-                const newScript = document.createElement('script');
-                const src = oldScript.getAttribute('src');
-                if (src) newScript.src = src;
-                newScript.async = true;
-                oldScript.parentNode?.replaceChild(newScript, oldScript);
-              }
-            }}
-          />
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <figure key={t.name} className="flex h-full flex-col rounded-2xl border border-border bg-surface p-7">
+                <div className="flex gap-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-cta text-cta" />
+                  ))}
+                </div>
+                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground/90">"{t.text}"</blockquote>
+                <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-4">
+                  <div className="grid h-10 w-10 place-items-center rounded-full bg-brand/15 font-semibold text-brand">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold">{t.name}</div>
+                    <div className="text-xs text-muted-foreground">{t.role}</div>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="mt-10 flex justify-center">
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex h-14 items-center justify-center gap-2 rounded-full px-7 text-sm font-bold uppercase tracking-wide text-foreground transition hover:-translate-y-0.5"
-              style={{
-                background: "linear-gradient(#0b0b14,#0b0b14) padding-box, linear-gradient(135deg,#833AB4,#FD1D1D,#F77737) border-box",
-                border: "2px solid transparent",
-              }}
-            >
-              <Instagram className="h-5 w-5" />
-              Ver mais no Instagram → @mendex.tech
-            </a>
+      {/* CTA do meio */}
+      <section className="relative overflow-hidden py-16">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand/20 via-transparent to-cta/10" />
+        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">
+            Notebook Lento ou Peça Danificada? A Gente Resolve.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Diagnóstico grátis. Orçamento sem compromisso. Atendemos em Ponta Grossa e região.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <CtaWhatsapp size="xl" className="animate-pulse-cta w-full sm:w-auto" label="Solicitar Orçamento no WhatsApp" />
           </div>
         </div>
       </section>
@@ -651,70 +415,13 @@ function Landing() {
         </div>
       </section>
 
-      {/* Diagnóstico grátis — formulário com mensagem pronta */}
-      <section id="diagnostico" className="relative border-t border-border bg-surface/30 py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Diagnóstico grátis</span>
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Peça seu diagnóstico em 30 segundos</h2>
-            <p className="mt-4 text-sm text-muted-foreground sm:text-base">
-              Informe o modelo e o defeito — abrimos o WhatsApp com a mensagem pronta e nosso time já responde com o orçamento.
-            </p>
-          </div>
-          <div className="mt-10">
-            <DiagnosticForm dataCta="whatsapp-home-diagnostic" />
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Final */}
-      <section className="relative overflow-hidden py-20 sm:py-24">
-
-        <div className="absolute inset-0 bg-gradient-to-br from-brand/25 via-background to-cta/15" />
-        <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
-          <h2 className="font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl">
-            Pronto para Resolver?{" "}
-            <span className="text-gradient-brand">É Só Chamar.</span>
-          </h2>
-          <p className="mt-6 text-base text-muted-foreground sm:text-lg">
-            <span className="font-semibold text-foreground">Diagnóstico de hardware grátis</span> e <span className="font-semibold text-foreground">orçamento grátis</span> — sem compromisso.
-            <br />
-            Atendemos segunda a sábado, das 08h às 20h.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-semibold">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-cta/40 bg-cta/10 px-3 py-1 text-cta">
-              <CheckCircle2 className="h-3.5 w-3.5" /> Diagnóstico grátis
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-cta/40 bg-cta/10 px-3 py-1 text-cta">
-              <CheckCircle2 className="h-3.5 w-3.5" /> Orçamento grátis
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/40 bg-brand/10 px-3 py-1 text-brand">
-              <CheckCircle2 className="h-3.5 w-3.5" /> Sem compromisso
-            </span>
-          </div>
-          <div className="mt-10 flex flex-col items-center gap-3">
-            <CtaWhatsapp
-              size="xl"
-              className="animate-pulse-cta w-[90%] sm:w-auto"
-              label="Pedir Diagnóstico e Orçamento Grátis"
-              dataCta="whatsapp-final"
-            />
-            <p className="text-sm text-muted-foreground">
-              📍 Ponta Grossa - PR · Respondemos rapidinho ⚡
-            </p>
-          </div>
-
-        </div>
-      </section>
-
       {/* Contato / Identificação da empresa */}
       <section id="contato" className="relative border-t border-border bg-surface/40 py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Contato</span>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Fale com a Mendex Tech</h2>
-            <p className="mt-3 text-sm text-muted-foreground">Informações de contato e identificação da empresa.</p>
+            <p className="mt-3 text-sm text-muted-foreground">Informações de contato e identificação da empresa, em conformidade com a legislação de transparência ao consumidor.</p>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-2xl border border-border bg-surface p-5">
@@ -729,19 +436,19 @@ function Landing() {
             </div>
             <div className="rounded-2xl border border-border bg-surface p-5">
               <p className="text-xs font-semibold uppercase tracking-wide text-brand">WhatsApp / Telefone</p>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" data-cta="whatsapp-contact" className="mt-2 block text-sm font-semibold hover:text-brand">+55 42 99960-9468</a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-2 block text-sm font-semibold hover:text-brand">+55 42 99960-9468</a>
               <p className="mt-1 text-xs text-muted-foreground">Seg–Sex 09h–23h · Sáb–Dom 10h–18h</p>
             </div>
             <div className="rounded-2xl border border-border bg-surface p-5">
               <p className="text-xs font-semibold uppercase tracking-wide text-brand">E-mail</p>
-              <a href="mailto:contato@mendextech.com.br" className="mt-2 block break-all text-sm font-semibold hover:text-brand">contato@mendextech.com.br</a>
+              <a href="mailto:contato@mendextech.com.br" className="mt-2 block text-sm font-semibold break-all hover:text-brand">contato@mendextech.com.br</a>
               <p className="mt-1 text-xs text-muted-foreground">Resposta em até 24h úteis</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer compacto */}
       <footer className="border-t border-border bg-surface/60">
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
           <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
@@ -765,9 +472,8 @@ function Landing() {
         </div>
       </footer>
 
+
       <FloatingWhatsapp />
-      <StickyMobileBar />
-      <SocialProofToast />
     </div>
   );
 }
