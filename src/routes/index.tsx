@@ -392,7 +392,7 @@ function Landing() {
               O que define a Mendex Tech
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Quatro compromissos que sustentam a relação com cada cliente, do primeiro contato à garantia.
+              Compromissos que sustentam a relação com cada cliente, do primeiro contato à garantia.
             </p>
           </div>
           <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
@@ -404,8 +404,12 @@ function Landing() {
               </div>
             ))}
           </div>
+          <div className="mt-10">
+            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-diferenciais" />
+          </div>
         </div>
       </section>
+
 
       {/* Estrutura */}
       <section id="estrutura" className="relative py-20 sm:py-28">
