@@ -644,7 +644,7 @@ function Landing() {
                 Atendimento presencial mediante agendamento prévio. Entre em contato para conversar com a nossa
                 equipe sobre o seu equipamento ou sobre o parque de máquinas da sua empresa.
               </p>
-              <QuietCta label="Iniciar conversa no WhatsApp" className="mt-8" tag="whatsapp-contato" />
+              <QuietCta label="Solicitar orçamento" className="mt-8" tag="whatsapp-contato" />
             </div>
             <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
               <div className="bg-background p-7">
