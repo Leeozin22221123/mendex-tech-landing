@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   Cpu, MessageCircle, ShieldCheck, Star, MapPin, Clock, ArrowRight,
   Laptop, Gamepad2, CircuitBoard, Microscope, Layers, Gauge, Users,
-  Building2, BadgeCheck, Mail, Phone,
+  Building2, BadgeCheck, Mail, Phone, HardDrive, MemoryStick, Sparkles,
 } from "lucide-react";
 import heroImg from "@/assets/hero-bench.jpg";
 import labImg from "@/assets/lab-interior.jpg";
