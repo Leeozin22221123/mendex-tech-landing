@@ -68,27 +68,78 @@ function TermsDialog() {
 }
 
 const faqs = [
+  { q: "Como solicito um orçamento?", a: "Basta entrar em contato pelo WhatsApp ou e-mail descrevendo o seu equipamento e o objetivo desejado. A nossa equipe retorna com uma proposta detalhada, sem custo e sem compromisso." },
+  { q: "A avaliação técnica tem algum custo?", a: "Não. A avaliação do equipamento e a apresentação da proposta são gratuitas. Nenhum procedimento é iniciado sem a sua aprovação prévia." },
   { q: "Onde a Mendex Tech está localizada?", a: "Somos uma empresa local, com laboratório próprio em Ponta Grossa - PR. O atendimento presencial acontece mediante agendamento prévio, garantindo tempo dedicado a cada equipamento." },
-  { q: "Como funciona o processo de atendimento?", a: "O contato inicial é feito pelo WhatsApp ou e-mail. Em seguida, o equipamento é recebido em nosso laboratório, avaliado pela equipe e o cliente recebe uma proposta detalhada antes de qualquer procedimento." },
-  { q: "A avaliação técnica tem custo?", a: "Não. A avaliação e a proposta comercial são gratuitas e sem compromisso. O cliente decide com total liberdade se deseja prosseguir." },
-  { q: "Quais garantias a empresa oferece?", a: "Todos os componentes instalados e serviços executados são cobertos por garantia formal de no mínimo 90 dias, com registro documentado do atendimento." },
-  { q: "Quais tipos de equipamento a empresa atende?", a: "Atuamos com desktops e notebooks de uso pessoal, profissional e corporativo, incluindo estações de trabalho e computadores de alto desempenho." },
+  { q: "Qual é a garantia oferecida?", a: "Todos os componentes instalados e serviços executados contam com garantia formal de no mínimo 90 dias, com registro documentado do atendimento." },
+  { q: "Qual é o prazo de entrega?", a: "A maior parte dos projetos de upgrade, montagem e otimização é concluída entre 24 e 72 horas, conforme a disponibilidade dos componentes. O prazo é sempre informado na proposta." },
+  { q: "Quais equipamentos a empresa atende?", a: "Atuamos com desktops e notebooks de uso pessoal, profissional e corporativo, incluindo estações de trabalho e computadores de alto desempenho." },
   { q: "A Mendex Tech atende empresas?", a: "Sim. Atendemos clientes corporativos de Ponta Grossa e região, com padronização de equipamentos, upgrades planejados e acompanhamento contínuo do parque de máquinas." },
 ];
+
+const SITE_URL = "https://mendextech.com.br";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Mendex Tech",
+  description:
+    "Empresa especializada em tecnologia para computadores e notebooks em Ponta Grossa - PR. Upgrade de SSD, expansão de memória RAM, montagem de computadores, diagnóstico de hardware e otimização de performance.",
+  url: SITE_URL,
+  telephone: "+554299609468",
+  email: "contato@mendextech.com.br",
+  image: `${SITE_URL}/og-image.jpg`,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Ponta Grossa",
+    addressRegion: "PR",
+    addressCountry: "BR",
+  },
+  areaServed: { "@type": "City", name: "Ponta Grossa" },
+  openingHoursSpecification: [
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "23:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday", "Sunday"], opens: "10:00", closes: "18:00" },
+  ],
+  makesOffer: [
+    "Upgrade de SSD", "Expansão de Memória RAM", "Montagem de Computadores",
+    "Diagnóstico de Hardware", "Limpeza Técnica", "Substituição de Componentes",
+    "Otimização de Performance", "Soluções em Hardware",
+  ].map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s } })),
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mendex Tech — Empresa de Tecnologia em Ponta Grossa" },
-      { name: "description", content: "Mendex Tech: empresa especializada em tecnologia para computadores e notebooks em Ponta Grossa. Laboratório próprio, equipe especializada e garantia formal." },
-      { name: "keywords", content: "mendex tech, empresa de tecnologia ponta grossa, laboratório de hardware, montagem de computadores, upgrade de desempenho, notebooks ponta grossa" },
-      { property: "og:title", content: "Mendex Tech — Empresa de Tecnologia em Ponta Grossa" },
-      { property: "og:description", content: "Empresa especializada em tecnologia para computadores e notebooks. Laboratório próprio, equipe especializada, garantia e transparência." },
+      { title: "Mendex Tech | Soluções em Hardware em Ponta Grossa - PR" },
+      { name: "description", content: "Empresa especializada em computadores e notebooks em Ponta Grossa. Upgrade de SSD, memória RAM, montagem de computadores e otimização de performance. Laboratório próprio e garantia formal." },
+      { name: "keywords", content: "mendex tech, empresa de tecnologia ponta grossa, upgrade ssd ponta grossa, memória ram ponta grossa, montagem de computadores ponta grossa, diagnóstico de hardware, otimização de performance, notebooks ponta grossa, laboratório de hardware paraná" },
+      { property: "og:title", content: "Mendex Tech | Soluções em Hardware em Ponta Grossa - PR" },
+      { property: "og:description", content: "Tecnologia, desempenho e confiança para computadores e notebooks. Laboratório próprio em Ponta Grossa, equipe especializada e garantia formal." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:site_name", content: "Mendex Tech" },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(localBusinessSchema) },
+      { type: "application/ld+json", children: JSON.stringify(faqSchema) },
     ],
   }),
   component: Landing,
 });
+
 
 function MendexLogo() {
   return (
