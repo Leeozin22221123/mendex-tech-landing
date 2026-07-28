@@ -697,6 +697,7 @@ function Landing() {
                 <li><a href="#empresa" className="transition hover:text-brand">Quem somos</a></li>
                 <li><a href="#diferenciais" className="transition hover:text-brand">Diferenciais</a></li>
                 <li><a href="#estrutura" className="transition hover:text-brand">Estrutura</a></li>
+                <li><a href="#ambiente" className="transition hover:text-brand">Nosso ambiente</a></li>
                 <li><a href="#especialidades" className="transition hover:text-brand">Especialidades</a></li>
                 <li><a href="#faq" className="transition hover:text-brand">Perguntas frequentes</a></li>
               </ul>
