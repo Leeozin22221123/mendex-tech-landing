@@ -466,6 +466,72 @@ function Landing() {
         </div>
       </section>
 
+      {/* Galeria — ambiente profissional */}
+      <section id="ambiente" className="relative border-t border-border py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="max-w-2xl">
+            <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Nosso ambiente</span>
+            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-4xl">
+              O espaço onde cada projeto acontece
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Laboratório, bancadas, ferramental e equipamentos que sustentam o padrão de trabalho da Mendex Tech
+              em Ponta Grossa.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-5 lg:grid-cols-3">
+            <figure className="group relative overflow-hidden rounded-xl border border-border lg:col-span-2 lg:row-span-2">
+              <img
+                src={labImg}
+                alt="Laboratório da Mendex Tech em Ponta Grossa com bancadas e equipamentos profissionais"
+                width={1536}
+                height={1024}
+                loading="lazy"
+                className="h-72 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[34rem]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="font-display text-lg font-semibold">Laboratório próprio</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Ambiente dedicado e organizado para o trabalho com hardware.</p>
+              </figcaption>
+            </figure>
+            <figure className="group relative overflow-hidden rounded-xl border border-border">
+              <img
+                src={benchImg}
+                alt="Bancada antiestática e ferramentas profissionais da Mendex Tech"
+                width={1024}
+                height={1024}
+                loading="lazy"
+                className="h-64 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-sm font-semibold">Bancada e ferramental</h3>
+                <p className="mt-1 text-xs text-muted-foreground">Manuseio seguro de placas e componentes sensíveis.</p>
+              </figcaption>
+            </figure>
+            <figure className="group relative overflow-hidden rounded-xl border border-border">
+              <img
+                src={pcImg}
+                alt="Computador de alto desempenho montado no laboratório da Mendex Tech"
+                width={1024}
+                height={1024}
+                loading="lazy"
+                className="h-64 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-sm font-semibold">Equipamentos e validação</h3>
+                <p className="mt-1 text-xs text-muted-foreground">Testes documentados antes de cada entrega.</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+
+
       {/* Especialidades */}
       <section id="especialidades" className="relative border-y border-border bg-surface/40 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
