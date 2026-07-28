@@ -572,8 +572,13 @@ function Landing() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="max-w-2xl">
             <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Avaliações</span>
-            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">O que dizem nossos clientes</h2>
+            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">A confiança de quem já é cliente</h2>
+            <p className="mt-4 text-muted-foreground">
+              Relatos de clientes pessoais, profissionais e corporativos atendidos em Ponta Grossa e região.
+            </p>
           </div>
+
+
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {testimonials.map((t) => (
