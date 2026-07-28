@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   Cpu, MessageCircle, ShieldCheck, Star, MapPin, Clock, ArrowRight,
   Laptop, Gamepad2, CircuitBoard, Microscope, Layers, Gauge, Users,
-  Building2, BadgeCheck, Mail, Phone,
+  Building2, BadgeCheck, Mail, Phone, HardDrive, MemoryStick, Sparkles,
 } from "lucide-react";
 import heroImg from "@/assets/hero-bench.jpg";
 import labImg from "@/assets/lab-interior.jpg";
@@ -68,27 +68,78 @@ function TermsDialog() {
 }
 
 const faqs = [
+  { q: "Como solicito um orçamento?", a: "Basta entrar em contato pelo WhatsApp ou e-mail descrevendo o seu equipamento e o objetivo desejado. A nossa equipe retorna com uma proposta detalhada, sem custo e sem compromisso." },
+  { q: "A avaliação técnica tem algum custo?", a: "Não. A avaliação do equipamento e a apresentação da proposta são gratuitas. Nenhum procedimento é iniciado sem a sua aprovação prévia." },
   { q: "Onde a Mendex Tech está localizada?", a: "Somos uma empresa local, com laboratório próprio em Ponta Grossa - PR. O atendimento presencial acontece mediante agendamento prévio, garantindo tempo dedicado a cada equipamento." },
-  { q: "Como funciona o processo de atendimento?", a: "O contato inicial é feito pelo WhatsApp ou e-mail. Em seguida, o equipamento é recebido em nosso laboratório, avaliado pela equipe e o cliente recebe uma proposta detalhada antes de qualquer procedimento." },
-  { q: "A avaliação técnica tem custo?", a: "Não. A avaliação e a proposta comercial são gratuitas e sem compromisso. O cliente decide com total liberdade se deseja prosseguir." },
-  { q: "Quais garantias a empresa oferece?", a: "Todos os componentes instalados e serviços executados são cobertos por garantia formal de no mínimo 90 dias, com registro documentado do atendimento." },
-  { q: "Quais tipos de equipamento a empresa atende?", a: "Atuamos com desktops e notebooks de uso pessoal, profissional e corporativo, incluindo estações de trabalho e computadores de alto desempenho." },
+  { q: "Qual é a garantia oferecida?", a: "Todos os componentes instalados e serviços executados contam com garantia formal de no mínimo 90 dias, com registro documentado do atendimento." },
+  { q: "Qual é o prazo de entrega?", a: "A maior parte dos projetos de upgrade, montagem e otimização é concluída entre 24 e 72 horas, conforme a disponibilidade dos componentes. O prazo é sempre informado na proposta." },
+  { q: "Quais equipamentos a empresa atende?", a: "Atuamos com desktops e notebooks de uso pessoal, profissional e corporativo, incluindo estações de trabalho e computadores de alto desempenho." },
   { q: "A Mendex Tech atende empresas?", a: "Sim. Atendemos clientes corporativos de Ponta Grossa e região, com padronização de equipamentos, upgrades planejados e acompanhamento contínuo do parque de máquinas." },
 ];
+
+const SITE_URL = "https://mendextech.com.br";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Mendex Tech",
+  description:
+    "Empresa especializada em tecnologia para computadores e notebooks em Ponta Grossa - PR. Upgrade de SSD, expansão de memória RAM, montagem de computadores, diagnóstico de hardware e otimização de performance.",
+  url: SITE_URL,
+  telephone: "+554299609468",
+  email: "contato@mendextech.com.br",
+  image: `${SITE_URL}/og-image.jpg`,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Ponta Grossa",
+    addressRegion: "PR",
+    addressCountry: "BR",
+  },
+  areaServed: { "@type": "City", name: "Ponta Grossa" },
+  openingHoursSpecification: [
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "23:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday", "Sunday"], opens: "10:00", closes: "18:00" },
+  ],
+  makesOffer: [
+    "Upgrade de SSD", "Expansão de Memória RAM", "Montagem de Computadores",
+    "Diagnóstico de Hardware", "Limpeza Técnica", "Substituição de Componentes",
+    "Otimização de Performance", "Soluções em Hardware",
+  ].map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s } })),
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mendex Tech — Empresa de Tecnologia em Ponta Grossa" },
-      { name: "description", content: "Mendex Tech: empresa especializada em tecnologia para computadores e notebooks em Ponta Grossa. Laboratório próprio, equipe especializada e garantia formal." },
-      { name: "keywords", content: "mendex tech, empresa de tecnologia ponta grossa, laboratório de hardware, montagem de computadores, upgrade de desempenho, notebooks ponta grossa" },
-      { property: "og:title", content: "Mendex Tech — Empresa de Tecnologia em Ponta Grossa" },
-      { property: "og:description", content: "Empresa especializada em tecnologia para computadores e notebooks. Laboratório próprio, equipe especializada, garantia e transparência." },
+      { title: "Mendex Tech | Soluções em Hardware em Ponta Grossa - PR" },
+      { name: "description", content: "Empresa especializada em computadores e notebooks em Ponta Grossa. Upgrade de SSD, memória RAM, montagem de computadores e otimização de performance. Laboratório próprio e garantia formal." },
+      { name: "keywords", content: "mendex tech, empresa de tecnologia ponta grossa, upgrade ssd ponta grossa, memória ram ponta grossa, montagem de computadores ponta grossa, diagnóstico de hardware, otimização de performance, notebooks ponta grossa, laboratório de hardware paraná" },
+      { property: "og:title", content: "Mendex Tech | Soluções em Hardware em Ponta Grossa - PR" },
+      { property: "og:description", content: "Tecnologia, desempenho e confiança para computadores e notebooks. Laboratório próprio em Ponta Grossa, equipe especializada e garantia formal." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:site_name", content: "Mendex Tech" },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(localBusinessSchema) },
+      { type: "application/ld+json", children: JSON.stringify(faqSchema) },
     ],
   }),
   component: Landing,
 });
+
 
 function MendexLogo() {
   return (
@@ -104,7 +155,7 @@ function MendexLogo() {
 }
 
 function QuietCta({
-  label = "Falar com a equipe",
+  label = "Solicitar orçamento",
   href = WHATSAPP_URL,
   variant = "solid",
   className = "",
@@ -144,26 +195,39 @@ function FloatingWhatsapp() {
 }
 
 const pillars = [
-  { icon: Building2, title: "Empresa local estabelecida", desc: "Sediada em Ponta Grossa - PR, com CNPJ ativo, endereço fixo e atendimento formalizado do primeiro contato à entrega." },
-  { icon: Microscope, title: "Laboratório próprio", desc: "Ambiente dedicado, com bancadas antiestáticas, instrumentação adequada e controle de processo em cada etapa." },
-  { icon: Users, title: "Equipe especializada", desc: "Profissionais dedicados exclusivamente a hardware, com metodologia padronizada e registro técnico de cada atendimento." },
-  { icon: BadgeCheck, title: "Garantia e transparência", desc: "Proposta apresentada antes da execução, componentes com procedência comprovada e garantia formal documentada." },
+  { icon: MapPin, title: "Atendimento em Ponta Grossa", desc: "Empresa local, com CNPJ ativo e endereço fixo em Ponta Grossa - PR. Atendimento presencial mediante agendamento." },
+  { icon: Microscope, title: "Laboratório próprio", desc: "Ambiente dedicado ao trabalho com hardware, com bancadas antiestáticas e controle de processo em cada etapa." },
+  { icon: Gauge, title: "Equipamentos profissionais", desc: "Instrumentação adequada para medição, testes de estabilidade e validação de desempenho antes da entrega." },
+  { icon: Users, title: "Equipe especializada", desc: "Profissionais dedicados exclusivamente a soluções em hardware, com metodologia padronizada e registro técnico." },
+  { icon: ShieldCheck, title: "Garantia nos serviços", desc: "Garantia formal de no mínimo 90 dias em componentes instalados e em todos os serviços executados." },
+  { icon: BadgeCheck, title: "Atendimento transparente", desc: "Escopo, prazo e valores apresentados por escrito antes da execução. Nada é feito sem a sua aprovação." },
+  { icon: CircuitBoard, title: "Componentes com procedência", desc: "Trabalhamos exclusivamente com fornecedores homologados e nota fiscal em todos os componentes aplicados." },
+  { icon: MessageCircle, title: "Orçamento sem compromisso", desc: "Avaliação e proposta gratuitas. Você decide com total liberdade se deseja prosseguir com o projeto." },
 ];
 
 const structure = [
   { icon: Layers, title: "Bancadas antiestáticas", desc: "Estações de trabalho preparadas para o manuseio seguro de placas e componentes sensíveis." },
   { icon: Gauge, title: "Instrumentos de medição", desc: "Equipamentos modernos para verificação de desempenho, temperatura e estabilidade antes da entrega." },
   { icon: ShieldCheck, title: "Controle de qualidade", desc: "Todo equipamento passa por testes de validação documentados antes de retornar ao cliente." },
-  { icon: CircuitBoard, title: "Componentes com procedência", desc: "Trabalhamos exclusivamente com fornecedores homologados e nota fiscal em todos os componentes." },
+  { icon: CircuitBoard, title: "Ferramentas profissionais", desc: "Ferramental específico para hardware, aplicado com procedimentos padronizados em cada projeto." },
 ];
 
 const specialties = [
-  { icon: Gamepad2, title: "Montagem de computadores", desc: "Projetos sob medida para uso profissional, criativo e de alto desempenho, com seleção de componentes, cabeamento organizado e validação completa.", msg: "Olá, Mendex Tech. Gostaria de conversar sobre um projeto de montagem de computador." },
-  { icon: Cpu, title: "Upgrade de hardware", desc: "Ampliação de armazenamento e memória para elevar a capacidade e a longevidade de desktops e notebooks.", msg: "Olá, Mendex Tech. Gostaria de informações sobre upgrade de hardware." },
-  { icon: Laptop, title: "Instalação de componentes", desc: "Instalação e substituição de telas, baterias, teclados e demais módulos, com componentes de procedência e garantia formal.", msg: "Olá, Mendex Tech. Gostaria de informações sobre instalação de componentes." },
-  { icon: Gauge, title: "Otimização de desempenho", desc: "Análise de configuração, gestão térmica e ajustes de hardware para que o equipamento opere no seu melhor rendimento.", msg: "Olá, Mendex Tech. Gostaria de informações sobre otimização de desempenho." },
-  { icon: Microscope, title: "Avaliação técnica em laboratório", desc: "Análise detalhada de cada componente, com relatório e proposta apresentados antes de qualquer intervenção.", msg: "Olá, Mendex Tech. Gostaria de agendar uma avaliação técnica." },
-  { icon: Building2, title: "Atendimento corporativo", desc: "Padronização, upgrades planejados e acompanhamento do parque de equipamentos de empresas da região.", msg: "Olá, Mendex Tech. Represento uma empresa e gostaria de falar sobre atendimento corporativo." },
+  { icon: HardDrive, title: "Upgrade de SSD", desc: "Migração para armazenamento em estado sólido, com transferência de dados e ganho expressivo em tempo de resposta do sistema.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para upgrade de SSD." },
+  { icon: MemoryStick, title: "Expansão de memória RAM", desc: "Ampliação de memória com módulos compatíveis e homologados, elevando a capacidade de multitarefa do equipamento.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para expansão de memória RAM." },
+  { icon: Gamepad2, title: "Montagem de computadores", desc: "Projetos sob medida para uso profissional, criativo e de alto desempenho, com seleção de componentes, cabeamento organizado e validação completa.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para montagem de computador." },
+  { icon: Microscope, title: "Diagnóstico de hardware", desc: "Análise detalhada de cada componente em laboratório, com relatório técnico e proposta apresentados antes de qualquer intervenção.", msg: "Olá, Mendex Tech. Gostaria de agendar um diagnóstico de hardware." },
+  { icon: Sparkles, title: "Limpeza técnica", desc: "Procedimento completo de higienização interna e reaplicação de compostos térmicos, com foco em estabilidade e vida útil dos componentes.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para limpeza técnica." },
+  { icon: Laptop, title: "Substituição de componentes", desc: "Troca de telas, baterias, teclados, fontes e demais módulos, com peças de procedência comprovada e garantia formal.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para substituição de componentes." },
+  { icon: Gauge, title: "Otimização de performance", desc: "Ajuste de configuração, gestão térmica e refinamento de hardware para que o equipamento opere no seu melhor rendimento.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para otimização de performance." },
+  { icon: Building2, title: "Soluções em hardware corporativo", desc: "Padronização, upgrades planejados e acompanhamento do parque de equipamentos de empresas de Ponta Grossa e região.", msg: "Olá, Mendex Tech. Represento uma empresa e gostaria de falar sobre soluções em hardware corporativo." },
+];
+
+const trustBadges = [
+  { icon: MapPin, label: "Empresa local", detail: "Ponta Grossa - PR" },
+  { icon: ShieldCheck, label: "Garantia formal", detail: "Mínimo de 90 dias" },
+  { icon: Microscope, label: "Laboratório próprio", detail: "Estrutura dedicada" },
+  { icon: BadgeCheck, label: "Orçamento gratuito", detail: "Sem compromisso" },
 ];
 
 const testimonials = [
@@ -171,6 +235,7 @@ const testimonials = [
   { name: "Juliana Martins", role: "Estudante de Medicina", text: "Empresa séria, com estrutura de verdade. Explicaram cada componente instalado e entregaram tudo documentado, dentro do prazo combinado." },
   { name: "Carlos Eduardo", role: "Analista de TI · Cliente corporativo", text: "Padronizamos as máquinas da nossa equipe com a Mendex Tech. Processo organizado, prazos cumpridos e comunicação transparente." },
 ];
+
 
 const metrics = [
   { value: "+200", label: "Equipamentos atendidos" },
@@ -201,8 +266,8 @@ function Landing() {
             className="inline-flex h-10 items-center gap-2 rounded-md border border-border px-4 text-sm font-medium text-foreground transition hover:border-brand/50 hover:bg-brand/5"
           >
             <MessageCircle className="h-4 w-4 text-brand" />
-            <span className="hidden sm:inline">Falar com a equipe</span>
-            <span className="sm:hidden">Contato</span>
+            <span className="hidden sm:inline">Solicitar orçamento</span>
+            <span className="sm:hidden">Orçamento</span>
           </a>
         </div>
       </header>
@@ -218,15 +283,17 @@ function Landing() {
               Ponta Grossa · Paraná
             </div>
             <h1 className="font-display text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-[3.4rem]">
-              Tecnologia para computadores e notebooks com{" "}
-              <span className="text-gradient-brand">padrão profissional</span>
+              Tecnologia, desempenho e confiança para{" "}
+              <span className="text-gradient-brand">computadores e notebooks</span>
             </h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              A Mendex Tech é uma empresa especializada em tecnologia, com laboratório próprio em Ponta Grossa,
-              equipe dedicada a hardware e processos documentados do primeiro contato à entrega do equipamento.
+              A Mendex Tech é uma empresa especializada em tecnologia, sediada em Ponta Grossa - PR. Atuamos com
+              soluções em hardware para desktops e notebooks, em laboratório próprio, com equipe especializada e
+              processos documentados do primeiro contato à entrega.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <QuietCta label="Falar com a equipe" tag="whatsapp-hero" />
+              <QuietCta label="Solicitar orçamento" tag="whatsapp-hero" />
+
               <a
                 href="#empresa"
                 className="inline-flex h-12 items-center justify-center rounded-md border border-border px-6 text-sm font-medium text-foreground transition hover:border-brand/50 hover:bg-brand/5"
@@ -259,6 +326,23 @@ function Landing() {
           </div>
         </div>
       </section>
+
+      {/* Selos de confiança */}
+      <section aria-label="Selos de confiança" className="border-b border-border bg-surface/40">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px bg-border px-0 sm:grid-cols-4">
+          {trustBadges.map(({ icon: Icon, label, detail }) => (
+            <div key={label} className="flex items-center gap-3 bg-background px-5 py-6 sm:px-6">
+              <Icon className="h-5 w-5 shrink-0 text-brand" />
+              <div>
+                <p className="text-sm font-semibold leading-tight">{label}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">{detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
 
       {/* Quem somos */}
       <section id="empresa" className="relative py-20 sm:py-28">
@@ -308,7 +392,7 @@ function Landing() {
               O que define a Mendex Tech
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Quatro compromissos que sustentam a relação com cada cliente, do primeiro contato à garantia.
+              Compromissos que sustentam a relação com cada cliente, do primeiro contato à garantia.
             </p>
           </div>
           <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
@@ -320,8 +404,12 @@ function Landing() {
               </div>
             ))}
           </div>
+          <div className="mt-10">
+            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-diferenciais" />
+          </div>
         </div>
       </section>
+
 
       {/* Estrutura */}
       <section id="estrutura" className="relative py-20 sm:py-28">
@@ -378,19 +466,85 @@ function Landing() {
         </div>
       </section>
 
+      {/* Galeria — ambiente profissional */}
+      <section id="ambiente" className="relative border-t border-border py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="max-w-2xl">
+            <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Nosso ambiente</span>
+            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-4xl">
+              O espaço onde cada projeto acontece
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Laboratório, bancadas, ferramental e equipamentos que sustentam o padrão de trabalho da Mendex Tech
+              em Ponta Grossa.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-5 lg:grid-cols-3">
+            <figure className="group relative overflow-hidden rounded-xl border border-border lg:col-span-2 lg:row-span-2">
+              <img
+                src={labImg}
+                alt="Laboratório da Mendex Tech em Ponta Grossa com bancadas e equipamentos profissionais"
+                width={1536}
+                height={1024}
+                loading="lazy"
+                className="h-72 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[34rem]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="font-display text-lg font-semibold">Laboratório próprio</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Ambiente dedicado e organizado para o trabalho com hardware.</p>
+              </figcaption>
+            </figure>
+            <figure className="group relative overflow-hidden rounded-xl border border-border">
+              <img
+                src={benchImg}
+                alt="Bancada antiestática e ferramentas profissionais da Mendex Tech"
+                width={1024}
+                height={1024}
+                loading="lazy"
+                className="h-64 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-sm font-semibold">Bancada e ferramental</h3>
+                <p className="mt-1 text-xs text-muted-foreground">Manuseio seguro de placas e componentes sensíveis.</p>
+              </figcaption>
+            </figure>
+            <figure className="group relative overflow-hidden rounded-xl border border-border">
+              <img
+                src={pcImg}
+                alt="Computador de alto desempenho montado no laboratório da Mendex Tech"
+                width={1024}
+                height={1024}
+                loading="lazy"
+                className="h-64 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-sm font-semibold">Equipamentos e validação</h3>
+                <p className="mt-1 text-xs text-muted-foreground">Testes documentados antes de cada entrega.</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+
+
       {/* Especialidades */}
       <section id="especialidades" className="relative border-y border-border bg-surface/40 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="max-w-2xl">
             <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Especialidades</span>
-            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">Áreas de atuação da empresa</h2>
+            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">Soluções em hardware</h2>
             <p className="mt-4 text-muted-foreground">
-              Competências desenvolvidas ao longo da nossa atuação com desktops e notebooks, aplicadas a clientes
-              pessoais, profissionais e corporativos.
+              Especialidades desenvolvidas ao longo da nossa atuação com desktops e notebooks, aplicadas a
+              clientes pessoais, profissionais e corporativos de Ponta Grossa e região.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {specialties.map(({ icon: Icon, title, desc, msg }) => (
               <article key={title} className="group flex flex-col bg-background p-8 transition hover:bg-surface/60">
                 <Icon className="h-5 w-5 text-brand" />
@@ -403,7 +557,7 @@ function Landing() {
                   data-cta="whatsapp-specialty"
                   className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand transition group-hover:gap-2.5"
                 >
-                  Falar sobre esta especialidade
+                  Solicitar orçamento
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </article>
@@ -412,13 +566,19 @@ function Landing() {
         </div>
       </section>
 
+
       {/* Avaliações */}
       <section className="relative py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="max-w-2xl">
             <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Avaliações</span>
-            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">O que dizem nossos clientes</h2>
+            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">A confiança de quem já é cliente</h2>
+            <p className="mt-4 text-muted-foreground">
+              Relatos de clientes pessoais, profissionais e corporativos atendidos em Ponta Grossa e região.
+            </p>
           </div>
+
+
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {testimonials.map((t) => (
@@ -436,6 +596,9 @@ function Landing() {
               </figure>
             ))}
           </div>
+          <div className="mt-10">
+            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-avaliacoes" />
+          </div>
         </div>
       </section>
 
@@ -445,13 +608,14 @@ function Landing() {
           <div>
             <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Perguntas frequentes</span>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-4xl">
-              Informações sobre a empresa e o atendimento
+              Orçamento, garantia, atendimento e prazos
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
               Não encontrou o que procurava? A nossa equipe está disponível para esclarecer qualquer questão.
             </p>
-            <QuietCta label="Falar com a equipe" variant="outline" className="mt-7" tag="whatsapp-faq" />
+            <QuietCta label="Solicitar orçamento" variant="outline" className="mt-7" tag="whatsapp-faq" />
           </div>
+
           <Accordion type="single" collapsible className="divide-y divide-border border-y border-border">
             {faqs.map((f, i) => (
               <AccordionItem key={i} value={`item-${i}`} className="border-0 px-0">
@@ -480,7 +644,7 @@ function Landing() {
                 Atendimento presencial mediante agendamento prévio. Entre em contato para conversar com a nossa
                 equipe sobre o seu equipamento ou sobre o parque de máquinas da sua empresa.
               </p>
-              <QuietCta label="Iniciar conversa no WhatsApp" className="mt-8" tag="whatsapp-contato" />
+              <QuietCta label="Solicitar orçamento" className="mt-8" tag="whatsapp-contato" />
             </div>
             <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
               <div className="bg-background p-7">
@@ -533,6 +697,7 @@ function Landing() {
                 <li><a href="#empresa" className="transition hover:text-brand">Quem somos</a></li>
                 <li><a href="#diferenciais" className="transition hover:text-brand">Diferenciais</a></li>
                 <li><a href="#estrutura" className="transition hover:text-brand">Estrutura</a></li>
+                <li><a href="#ambiente" className="transition hover:text-brand">Nosso ambiente</a></li>
                 <li><a href="#especialidades" className="transition hover:text-brand">Especialidades</a></li>
                 <li><a href="#faq" className="transition hover:text-brand">Perguntas frequentes</a></li>
               </ul>
@@ -561,7 +726,13 @@ function Landing() {
             </div>
           </div>
 
-          <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
+          <p className="mt-12 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
+            A Mendex Tech é uma empresa independente especializada em computadores e notebooks. Todos os serviços
+            são prestados diretamente por nossa equipe. Não representamos nem prestamos suporte oficial em nome de
+            fabricantes ou desenvolvedores de software.
+          </p>
+
+          <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
             <p>© {new Date().getFullYear()} Mendex Tech · CNPJ 66.781.369/0001-97 · Todos os direitos reservados.</p>
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
               <a href="#contato" className="transition hover:text-brand">Contato</a>
