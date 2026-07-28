@@ -537,14 +537,14 @@ function Landing() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="max-w-2xl">
             <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Especialidades</span>
-            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">Áreas de atuação da empresa</h2>
+            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">Soluções em hardware</h2>
             <p className="mt-4 text-muted-foreground">
-              Competências desenvolvidas ao longo da nossa atuação com desktops e notebooks, aplicadas a clientes
-              pessoais, profissionais e corporativos.
+              Especialidades desenvolvidas ao longo da nossa atuação com desktops e notebooks, aplicadas a
+              clientes pessoais, profissionais e corporativos de Ponta Grossa e região.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
             {specialties.map(({ icon: Icon, title, desc, msg }) => (
               <article key={title} className="group flex flex-col bg-background p-8 transition hover:bg-surface/60">
                 <Icon className="h-5 w-5 text-brand" />
@@ -557,7 +557,7 @@ function Landing() {
                   data-cta="whatsapp-specialty"
                   className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand transition group-hover:gap-2.5"
                 >
-                  Falar sobre esta especialidade
+                  Solicitar orçamento
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </article>
@@ -565,6 +565,7 @@ function Landing() {
           </div>
         </div>
       </section>
+
 
       {/* Avaliações */}
       <section className="relative py-20 sm:py-28">
