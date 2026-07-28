@@ -266,8 +266,8 @@ function Landing() {
             className="inline-flex h-10 items-center gap-2 rounded-md border border-border px-4 text-sm font-medium text-foreground transition hover:border-brand/50 hover:bg-brand/5"
           >
             <MessageCircle className="h-4 w-4 text-brand" />
-            <span className="hidden sm:inline">Falar com a equipe</span>
-            <span className="sm:hidden">Contato</span>
+            <span className="hidden sm:inline">Solicitar orçamento</span>
+            <span className="sm:hidden">Orçamento</span>
           </a>
         </div>
       </header>
@@ -283,15 +283,17 @@ function Landing() {
               Ponta Grossa · Paraná
             </div>
             <h1 className="font-display text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-[3.4rem]">
-              Tecnologia para computadores e notebooks com{" "}
-              <span className="text-gradient-brand">padrão profissional</span>
+              Tecnologia, desempenho e confiança para{" "}
+              <span className="text-gradient-brand">computadores e notebooks</span>
             </h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              A Mendex Tech é uma empresa especializada em tecnologia, com laboratório próprio em Ponta Grossa,
-              equipe dedicada a hardware e processos documentados do primeiro contato à entrega do equipamento.
+              A Mendex Tech é uma empresa especializada em tecnologia, sediada em Ponta Grossa - PR. Atuamos com
+              soluções em hardware para desktops e notebooks, em laboratório próprio, com equipe especializada e
+              processos documentados do primeiro contato à entrega.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <QuietCta label="Falar com a equipe" tag="whatsapp-hero" />
+              <QuietCta label="Solicitar orçamento" tag="whatsapp-hero" />
+
               <a
                 href="#empresa"
                 className="inline-flex h-12 items-center justify-center rounded-md border border-border px-6 text-sm font-medium text-foreground transition hover:border-brand/50 hover:bg-brand/5"
