@@ -596,6 +596,9 @@ function Landing() {
               </figure>
             ))}
           </div>
+          <div className="mt-10">
+            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-avaliacoes" />
+          </div>
         </div>
       </section>
 
@@ -605,13 +608,14 @@ function Landing() {
           <div>
             <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Perguntas frequentes</span>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-4xl">
-              Informações sobre a empresa e o atendimento
+              Orçamento, garantia, atendimento e prazos
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
               Não encontrou o que procurava? A nossa equipe está disponível para esclarecer qualquer questão.
             </p>
-            <QuietCta label="Falar com a equipe" variant="outline" className="mt-7" tag="whatsapp-faq" />
+            <QuietCta label="Solicitar orçamento" variant="outline" className="mt-7" tag="whatsapp-faq" />
           </div>
+
           <Accordion type="single" collapsible className="divide-y divide-border border-y border-border">
             {faqs.map((f, i) => (
               <AccordionItem key={i} value={`item-${i}`} className="border-0 px-0">
