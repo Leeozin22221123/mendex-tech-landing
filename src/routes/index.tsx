@@ -327,6 +327,23 @@ function Landing() {
         </div>
       </section>
 
+      {/* Selos de confiança */}
+      <section aria-label="Selos de confiança" className="border-b border-border bg-surface/40">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px bg-border px-0 sm:grid-cols-4">
+          {trustBadges.map(({ icon: Icon, label, detail }) => (
+            <div key={label} className="flex items-center gap-3 bg-background px-5 py-6 sm:px-6">
+              <Icon className="h-5 w-5 shrink-0 text-brand" />
+              <div>
+                <p className="text-sm font-semibold leading-tight">{label}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">{detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
+
       {/* Quem somos */}
       <section id="empresa" className="relative py-20 sm:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2">
