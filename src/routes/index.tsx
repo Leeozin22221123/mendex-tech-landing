@@ -155,7 +155,7 @@ function MendexLogo() {
 }
 
 function QuietCta({
-  label = "Falar com a equipe",
+  label = "Solicitar orçamento",
   href = WHATSAPP_URL,
   variant = "solid",
   className = "",
