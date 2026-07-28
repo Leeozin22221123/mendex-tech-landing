@@ -726,7 +726,13 @@ function Landing() {
             </div>
           </div>
 
-          <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
+          <p className="mt-12 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
+            A Mendex Tech é uma empresa independente especializada em computadores e notebooks. Todos os serviços
+            são prestados diretamente por nossa equipe. Não representamos nem prestamos suporte oficial em nome de
+            fabricantes ou desenvolvedores de software.
+          </p>
+
+          <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
             <p>© {new Date().getFullYear()} Mendex Tech · CNPJ 66.781.369/0001-97 · Todos os direitos reservados.</p>
             <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
               <a href="#contato" className="transition hover:text-brand">Contato</a>
