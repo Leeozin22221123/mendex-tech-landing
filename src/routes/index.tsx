@@ -195,26 +195,39 @@ function FloatingWhatsapp() {
 }
 
 const pillars = [
-  { icon: Building2, title: "Empresa local estabelecida", desc: "Sediada em Ponta Grossa - PR, com CNPJ ativo, endereço fixo e atendimento formalizado do primeiro contato à entrega." },
-  { icon: Microscope, title: "Laboratório próprio", desc: "Ambiente dedicado, com bancadas antiestáticas, instrumentação adequada e controle de processo em cada etapa." },
-  { icon: Users, title: "Equipe especializada", desc: "Profissionais dedicados exclusivamente a hardware, com metodologia padronizada e registro técnico de cada atendimento." },
-  { icon: BadgeCheck, title: "Garantia e transparência", desc: "Proposta apresentada antes da execução, componentes com procedência comprovada e garantia formal documentada." },
+  { icon: MapPin, title: "Atendimento em Ponta Grossa", desc: "Empresa local, com CNPJ ativo e endereço fixo em Ponta Grossa - PR. Atendimento presencial mediante agendamento." },
+  { icon: Microscope, title: "Laboratório próprio", desc: "Ambiente dedicado ao trabalho com hardware, com bancadas antiestáticas e controle de processo em cada etapa." },
+  { icon: Gauge, title: "Equipamentos profissionais", desc: "Instrumentação adequada para medição, testes de estabilidade e validação de desempenho antes da entrega." },
+  { icon: Users, title: "Equipe especializada", desc: "Profissionais dedicados exclusivamente a soluções em hardware, com metodologia padronizada e registro técnico." },
+  { icon: ShieldCheck, title: "Garantia nos serviços", desc: "Garantia formal de no mínimo 90 dias em componentes instalados e em todos os serviços executados." },
+  { icon: BadgeCheck, title: "Atendimento transparente", desc: "Escopo, prazo e valores apresentados por escrito antes da execução. Nada é feito sem a sua aprovação." },
+  { icon: CircuitBoard, title: "Componentes com procedência", desc: "Trabalhamos exclusivamente com fornecedores homologados e nota fiscal em todos os componentes aplicados." },
+  { icon: MessageCircle, title: "Orçamento sem compromisso", desc: "Avaliação e proposta gratuitas. Você decide com total liberdade se deseja prosseguir com o projeto." },
 ];
 
 const structure = [
   { icon: Layers, title: "Bancadas antiestáticas", desc: "Estações de trabalho preparadas para o manuseio seguro de placas e componentes sensíveis." },
   { icon: Gauge, title: "Instrumentos de medição", desc: "Equipamentos modernos para verificação de desempenho, temperatura e estabilidade antes da entrega." },
   { icon: ShieldCheck, title: "Controle de qualidade", desc: "Todo equipamento passa por testes de validação documentados antes de retornar ao cliente." },
-  { icon: CircuitBoard, title: "Componentes com procedência", desc: "Trabalhamos exclusivamente com fornecedores homologados e nota fiscal em todos os componentes." },
+  { icon: CircuitBoard, title: "Ferramentas profissionais", desc: "Ferramental específico para hardware, aplicado com procedimentos padronizados em cada projeto." },
 ];
 
 const specialties = [
-  { icon: Gamepad2, title: "Montagem de computadores", desc: "Projetos sob medida para uso profissional, criativo e de alto desempenho, com seleção de componentes, cabeamento organizado e validação completa.", msg: "Olá, Mendex Tech. Gostaria de conversar sobre um projeto de montagem de computador." },
-  { icon: Cpu, title: "Upgrade de hardware", desc: "Ampliação de armazenamento e memória para elevar a capacidade e a longevidade de desktops e notebooks.", msg: "Olá, Mendex Tech. Gostaria de informações sobre upgrade de hardware." },
-  { icon: Laptop, title: "Instalação de componentes", desc: "Instalação e substituição de telas, baterias, teclados e demais módulos, com componentes de procedência e garantia formal.", msg: "Olá, Mendex Tech. Gostaria de informações sobre instalação de componentes." },
-  { icon: Gauge, title: "Otimização de desempenho", desc: "Análise de configuração, gestão térmica e ajustes de hardware para que o equipamento opere no seu melhor rendimento.", msg: "Olá, Mendex Tech. Gostaria de informações sobre otimização de desempenho." },
-  { icon: Microscope, title: "Avaliação técnica em laboratório", desc: "Análise detalhada de cada componente, com relatório e proposta apresentados antes de qualquer intervenção.", msg: "Olá, Mendex Tech. Gostaria de agendar uma avaliação técnica." },
-  { icon: Building2, title: "Atendimento corporativo", desc: "Padronização, upgrades planejados e acompanhamento do parque de equipamentos de empresas da região.", msg: "Olá, Mendex Tech. Represento uma empresa e gostaria de falar sobre atendimento corporativo." },
+  { icon: HardDrive, title: "Upgrade de SSD", desc: "Migração para armazenamento em estado sólido, com transferência de dados e ganho expressivo em tempo de resposta do sistema.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para upgrade de SSD." },
+  { icon: MemoryStick, title: "Expansão de memória RAM", desc: "Ampliação de memória com módulos compatíveis e homologados, elevando a capacidade de multitarefa do equipamento.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para expansão de memória RAM." },
+  { icon: Gamepad2, title: "Montagem de computadores", desc: "Projetos sob medida para uso profissional, criativo e de alto desempenho, com seleção de componentes, cabeamento organizado e validação completa.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para montagem de computador." },
+  { icon: Microscope, title: "Diagnóstico de hardware", desc: "Análise detalhada de cada componente em laboratório, com relatório técnico e proposta apresentados antes de qualquer intervenção.", msg: "Olá, Mendex Tech. Gostaria de agendar um diagnóstico de hardware." },
+  { icon: Sparkles, title: "Limpeza técnica", desc: "Procedimento completo de higienização interna e reaplicação de compostos térmicos, com foco em estabilidade e vida útil dos componentes.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para limpeza técnica." },
+  { icon: Laptop, title: "Substituição de componentes", desc: "Troca de telas, baterias, teclados, fontes e demais módulos, com peças de procedência comprovada e garantia formal.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para substituição de componentes." },
+  { icon: Gauge, title: "Otimização de performance", desc: "Ajuste de configuração, gestão térmica e refinamento de hardware para que o equipamento opere no seu melhor rendimento.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para otimização de performance." },
+  { icon: Building2, title: "Soluções em hardware corporativo", desc: "Padronização, upgrades planejados e acompanhamento do parque de equipamentos de empresas de Ponta Grossa e região.", msg: "Olá, Mendex Tech. Represento uma empresa e gostaria de falar sobre soluções em hardware corporativo." },
+];
+
+const trustBadges = [
+  { icon: MapPin, label: "Empresa local", detail: "Ponta Grossa - PR" },
+  { icon: ShieldCheck, label: "Garantia formal", detail: "Mínimo de 90 dias" },
+  { icon: Microscope, label: "Laboratório próprio", detail: "Estrutura dedicada" },
+  { icon: BadgeCheck, label: "Orçamento gratuito", detail: "Sem compromisso" },
 ];
 
 const testimonials = [
@@ -222,6 +235,7 @@ const testimonials = [
   { name: "Juliana Martins", role: "Estudante de Medicina", text: "Empresa séria, com estrutura de verdade. Explicaram cada componente instalado e entregaram tudo documentado, dentro do prazo combinado." },
   { name: "Carlos Eduardo", role: "Analista de TI · Cliente corporativo", text: "Padronizamos as máquinas da nossa equipe com a Mendex Tech. Processo organizado, prazos cumpridos e comunicação transparente." },
 ];
+
 
 const metrics = [
   { value: "+200", label: "Equipamentos atendidos" },
