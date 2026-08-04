@@ -432,7 +432,7 @@ function Landing() {
             ))}
           </div>
           <div className="mt-10">
-            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-diferenciais" />
+            <QuietCta label="Pedir orçamento grátis" tag="whatsapp-diferenciais" />
           </div>
         </div>
       </section>
@@ -621,10 +621,11 @@ function Landing() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cta="whatsapp-specialty"
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand transition group-hover:gap-2.5"
+                  onClick={() => trackWhatsApp("whatsapp-specialty")}
+                  className="mt-6 inline-flex h-10 items-center justify-center gap-2 rounded-md bg-cta px-4 text-sm font-semibold text-cta-foreground shadow-cta transition hover:brightness-110"
                 >
-                  Solicitar orçamento
-                  <ArrowRight className="h-4 w-4" />
+                  <MessageCircle className="h-4 w-4" />
+                  Pedir orçamento
                 </a>
               </article>
             ))}
@@ -663,7 +664,7 @@ function Landing() {
             ))}
           </div>
           <div className="mt-10">
-            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-avaliacoes" />
+            <QuietCta label="Pedir orçamento grátis" tag="whatsapp-avaliacoes" />
           </div>
         </div>
       </section>
@@ -679,7 +680,7 @@ function Landing() {
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
               Não encontrou o que procurava? A nossa equipe está disponível para esclarecer qualquer questão.
             </p>
-            <QuietCta label="Solicitar orçamento" variant="outline" className="mt-7" tag="whatsapp-faq" />
+            <QuietCta label="Pedir orçamento grátis" className="mt-7" tag="whatsapp-faq" />
           </div>
 
           <Accordion type="single" collapsible className="divide-y divide-border border-y border-border">
@@ -710,7 +711,7 @@ function Landing() {
                 Atendimento presencial mediante agendamento prévio. Entre em contato para conversar com a nossa
                 equipe sobre o seu equipamento ou sobre o parque de máquinas da sua empresa.
               </p>
-              <QuietCta label="Solicitar orçamento" className="mt-8" tag="whatsapp-contato" />
+              <QuietCta label="Pedir orçamento grátis" className="mt-8" tag="whatsapp-contato" />
             </div>
             <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
               <div className="bg-background p-7">
