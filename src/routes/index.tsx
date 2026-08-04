@@ -154,8 +154,18 @@ function MendexLogo() {
   );
 }
 
+function trackWhatsApp(tag: string) {
+  const w = window as unknown as { gtag?: (...args: unknown[]) => void; dataLayer?: unknown[] };
+  try {
+    w.gtag?.("event", "conversion", { send_to: "AW-18156656745" });
+    w.gtag?.("event", "generate_lead", { method: "whatsapp", cta: tag });
+  } catch {
+    // ignora falhas de tracking
+  }
+}
+
 function QuietCta({
-  label = "Solicitar orçamento",
+  label = "Pedir orçamento no WhatsApp",
   href = WHATSAPP_URL,
   variant = "solid",
   className = "",
@@ -163,19 +173,67 @@ function QuietCta({
 }: { label?: string; href?: string; variant?: "solid" | "outline"; className?: string; tag?: string }) {
   const styles =
     variant === "outline"
-      ? "border border-border bg-transparent text-foreground hover:border-brand/50 hover:bg-brand/5"
-      : "bg-brand text-brand-foreground hover:bg-brand/90";
+      ? "border border-border bg-transparent text-foreground hover:border-cta/60 hover:bg-cta/5"
+      : "bg-cta text-cta-foreground shadow-cta hover:brightness-110";
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       data-cta={tag}
-      className={`group inline-flex h-12 items-center justify-center gap-2 rounded-md px-6 text-sm font-medium tracking-wide transition ${styles} ${className}`}
+      onClick={() => trackWhatsApp(tag)}
+      className={`group inline-flex h-13 items-center justify-center gap-2 rounded-md px-7 text-sm font-semibold tracking-wide transition ${styles} ${className}`}
     >
+      <MessageCircle className="h-4.5 w-4.5" />
       <span>{label}</span>
-      <ArrowRight className="h-4 w-4 opacity-60 transition group-hover:translate-x-0.5 group-hover:opacity-100" />
+      <ArrowRight className="h-4 w-4 opacity-70 transition group-hover:translate-x-0.5 group-hover:opacity-100" />
     </a>
+  );
+}
+
+function OnlineNow() {
+  return (
+    <div className="inline-flex items-center gap-2 text-xs text-muted-foreground">
+      <span className="relative grid h-2.5 w-2.5 place-items-center">
+        <span className="absolute inline-flex h-2.5 w-2.5 animate-ping rounded-full bg-cta/70" />
+        <span className="relative h-2 w-2 rounded-full bg-cta" />
+      </span>
+      Equipe online agora · resposta em poucos minutos
+    </div>
+  );
+}
+
+const quickReplies = [
+  { label: "Upgrade de SSD", msg: "Olá, Mendex Tech. Quero um orçamento para upgrade de SSD." },
+  { label: "Mais memória RAM", msg: "Olá, Mendex Tech. Quero um orçamento para expansão de memória RAM." },
+  { label: "Montar um PC", msg: "Olá, Mendex Tech. Quero um orçamento para montagem de um computador." },
+  { label: "Limpeza técnica", msg: "Olá, Mendex Tech. Quero um orçamento para limpeza técnica." },
+  { label: "Não sei o que preciso", msg: "Olá, Mendex Tech. Não sei exatamente o que meu equipamento precisa e gostaria de uma avaliação." },
+];
+
+function QuickReplies() {
+  return (
+    <div className="mt-6">
+      <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+        Comece em 1 clique
+      </p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {quickReplies.map(({ label, msg }) => (
+          <a
+            key={label}
+            href={buildWhatsAppUrl(msg)}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cta="whatsapp-quick"
+            onClick={() => trackWhatsApp("whatsapp-quick")}
+            className="inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition hover:border-cta/60 hover:bg-cta/5 hover:text-foreground"
+          >
+            <MessageCircle className="h-3.5 w-3.5 text-cta" />
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -185,14 +243,17 @@ function FloatingWhatsapp() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Falar com a Mendex Tech no WhatsApp"
+      aria-label="Pedir orçamento grátis no WhatsApp"
       data-cta="whatsapp-float"
-      className="fixed bottom-5 right-5 z-50 grid h-12 w-12 place-items-center rounded-full border border-border bg-surface/90 text-brand backdrop-blur transition hover:border-brand/50 hover:text-brand sm:bottom-6 sm:right-6"
+      onClick={() => trackWhatsApp("whatsapp-float")}
+      className="animate-pulse-cta fixed bottom-5 right-5 z-50 inline-flex h-14 items-center gap-2.5 rounded-full bg-cta px-5 text-sm font-semibold text-cta-foreground shadow-cta transition hover:brightness-110 sm:bottom-6 sm:right-6"
     >
       <MessageCircle className="h-5 w-5" />
+      Orçamento grátis
     </a>
   );
 }
+
 
 const pillars = [
   { icon: MapPin, title: "Atendimento em Ponta Grossa", desc: "Empresa local, com CNPJ ativo e endereço fixo em Ponta Grossa - PR. Atendimento presencial mediante agendamento." },
@@ -263,12 +324,14 @@ function Landing() {
             target="_blank"
             rel="noopener noreferrer"
             data-cta="whatsapp-header"
-            className="inline-flex h-10 items-center gap-2 rounded-md border border-border px-4 text-sm font-medium text-foreground transition hover:border-brand/50 hover:bg-brand/5"
+            onClick={() => trackWhatsApp("whatsapp-header")}
+            className="inline-flex h-10 items-center gap-2 rounded-md bg-cta px-4 text-sm font-semibold text-cta-foreground shadow-cta transition hover:brightness-110"
           >
-            <MessageCircle className="h-4 w-4 text-brand" />
-            <span className="hidden sm:inline">Solicitar orçamento</span>
+            <MessageCircle className="h-4 w-4" />
+            <span className="hidden sm:inline">Pedir orçamento grátis</span>
             <span className="sm:hidden">Orçamento</span>
           </a>
+
         </div>
       </header>
 
@@ -292,7 +355,7 @@ function Landing() {
               processos documentados do primeiro contato à entrega.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <QuietCta label="Solicitar orçamento" tag="whatsapp-hero" />
+              <QuietCta label="Pedir orçamento grátis" tag="whatsapp-hero" className="animate-pulse-cta" />
 
               <a
                 href="#empresa"
@@ -301,6 +364,9 @@ function Landing() {
                 Conhecer a empresa
               </a>
             </div>
+            <div className="mt-4"><OnlineNow /></div>
+            <QuickReplies />
+
             <dl className="mt-12 grid max-w-lg grid-cols-2 gap-x-8 gap-y-6 border-t border-border pt-8 sm:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
@@ -366,7 +432,7 @@ function Landing() {
             ))}
           </div>
           <div className="mt-10">
-            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-diferenciais" />
+            <QuietCta label="Pedir orçamento grátis" tag="whatsapp-diferenciais" />
           </div>
         </div>
       </section>
@@ -555,10 +621,11 @@ function Landing() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cta="whatsapp-specialty"
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand transition group-hover:gap-2.5"
+                  onClick={() => trackWhatsApp("whatsapp-specialty")}
+                  className="mt-6 inline-flex h-10 items-center justify-center gap-2 rounded-md bg-cta px-4 text-sm font-semibold text-cta-foreground shadow-cta transition hover:brightness-110"
                 >
-                  Solicitar orçamento
-                  <ArrowRight className="h-4 w-4" />
+                  <MessageCircle className="h-4 w-4" />
+                  Pedir orçamento
                 </a>
               </article>
             ))}
@@ -597,7 +664,7 @@ function Landing() {
             ))}
           </div>
           <div className="mt-10">
-            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-avaliacoes" />
+            <QuietCta label="Pedir orçamento grátis" tag="whatsapp-avaliacoes" />
           </div>
         </div>
       </section>
@@ -613,7 +680,7 @@ function Landing() {
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
               Não encontrou o que procurava? A nossa equipe está disponível para esclarecer qualquer questão.
             </p>
-            <QuietCta label="Solicitar orçamento" variant="outline" className="mt-7" tag="whatsapp-faq" />
+            <QuietCta label="Pedir orçamento grátis" className="mt-7" tag="whatsapp-faq" />
           </div>
 
           <Accordion type="single" collapsible className="divide-y divide-border border-y border-border">
@@ -644,7 +711,7 @@ function Landing() {
                 Atendimento presencial mediante agendamento prévio. Entre em contato para conversar com a nossa
                 equipe sobre o seu equipamento ou sobre o parque de máquinas da sua empresa.
               </p>
-              <QuietCta label="Solicitar orçamento" className="mt-8" tag="whatsapp-contato" />
+              <QuietCta label="Pedir orçamento grátis" className="mt-8" tag="whatsapp-contato" />
             </div>
             <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
               <div className="bg-background p-7">
