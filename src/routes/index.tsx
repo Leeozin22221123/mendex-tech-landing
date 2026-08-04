@@ -488,7 +488,7 @@ function Landing() {
                 width={1536}
                 height={1024}
                 loading="lazy"
-                className="h-72 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[34rem]"
+                className="h-72 w-full object-cover object-center transition duration-700 group-hover:scale-[1.03] lg:h-[34rem]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
               <figcaption className="absolute bottom-0 left-0 right-0 p-6">
@@ -503,7 +503,7 @@ function Landing() {
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="h-64 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
+                className="h-64 w-full object-cover object-center transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
               <figcaption className="absolute bottom-0 left-0 right-0 p-5">
@@ -518,7 +518,7 @@ function Landing() {
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="h-64 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
+                className="h-64 w-full object-cover object-center transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
               <figcaption className="absolute bottom-0 left-0 right-0 p-5">
