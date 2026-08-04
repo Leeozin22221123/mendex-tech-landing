@@ -355,7 +355,7 @@ function Landing() {
               processos documentados do primeiro contato à entrega.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <QuietCta label="Solicitar orçamento" tag="whatsapp-hero" />
+              <QuietCta label="Pedir orçamento grátis" tag="whatsapp-hero" className="animate-pulse-cta" />
 
               <a
                 href="#empresa"
@@ -364,6 +364,9 @@ function Landing() {
                 Conhecer a empresa
               </a>
             </div>
+            <div className="mt-4"><OnlineNow /></div>
+            <QuickReplies />
+
             <dl className="mt-12 grid max-w-lg grid-cols-2 gap-x-8 gap-y-6 border-t border-border pt-8 sm:grid-cols-4">
               {metrics.map((m) => (
                 <div key={m.label}>
