@@ -252,8 +252,8 @@ function Landing() {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
           <MendexLogo />
           <nav className="hidden items-center gap-7 text-sm text-muted-foreground lg:flex">
-            <a href="#empresa" className="transition hover:text-foreground">A empresa</a>
             <a href="#diferenciais" className="transition hover:text-foreground">Diferenciais</a>
+            <a href="#empresa" className="transition hover:text-foreground">A empresa</a>
             <a href="#estrutura" className="transition hover:text-foreground">Estrutura</a>
             <a href="#especialidades" className="transition hover:text-foreground">Especialidades</a>
             <a href="#contato" className="transition hover:text-foreground">Contato</a>
@@ -319,7 +319,7 @@ function Landing() {
                 alt="Bancada técnica da Mendex Tech com notebook em avaliação"
                 width={1536}
                 height={1152}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
             </div>
@@ -344,6 +344,33 @@ function Landing() {
 
 
 
+      {/* Diferenciais */}
+      <section id="diferenciais" className="relative border-y border-border bg-surface/40 py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="max-w-2xl">
+            <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Diferenciais</span>
+            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">
+              O que define a Mendex Tech
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Compromissos que sustentam a relação com cada cliente, do primeiro contato à garantia.
+            </p>
+          </div>
+          <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {pillars.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="bg-background p-7">
+                <Icon className="h-5 w-5 text-brand" />
+                <h3 className="mt-5 text-base font-semibold">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10">
+            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-diferenciais" />
+          </div>
+        </div>
+      </section>
+
       {/* Quem somos */}
       <section id="empresa" className="relative py-20 sm:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2">
@@ -354,7 +381,7 @@ function Landing() {
               width={1536}
               height={1024}
               loading="lazy"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-center"
             />
           </div>
           <div>
@@ -379,33 +406,6 @@ function Landing() {
                 tudo o que entregamos.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Diferenciais */}
-      <section id="diferenciais" className="relative border-y border-border bg-surface/40 py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="max-w-2xl">
-            <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Diferenciais</span>
-            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">
-              O que define a Mendex Tech
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Compromissos que sustentam a relação com cada cliente, do primeiro contato à garantia.
-            </p>
-          </div>
-          <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-            {pillars.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-background p-7">
-                <Icon className="h-5 w-5 text-brand" />
-                <h3 className="mt-5 text-base font-semibold">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10">
-            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-diferenciais" />
           </div>
         </div>
       </section>
@@ -442,7 +442,7 @@ function Landing() {
                   width={1024}
                   height={1024}
                   loading="lazy"
-                  className="h-64 w-full object-cover"
+                  className="h-64 w-full object-cover object-center"
                 />
                 <figcaption className="border-t border-border bg-surface/60 px-5 py-3 text-xs text-muted-foreground">
                   Bancada antiestática — instalação de componentes
@@ -455,7 +455,7 @@ function Landing() {
                   width={1024}
                   height={1024}
                   loading="lazy"
-                  className="h-64 w-full object-cover"
+                  className="h-64 w-full object-cover object-center"
                 />
                 <figcaption className="border-t border-border bg-surface/60 px-5 py-3 text-xs text-muted-foreground">
                   Projeto de montagem — validação final
@@ -488,7 +488,7 @@ function Landing() {
                 width={1536}
                 height={1024}
                 loading="lazy"
-                className="h-72 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[34rem]"
+                className="h-72 w-full object-cover object-center transition duration-700 group-hover:scale-[1.03] lg:h-[34rem]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
               <figcaption className="absolute bottom-0 left-0 right-0 p-6">
@@ -503,7 +503,7 @@ function Landing() {
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="h-64 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
+                className="h-64 w-full object-cover object-center transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
               <figcaption className="absolute bottom-0 left-0 right-0 p-5">
@@ -518,7 +518,7 @@ function Landing() {
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="h-64 w-full object-cover transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
+                className="h-64 w-full object-cover object-center transition duration-700 group-hover:scale-[1.03] lg:h-[16.5rem]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
               <figcaption className="absolute bottom-0 left-0 right-0 p-5">
