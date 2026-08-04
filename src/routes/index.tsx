@@ -319,7 +319,7 @@ function Landing() {
                 alt="Bancada técnica da Mendex Tech com notebook em avaliação"
                 width={1536}
                 height={1152}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
             </div>
