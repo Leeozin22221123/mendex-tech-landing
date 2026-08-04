@@ -442,7 +442,7 @@ function Landing() {
                   width={1024}
                   height={1024}
                   loading="lazy"
-                  className="h-64 w-full object-cover"
+                  className="h-64 w-full object-cover object-center"
                 />
                 <figcaption className="border-t border-border bg-surface/60 px-5 py-3 text-xs text-muted-foreground">
                   Bancada antiestática — instalação de componentes
@@ -455,7 +455,7 @@ function Landing() {
                   width={1024}
                   height={1024}
                   loading="lazy"
-                  className="h-64 w-full object-cover"
+                  className="h-64 w-full object-cover object-center"
                 />
                 <figcaption className="border-t border-border bg-surface/60 px-5 py-3 text-xs text-muted-foreground">
                   Projeto de montagem — validação final
