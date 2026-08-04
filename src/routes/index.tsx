@@ -324,12 +324,14 @@ function Landing() {
             target="_blank"
             rel="noopener noreferrer"
             data-cta="whatsapp-header"
-            className="inline-flex h-10 items-center gap-2 rounded-md border border-border px-4 text-sm font-medium text-foreground transition hover:border-brand/50 hover:bg-brand/5"
+            onClick={() => trackWhatsApp("whatsapp-header")}
+            className="inline-flex h-10 items-center gap-2 rounded-md bg-cta px-4 text-sm font-semibold text-cta-foreground shadow-cta transition hover:brightness-110"
           >
-            <MessageCircle className="h-4 w-4 text-brand" />
-            <span className="hidden sm:inline">Solicitar orçamento</span>
+            <MessageCircle className="h-4 w-4" />
+            <span className="hidden sm:inline">Pedir orçamento grátis</span>
             <span className="sm:hidden">Orçamento</span>
           </a>
+
         </div>
       </header>
 
