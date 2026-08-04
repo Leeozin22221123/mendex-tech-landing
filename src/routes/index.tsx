@@ -252,8 +252,8 @@ function Landing() {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
           <MendexLogo />
           <nav className="hidden items-center gap-7 text-sm text-muted-foreground lg:flex">
-            <a href="#empresa" className="transition hover:text-foreground">A empresa</a>
             <a href="#diferenciais" className="transition hover:text-foreground">Diferenciais</a>
+            <a href="#empresa" className="transition hover:text-foreground">A empresa</a>
             <a href="#estrutura" className="transition hover:text-foreground">Estrutura</a>
             <a href="#especialidades" className="transition hover:text-foreground">Especialidades</a>
             <a href="#contato" className="transition hover:text-foreground">Contato</a>
