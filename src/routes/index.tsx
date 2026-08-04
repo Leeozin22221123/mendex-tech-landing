@@ -344,6 +344,33 @@ function Landing() {
 
 
 
+      {/* Diferenciais */}
+      <section id="diferenciais" className="relative border-y border-border bg-surface/40 py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="max-w-2xl">
+            <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Diferenciais</span>
+            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">
+              O que define a Mendex Tech
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Compromissos que sustentam a relação com cada cliente, do primeiro contato à garantia.
+            </p>
+          </div>
+          <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {pillars.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="bg-background p-7">
+                <Icon className="h-5 w-5 text-brand" />
+                <h3 className="mt-5 text-base font-semibold">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10">
+            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-diferenciais" />
+          </div>
+        </div>
+      </section>
+
       {/* Quem somos */}
       <section id="empresa" className="relative py-20 sm:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2">
@@ -354,7 +381,7 @@ function Landing() {
               width={1536}
               height={1024}
               loading="lazy"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-center"
             />
           </div>
           <div>
@@ -379,33 +406,6 @@ function Landing() {
                 tudo o que entregamos.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Diferenciais */}
-      <section id="diferenciais" className="relative border-y border-border bg-surface/40 py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="max-w-2xl">
-            <span className="text-xs font-medium uppercase tracking-[0.22em] text-brand">Diferenciais</span>
-            <h2 className="mt-4 font-display text-3xl font-semibold sm:text-4xl">
-              O que define a Mendex Tech
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Compromissos que sustentam a relação com cada cliente, do primeiro contato à garantia.
-            </p>
-          </div>
-          <div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-            {pillars.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-background p-7">
-                <Icon className="h-5 w-5 text-brand" />
-                <h3 className="mt-5 text-base font-semibold">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10">
-            <QuietCta label="Solicitar orçamento" variant="outline" tag="whatsapp-diferenciais" />
           </div>
         </div>
       </section>
