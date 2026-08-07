@@ -280,8 +280,8 @@ const specialties = [
   { icon: Microscope, title: "Diagnóstico de hardware", desc: "Análise detalhada de cada componente em laboratório, com relatório técnico e proposta apresentados antes de qualquer intervenção.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
   { icon: Sparkles, title: "Limpeza técnica", desc: "Procedimento completo de higienização interna e reaplicação de compostos térmicos, com foco em estabilidade e vida útil dos componentes.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
   { icon: Laptop, title: "Substituição de componentes", desc: "Troca de telas, baterias, teclados, fontes e demais módulos, com peças de procedência comprovada e garantia formal.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
-  { icon: Gauge, title: "Otimização de performance", desc: "Ajuste de configuração, gestão térmica e refinamento de hardware para que o equipamento opere no seu melhor rendimento.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para otimização de performance." },
-  { icon: Building2, title: "Soluções em hardware corporativo", desc: "Padronização, upgrades planejados e acompanhamento do parque de equipamentos de empresas de Ponta Grossa e região.", msg: "Olá, Mendex Tech. Represento uma empresa e gostaria de falar sobre soluções em hardware corporativo." },
+  { icon: Gauge, title: "Otimização de performance", desc: "Ajuste de configuração, gestão térmica e refinamento de hardware para que o equipamento opere no seu melhor rendimento.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { icon: Building2, title: "Soluções em hardware corporativo", desc: "Padronização, upgrades planejados e acompanhamento do parque de equipamentos de empresas de Ponta Grossa e região.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
 ];
 
 const trustBadges = [
