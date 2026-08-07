@@ -18,7 +18,7 @@ import {
 
 const WHATSAPP_PHONE = "5542999609468";
 const buildWhatsAppUrl = (msg: string) => `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
-const WHATSAPP_URL = buildWhatsAppUrl("Olá, Mendex Tech. Acessei o site institucional e gostaria de falar com a equipe sobre um equipamento.");
+const WHATSAPP_URL = buildWhatsAppUrl("Olá, vim do Google e gostaria de um atendimento especializado.");
 
 function PrivacyPolicyDialog() {
   return (
@@ -204,11 +204,11 @@ function OnlineNow() {
 }
 
 const quickReplies = [
-  { label: "Upgrade de SSD", msg: "Olá, Mendex Tech. Quero um orçamento para upgrade de SSD." },
-  { label: "Mais memória RAM", msg: "Olá, Mendex Tech. Quero um orçamento para expansão de memória RAM." },
-  { label: "Montar um PC", msg: "Olá, Mendex Tech. Quero um orçamento para montagem de um computador." },
-  { label: "Limpeza técnica", msg: "Olá, Mendex Tech. Quero um orçamento para limpeza técnica." },
-  { label: "Não sei o que preciso", msg: "Olá, Mendex Tech. Não sei exatamente o que meu equipamento precisa e gostaria de uma avaliação." },
+  { label: "Upgrade de SSD", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { label: "Mais memória RAM", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { label: "Montar um PC", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { label: "Limpeza técnica", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { label: "Não sei o que preciso", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
 ];
 
 function QuickReplies() {
@@ -274,14 +274,14 @@ const structure = [
 ];
 
 const specialties = [
-  { icon: HardDrive, title: "Upgrade de SSD", desc: "Migração para armazenamento em estado sólido, com transferência de dados e ganho expressivo em tempo de resposta do sistema.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para upgrade de SSD." },
-  { icon: MemoryStick, title: "Expansão de memória RAM", desc: "Ampliação de memória com módulos compatíveis e homologados, elevando a capacidade de multitarefa do equipamento.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para expansão de memória RAM." },
-  { icon: Gamepad2, title: "Montagem de computadores", desc: "Projetos sob medida para uso profissional, criativo e de alto desempenho, com seleção de componentes, cabeamento organizado e validação completa.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para montagem de computador." },
-  { icon: Microscope, title: "Diagnóstico de hardware", desc: "Análise detalhada de cada componente em laboratório, com relatório técnico e proposta apresentados antes de qualquer intervenção.", msg: "Olá, Mendex Tech. Gostaria de agendar um diagnóstico de hardware." },
-  { icon: Sparkles, title: "Limpeza técnica", desc: "Procedimento completo de higienização interna e reaplicação de compostos térmicos, com foco em estabilidade e vida útil dos componentes.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para limpeza técnica." },
-  { icon: Laptop, title: "Substituição de componentes", desc: "Troca de telas, baterias, teclados, fontes e demais módulos, com peças de procedência comprovada e garantia formal.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para substituição de componentes." },
-  { icon: Gauge, title: "Otimização de performance", desc: "Ajuste de configuração, gestão térmica e refinamento de hardware para que o equipamento opere no seu melhor rendimento.", msg: "Olá, Mendex Tech. Gostaria de solicitar um orçamento para otimização de performance." },
-  { icon: Building2, title: "Soluções em hardware corporativo", desc: "Padronização, upgrades planejados e acompanhamento do parque de equipamentos de empresas de Ponta Grossa e região.", msg: "Olá, Mendex Tech. Represento uma empresa e gostaria de falar sobre soluções em hardware corporativo." },
+  { icon: HardDrive, title: "Upgrade de SSD", desc: "Migração para armazenamento em estado sólido, com transferência de dados e ganho expressivo em tempo de resposta do sistema.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { icon: MemoryStick, title: "Expansão de memória RAM", desc: "Ampliação de memória com módulos compatíveis e homologados, elevando a capacidade de multitarefa do equipamento.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { icon: Gamepad2, title: "Montagem de computadores", desc: "Projetos sob medida para uso profissional, criativo e de alto desempenho, com seleção de componentes, cabeamento organizado e validação completa.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { icon: Microscope, title: "Diagnóstico de hardware", desc: "Análise detalhada de cada componente em laboratório, com relatório técnico e proposta apresentados antes de qualquer intervenção.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { icon: Sparkles, title: "Limpeza técnica", desc: "Procedimento completo de higienização interna e reaplicação de compostos térmicos, com foco em estabilidade e vida útil dos componentes.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { icon: Laptop, title: "Substituição de componentes", desc: "Troca de telas, baterias, teclados, fontes e demais módulos, com peças de procedência comprovada e garantia formal.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { icon: Gauge, title: "Otimização de performance", desc: "Ajuste de configuração, gestão térmica e refinamento de hardware para que o equipamento opere no seu melhor rendimento.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { icon: Building2, title: "Soluções em hardware corporativo", desc: "Padronização, upgrades planejados e acompanhamento do parque de equipamentos de empresas de Ponta Grossa e região.", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
 ];
 
 const trustBadges = [
