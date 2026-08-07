@@ -204,11 +204,11 @@ function OnlineNow() {
 }
 
 const quickReplies = [
-  { label: "Upgrade de SSD", msg: "Olá, Mendex Tech. Quero um orçamento para upgrade de SSD." },
-  { label: "Mais memória RAM", msg: "Olá, Mendex Tech. Quero um orçamento para expansão de memória RAM." },
-  { label: "Montar um PC", msg: "Olá, Mendex Tech. Quero um orçamento para montagem de um computador." },
-  { label: "Limpeza técnica", msg: "Olá, Mendex Tech. Quero um orçamento para limpeza técnica." },
-  { label: "Não sei o que preciso", msg: "Olá, Mendex Tech. Não sei exatamente o que meu equipamento precisa e gostaria de uma avaliação." },
+  { label: "Upgrade de SSD", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { label: "Mais memória RAM", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { label: "Montar um PC", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { label: "Limpeza técnica", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
+  { label: "Não sei o que preciso", msg: "Olá, vim do Google e gostaria de um atendimento especializado." },
 ];
 
 function QuickReplies() {
