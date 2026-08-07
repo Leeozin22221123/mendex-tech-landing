@@ -18,7 +18,7 @@ import {
 
 const WHATSAPP_PHONE = "5542999609468";
 const buildWhatsAppUrl = (msg: string) => `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
-const WHATSAPP_URL = buildWhatsAppUrl("Olá, Mendex Tech. Acessei o site institucional e gostaria de falar com a equipe sobre um equipamento.");
+const WHATSAPP_URL = buildWhatsAppUrl("Olá, vim do Google e gostaria de um atendimento especializado.");
 
 function PrivacyPolicyDialog() {
   return (
